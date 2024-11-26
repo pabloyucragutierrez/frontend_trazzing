@@ -1,0 +1,144 @@
+.contenedor__banner {
+  width: 100%;
+  height: 85vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: background-image 0.5s ease-in-out;
+}
+
+.content__banner {
+  width: 45%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.3rem;
+}
+.content__banner h3 {
+  font-size: 2.2rem;
+  color: #fff;
+}
+.content__banner p {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.dots__banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  bottom: 1.4rem;
+}
+.dots__banner span.dot_activo {
+  background-color: #ec625f;
+}
+.dots__banner span {
+  background-color: #fdefef;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+#empresas {
+  padding-top: 80px;
+  margin-top: -80px;
+}
+#empleo {
+  padding-top: 80px;
+  margin-top: -80px;
+}
+#unete {
+  padding-top: 80px;
+  margin-top: -80px;
+}
+
+/* seccion 1 */
+.section__cards {
+  width: 100%;
+  padding: 2rem 1rem;
+}
+.section__cards .cards__inicio {
+  display: flex;
+  justify-content: space-between;
+}
+.section__cards .cards__inicio article {
+  width: 25rem;
+  background-color: #eaedf2;
+  text-align: center;
+  padding: 2rem;
+  border: 3px solid rgba(160, 160, 160, 0.1);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.section__cards .cards__inicio article img {
+  width: fit-content;
+}
+.section__cards .cards__inicio article b {
+  color: #2f4b7d;
+  font-size: 1.2rem;
+}
+.section__cards .cards__inicio article p {
+  color: #2f4b7d;
+}
+
+/* sección 2 */
+.section__servicios.color__fondo {
+  background-color: rgba(234, 237, 242, 0.5);
+}
+.section__servicios {
+  width: 100%;
+}
+.content__servicios {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem 3rem;
+}
+.content__servicios .text__service {
+  width: 35%;
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  gap: 1rem;
+}
+.content__servicios .text__service h2 {
+  font-weight: 600;
+  font-size: 1.7rem;
+}
+.content__servicios .text__service span {
+  font-size: 1.3rem;
+  color: #333333;
+}
+.content__servicios .text__service p {
+  color: #434343;
+  font-size: 1rem;
+}
+.content__servicios .text__service.left {
+  text-align: left;
+  align-items: start;
+}
+.content__servicios .text__service.right {
+  text-align: right;
+  align-items: end;
+}
+.content__servicios .img__service {
+  width: 45%;
+}
+.content__servicios article img {
+  width: 100%;
+  border-radius: 10px;
+}

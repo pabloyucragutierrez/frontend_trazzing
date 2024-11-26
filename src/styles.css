@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.btn2 {
+  border: none;
+  outline: none;
+  background-color: #ec625f;
+  border-radius: 10px;
+  padding: 0.8rem 1.5rem;
+  text-align: center;
+  width: fit-content;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn {
+  text-decoration: none;
+  border: none;
+  outline: none;
+  background-color: #ec625f;
+  border-radius: 10px;
+  padding: 0.6rem 1.5rem;
+  text-align: center;
+  width: fit-content;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.container_section{
+    max-width: 1300px;
+    margin: auto;
+}

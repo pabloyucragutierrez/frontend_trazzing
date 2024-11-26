@@ -1,0 +1,112 @@
+<app-header></app-header>
+<div class="contenedor__banner" [style.backgroundImage]="getBackgroundImage()">
+  <div class="content__banner">
+    <h3>{{ slides[currentSlide].title }}</h3>
+    <p>{{ slides[currentSlide].description }}</p>
+    <a href="/inicio{{ slides[currentSlide].link }}" class="btn2"
+      >Únete como HeadHunter</a
+    >
+  </div>
+  <div class="dots__banner">
+    <span
+      *ngFor="let slide of slides; let i = index"
+      [class.dot_activo]="i === currentSlide"
+      (click)="changeSlide(i)"
+    ></span>
+  </div>
+</div>
+
+<main>
+  <section class="section__cards container_section">
+    <div class="cards__inicio">
+      <article>
+        <img src="assets/icon_card1.png" alt="" />
+        <b>Empresas</b>
+        <p>
+          En Trazzing, facilitamos la adquisición de talento ofreciendo un
+          servicio integral de gestión de procesos de reclutamiento.
+        </p>
+      </article>
+      <article>
+        <img src="assets/icon_card2.png" alt="" />
+        <b>Candidatos</b>
+        <p>
+          Si estás en búsqueda de nuevas oportunidades laborales, Trazzing es tu
+          aliado perfecto. Nuestro portal de empleos está diseñado para
+          conectarte con empresas que valoran tus habilidades y experiencia.
+        </p>
+      </article>
+      <article>
+        <img src="assets/icon_card3.png" alt="" />
+        <b>Trazzers</b>
+        <p>
+          Únete a la comunidad de headhunters profesionales de Trazzing y accede
+          a una red exclusiva de empresas que buscan tus habilidades para
+          encontrar talento de primer nivel.
+        </p>
+      </article>
+    </div>
+  </section>
+  <div id="empresas">
+    <section class="section__servicios">
+      <div class="content__servicios container_section">
+        <article class="text__service left">
+          <h2>Servicio para empresas</h2>
+          <span>Como funciona</span>
+          <p>
+            Desde la publicación de vacantes hasta la selección del candidato
+            ideal, utilizamos herramientas avanzadas y un enfoque personalizado
+            para asegurarnos de que encuentres al mejor talento para tu empresa.
+            Nuestro equipo de expertos en reclutamiento se encargará de cada
+            etapa del proceso, ahorrándote tiempo y recursos.
+          </p>
+          <button class="btn2">Explora nuestro servicio</button>
+        </article>
+        <article class="img__service">
+          <img src="assets/servicios1.png" alt="" />
+        </article>
+      </div>
+    </section>
+  </div>
+  <div id="empleo">
+    <section class="section__servicios color__fondo">
+      <div class="content__servicios container_section">
+        <article class="img__service">
+          <img src="assets/servicios2.png" alt="" />
+        </article>
+        <article class="text__service right">
+          <h2>Portal de empleo</h2>
+          <span>Como funciona</span>
+          <p>
+            Puedes buscar empleos por categoría, ubicación y más, además de
+            recibir recomendaciones personalizadas según tu perfil. Inscribirte
+            es fácil y te abre un mundo de oportunidades profesionales.
+          </p>
+          <button class="btn2">Encuentra tu empleo ideal</button>
+        </article>
+      </div>
+    </section>
+  </div>
+  <div id="unete">
+    <section class="section__servicios">
+      <div class="content__servicios container_section">
+        <article class="text__service left">
+          <h2>Únete como Trazzer</h2>
+          <span>Como funciona</span>
+          <p>
+            Nuestra plataforma te proporciona las herramientas necesarias para
+            gestionar eficientemente tus proyectos de reclutamiento,
+            permitiéndote enfocarte en lo que mejor sabes hacer: identificar y
+            atraer a los mejores candidatos. Forma parte de una comunidad de
+            expertos y maximiza tus oportunidades de negocio.
+          </p>
+          <button class="btn2">Únete a nuestra comunidad</button>
+        </article>
+        <article class="img__service">
+          <img src="assets/servicios3.jpg" alt="" />
+        </article>
+      </div>
+    </section>
+  </div>
+</main>
+<app-footer></app-footer>
