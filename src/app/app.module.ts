@@ -7,6 +7,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ServicioParaEmpresasComponent } from './servicio-para-empresas/servicio-para-empresas.component';
+import { PortalDeEmpleoComponent } from './portal-de-empleo/portal-de-empleo.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ServicioParaEmpresasComponent } from './servicio-para-empresas/servicio
     InicioComponent,
     HeaderComponent,
     FooterComponent,
-    ServicioParaEmpresasComponent
+    ServicioParaEmpresasComponent,
+    PortalDeEmpleoComponent
   ],
   imports: [
     BrowserModule,

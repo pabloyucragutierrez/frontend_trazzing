@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './inicio/inicio.component';
 import { ServicioParaEmpresasComponent } from './servicio-para-empresas/servicio-para-empresas.component';
+import { PortalDeEmpleoComponent } from './portal-de-empleo/portal-de-empleo.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'servicio-para-empresas',
     component: ServicioParaEmpresasComponent,
+  },
+  {
+    path: 'portal-de-empleo',
+    component: PortalDeEmpleoComponent,
   },
   {
     path: '**',

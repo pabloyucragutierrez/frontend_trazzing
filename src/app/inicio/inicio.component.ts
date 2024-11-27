@@ -18,14 +18,14 @@ export class InicioComponent implements OnInit, OnDestroy {
       title: 'Encuentra el trabajo idea para ti',
       description:
         'Explora oportunidades de empleo y conécta con empresas que valoran tus habilidades y experiencia.',
-      image: '/assets/banner1.png',
+      image: '/assets/banner2.png',
       link: '#empleo',
     },
     {
       title: 'Únete a nuestra comunidad de HeadHunters',
       description:
         'Contectate con empresas que buscan tu talento para encontrar a los mejores profesionales.',
-      image: '/assets/banner1.png',
+      image: '/assets/banner3.jpg',
       link: '#unete',
     },
   ];
