@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './inicio/inicio.component';
 import { ServicioParaEmpresasComponent } from './servicio-para-empresas/servicio-para-empresas.component';
 import { PortalDeEmpleoComponent } from './portal-de-empleo/portal-de-empleo.component';
+import { UneteComoHeadHunterComponent } from './unete-como-headhunter/unete-como-head-hunter.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'portal-de-empleo',
     component: PortalDeEmpleoComponent,
+  },
+  {
+    path: 'unete-como-headhunter',
+    component: UneteComoHeadHunterComponent,
   },
   {
     path: '**',

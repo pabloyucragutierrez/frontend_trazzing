@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ServicioParaEmpresasComponent } from './servicio-para-empresas/servicio-para-empresas.component';
 import { PortalDeEmpleoComponent } from './portal-de-empleo/portal-de-empleo.component';
+import { UneteComoHeadHunterComponent } from './unete-como-headhunter/unete-como-head-hunter.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PortalDeEmpleoComponent } from './portal-de-empleo/portal-de-empleo.com
     HeaderComponent,
     FooterComponent,
     ServicioParaEmpresasComponent,
-    PortalDeEmpleoComponent
+    PortalDeEmpleoComponent,
+    UneteComoHeadHunterComponent
   ],
   imports: [
     BrowserModule,

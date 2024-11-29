@@ -199,3 +199,68 @@
   gap: 0.8rem;
   flex-direction: column;
 }
+
+/* seccion 6 */
+.empleos__crea {
+  width: 100%;
+  background-color: #fff;
+  padding: 5rem 1rem;
+}
+.contenedor__crear {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor__crear h2 {
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+.contenedor__crear .p__crear {
+  font-size: 1rem;
+  color: #000;
+  width: 45%;
+  text-align: center;
+}
+
+.items__add {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  align-items: center;
+  gap: 1.5rem;
+}
+.item__add {
+  width: 19rem;
+  height: 20rem;
+  border-radius: 15px;
+  background-color: #eaedf2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #f6b7b5;
+}
+
+.item__add b {
+  font-weight: 400;
+  line-height: 2rem;
+  font-size: 1.5rem;
+}
+.item__add span {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #2f4b7d;
+  color: #fff;
+  display: grid;
+  font-size: 1.5rem;
+  place-items: center;
+}
