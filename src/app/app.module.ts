@@ -9,6 +9,12 @@ import { FooterComponent } from './footer/footer.component';
 import { ServicioParaEmpresasComponent } from './servicio-para-empresas/servicio-para-empresas.component';
 import { PortalDeEmpleoComponent } from './portal-de-empleo/portal-de-empleo.component';
 import { UneteComoHeadHunterComponent } from './unete-como-headhunter/unete-como-head-hunter.component';
+import { HeaderJobComponent } from './header-job/header-job.component';
+import { TrabajosComponent } from './trabajos/trabajos.component';
+import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
+import { RegistrateComponent } from './registrate/registrate.component';
+import { DetalleDelTrabajoComponent } from './detalle-del-trabajo/detalle-del-trabajo.component';
+import { HeaderLoginComponent } from './header-login/header-login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +24,13 @@ import { UneteComoHeadHunterComponent } from './unete-como-headhunter/unete-como
     FooterComponent,
     ServicioParaEmpresasComponent,
     PortalDeEmpleoComponent,
-    UneteComoHeadHunterComponent
+    UneteComoHeadHunterComponent,
+    HeaderJobComponent,
+    TrabajosComponent,
+    IniciarSesionComponent,
+    RegistrateComponent,
+    DetalleDelTrabajoComponent,
+    HeaderLoginComponent
   ],
   imports: [
     BrowserModule,

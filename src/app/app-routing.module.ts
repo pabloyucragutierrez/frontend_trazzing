@@ -4,6 +4,9 @@ import { InicioComponent } from './inicio/inicio.component';
 import { ServicioParaEmpresasComponent } from './servicio-para-empresas/servicio-para-empresas.component';
 import { PortalDeEmpleoComponent } from './portal-de-empleo/portal-de-empleo.component';
 import { UneteComoHeadHunterComponent } from './unete-como-headhunter/unete-como-head-hunter.component';
+import { TrabajosComponent } from './trabajos/trabajos.component';
+import { DetalleDelTrabajoComponent } from './detalle-del-trabajo/detalle-del-trabajo.component';
+import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
 
 const routes: Routes = [
   {
@@ -26,6 +29,18 @@ const routes: Routes = [
   {
     path: 'unete-como-headhunter',
     component: UneteComoHeadHunterComponent,
+  },
+  {
+    path: 'trabajos',
+    component: TrabajosComponent,
+  },
+  {
+    path: 'detalle-del-trabajo',
+    component: DetalleDelTrabajoComponent,
+  },
+  {
+    path: 'iniciar-sesion',
+    component: IniciarSesionComponent,
   },
   {
     path: '**',

@@ -1,0 +1,93 @@
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header__jobs {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.6rem 2.4rem;
+  background-color: #f2f2f2;
+  align-items: center;
+  border-bottom: 1px solid gray;
+}
+.header__jobs .logo_header img {
+  width: 11rem;
+}
+.search__jobs {
+  width: 40%;
+  background-color: #d6d6d6;
+  border-radius: 60px;
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  align-items: center;
+}
+.input__job {
+  width: 40%;
+  background-color: #d6d6d6;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+.input__job img {
+  margin-right: 0.5rem;
+  width: fit-content;
+  height: fit-content;
+}
+.input__job .input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.btn__job img {
+  width: fit-content;
+  height: fit-content;
+}
+.btn__job {
+  width: 20%;
+  border: none;
+  outline: none;
+  background-color: #ec625f;
+  border-radius: 10px;
+  padding: 0.4rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.4rem;
+  font-weight: 500;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  gap: 0.2rem;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+.line__vetical {
+  height: 50%;
+  width: 1px;
+  background-color: #000;
+}
+
+.jobs__btns {
+  display: flex;
+  gap: .5rem;
+}
+.jobs__btns button.active_btn {
+  background-color: #2f4b7d;
+  color: #fff;
+}
+.jobs__btns button {
+  background-color: transparent;
+  padding: 0.5rem 1.3rem;
+  color: #2f4b7d;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid #2f4b7d;
+}

@@ -54,6 +54,7 @@
   border-radius: 50%;
 }
 
+
 .search__jobs {
   width: 90%;
   background-color: #fff;
@@ -114,6 +115,7 @@
   background-color: #000;
 }
 
+
 /* sección empleos */
 .empleos__destacados {
   width: 100%;
@@ -148,6 +150,7 @@
   justify-content: center;
   gap: 1.3rem;
 }
+
 
 .item__job {
   width: 60%;
@@ -234,6 +237,7 @@
   align-items: center;
   gap: 1.5rem;
 }
+
 .item__add {
   width: 19rem;
   height: 20rem;
