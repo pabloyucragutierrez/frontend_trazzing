@@ -1,67 +1,64 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-servicio-para-empresas',
   templateUrl: './servicio-para-empresas.component.html',
-  styleUrl: './servicio-para-empresas.component.css',
+  styleUrls: ['./servicio-para-empresas.component.css'],
 })
-export class ServicioParaEmpresasComponent implements OnInit, OnDestroy {
-  slides = [
+export class ServicioParaEmpresasComponent implements OnInit {
+  isModalOpen: boolean = false; // Controla si el modal está visible
+  selectedPlan: string = ''; // Almacena el título del plan seleccionado
+
+  // Información de las tarjetas
+  cards = [
     {
-      title: 'Optimiza tu proceso de reclutamiento',
-      description:
-        'Descubre cómo Trazzing puede ayudarte a encontrar el mejor talento de manera eficiente y efectiva.',
-      image: '/assets/banner1.png',
-      link: '#empresas',
+      title: 'The Coach',
+      description: 'Ideal para empresas con 50 a 300 colaboradores.',
+      monthlyPrice: '$59',
+      annualPrice: '$50',
+      features: [
+        'Gestión completa del proceso de reclutamiento',
+        'Acceso a base de datos de candidatos',
+        'Publicación de vacantes en múltiples plataformas',
+        'Soporte personalizado',
+      ],
     },
     {
-      title: 'Encuentra el trabajo idea para ti',
-      description:
-        'Explora oportunidades de empleo y conécta con empresas que valoran tus habilidades y experiencia.',
-      image: '/assets/banner2.png',
-      link: '#empleo',
+      title: 'The Manager',
+      description: 'Ideal para empresas con 50 a 300 colaboradores.',
+      monthlyPrice: '$59',
+      annualPrice: '$50',
+      features: [
+        'Gestión completa del proceso de reclutamiento',
+        'Acceso a base de datos de candidatos',
+        'Publicación de vacantes en múltiples plataformas',
+        'Soporte personalizado',
+      ],
     },
     {
-      title: 'Únete a nuestra comunidad de HeadHunters',
-      description:
-        'Contectate con empresas que buscan tu talento para encontrar a los mejores profesionales.',
-      image: '/assets/banner3.png',
-      link: '#unete',
+      title: 'The Boss',
+      description: 'Ideal para empresas con 50 a 300 colaboradores.',
+      monthlyPrice: '$59',
+      annualPrice: '$50',
+      features: [
+        'Gestión completa del proceso de reclutamiento',
+        'Acceso a base de datos de candidatos',
+        'Publicación de vacantes en múltiples plataformas',
+        'Soporte personalizado',
+      ],
     },
   ];
 
-  currentSlide = 0;
-  interval: any;
+  constructor() {}
 
-  ngOnInit() {
-    this.startAutoSlide();
+  ngOnInit(): void {}
+
+  openModal(planTitle: string): void {
+    this.selectedPlan = planTitle; // Actualiza el texto del título
+    this.isModalOpen = true; // Muestra el modal
   }
 
-  ngOnDestroy() {
-    this.stopAutoSlide();
-  }
-
-  startAutoSlide() {
-    this.interval = setInterval(() => {
-      this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-    }, 3000);
-  }
-
-  stopAutoSlide() {
-    if (this.interval) {
-      clearInterval(this.interval);
-    }
-  }
-
-  changeSlide(index: number) {
-    this.currentSlide = index;
-    this.stopAutoSlide();
-    this.startAutoSlide();
-  }
-
-  getBackgroundImage() {
-    return `linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${
-      this.slides[this.currentSlide].image
-    }')`;
+  closeModal(): void {
+    this.isModalOpen = false; // Oculta el modal
   }
 }

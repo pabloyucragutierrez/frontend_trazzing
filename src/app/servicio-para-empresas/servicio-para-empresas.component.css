@@ -277,7 +277,6 @@
   width: 70%;
 }
 
-
 /* sección */
 .form__servicios {
   width: 100%;
@@ -301,6 +300,7 @@
   margin: 1rem auto;
   text-align: center;
 }
+
 .form_content {
   width: 80%;
   margin: 3rem auto;
@@ -309,6 +309,7 @@
   flex-wrap: wrap;
   gap: 0.7rem;
 }
+
 .width__form {
   width: 32%;
 }
@@ -343,8 +344,12 @@
   border: none;
   outline: none;
 }
-.input_content .icon__phone img{
-  margin-left: .4rem;
+.input_style.num__padd {
+  padding-left: 1rem;
+}
+
+.input_content .icon__phone img {
+  margin-left: 0.4rem;
 }
 .input_content .icon__phone {
   position: absolute;
@@ -381,4 +386,62 @@
   display: block;
   margin: auto;
   width: 13rem;
+}
+
+/* modal pago */
+.modal__pay {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.modal__content {
+  width: 50%;
+  background-color: #f2f2f2;
+  padding: 3rem 2rem;
+  border-radius: 10px;
+  position: relative;
+}
+.close__modal {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: #f2f2f2;
+  color: #333;
+  box-shadow: -1px 4px 4px 0px #00000040;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  display: flex;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  justify-content: center;
+  align-items: center;
+}
+.btn__modal {
+  width: 35%;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title__modal {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #333333;
+}
+
+.title__modal span {
+  color: #ec625f;
 }

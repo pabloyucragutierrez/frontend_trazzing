@@ -15,6 +15,7 @@ import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.componen
 import { RegistrateComponent } from './registrate/registrate.component';
 import { DetalleDelTrabajoComponent } from './detalle-del-trabajo/detalle-del-trabajo.component';
 import { HeaderLoginComponent } from './header-login/header-login.component';
+import { CompletarPerfilComponent } from './completar-perfil/completar-perfil.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HeaderLoginComponent } from './header-login/header-login.component';
     IniciarSesionComponent,
     RegistrateComponent,
     DetalleDelTrabajoComponent,
-    HeaderLoginComponent
+    HeaderLoginComponent,
+    CompletarPerfilComponent
   ],
   imports: [
     BrowserModule,

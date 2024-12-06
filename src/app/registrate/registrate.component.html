@@ -1,1 +1,127 @@
-<p>registrate works!</p>
+<app-header-login></app-header-login>
+<section class="section__login">
+  <div class="contenedor__login container_section">
+    <h2>
+      <a href="/"> <img src="assets/arrow_back_ios.png" alt="" /> </a> Crea tu
+      cuenta y encuentra el trabajo de tus sueños
+    </h2>
+    <div class="form__content">
+      <article class="form__login">
+        <div class="btns__social">
+          <button class="linkedin">
+            <img src="assets/linkedin_symbol.png" alt="" />
+            Acceder con Linkedin
+          </button>
+          <button class="google">
+            <img src="assets/google_symbol.png" alt="" />
+            Acceder con Google
+          </button>
+        </div>
+        <form class="form" action="">
+          <div class="width__form">
+            <label for="">Nombre</label>
+            <div class="input_content">
+              <input
+                type="text"
+                class="input_style num__padd"
+                placeholder="Ingresa tu nombre"
+              />
+            </div>
+          </div>
+          <div class="width__form">
+            <label for="">Apellido(s)</label>
+            <div class="input_content">
+              <input
+                type="text"
+                class="input_style num__padd"
+                placeholder="Ingresa tu apellido"
+              />
+            </div>
+          </div>
+          <div class="width__form">
+            <label for="">Tipo de documentos</label>
+            <div class="input__double">
+              <div class="content__double">
+                <select name="" class="input_style num__padd" id="">
+                  <option value="">Tipo</option>
+                </select>
+              </div>
+              <div class="content__double">
+                <input
+                  type="text"
+                  class="input_style num__padd"
+                  placeholder="Número"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="width__form">
+            <label for="">Teléfono celular</label>
+            <div class="input__double">
+              <div class="content__double">
+                <span class="icon__phone">
+                  <img src="assets/icon_peru.png" alt="" />
+                </span>
+                <input
+                  type="text"
+                  class="input_style p__ex"
+                  placeholder="+51"
+                  value="+51"
+                />
+              </div>
+              <div class="content__double">
+                <input
+                  type="text"
+                  class="input_style num__padd"
+                  placeholder="Número"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="width__form">
+            <label for="">Ingresa tu email</label>
+            <div class="input_content">
+              <img src="assets/email_input.png" alt="" />
+              <input
+                type="text"
+                class="input_style"
+                placeholder="Ingresa tu email"
+              />
+            </div>
+          </div>
+          <div class="width__form">
+            <label for="">Contraseña</label>
+            <div class="input_content">
+              <img src="assets/icon_password.png" alt="" />
+              <img src="assets/icon_eye.png" class="show_icon" alt="" />
+              <input type="password" class="input_style" />
+            </div>
+          </div>
+          <div class="width__form full__width">
+            <label for="">Dirección</label>
+            <div class="input_content">
+              <img src="assets/location_img.png" alt="" />
+              <input type="text" class="input_style" placeholder="Dirección" />
+            </div>
+          </div>
+          <div class="width__check">
+            <input type="checkbox" name="" id="" />
+            <label for=""
+              >He leído y acepto las condiciones de privacidad y tratamiento de
+              mis datos personales</label
+            >
+          </div>
+          <button type="button" class="btn2" onclick="location.href='/completar-perfil'">
+            Crear cuenta
+          </button>
+          <div class="back__login">
+            <p>¿Ya tienes cuenta?</p>
+            <a href="/iniciar-sesion">Ingresa como candidato</a>
+          </div>
+        </form>
+      </article>
+      <img class="img__login" src="assets/login_img.png" alt="" />
+    </div>
+  </div>
+</section>

@@ -8,7 +8,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  transition: background-image 0.5s ease-in-out;
+  overflow: hidden; /* Solución al desbordamiento */
+  transition: background-image 1.5s ease-in-out; /* Transición suave de fondo */
 }
 
 .content__banner {
@@ -19,7 +20,16 @@
   justify-content: center;
   align-items: center;
   gap: 1.3rem;
+  opacity: 0; /* Inicialmente oculto */
+  transform: translateX(100%); /* Fuera de la pantalla hacia la derecha */
+  transition: opacity 0.8s ease, transform 0.8s ease; /* Transición suave */
 }
+
+.content__banner.active {
+  opacity: 1; /* Totalmente visible */
+  transform: translateX(0); /* En su posición original */
+}
+
 .content__banner h3 {
   font-size: 2.2rem;
   color: #fff;

@@ -1,11 +1,11 @@
 <app-header></app-header>
 <div class="contenedor__banner" [style.backgroundImage]="getBackgroundImage()">
-  <div class="content__banner">
+  <div class="content__banner" [ngClass]="{ active: isContentVisible }">
     <h3>{{ slides[currentSlide].title }}</h3>
     <p>{{ slides[currentSlide].description }}</p>
-    <a href="/inicio{{ slides[currentSlide].link }}" class="btn2"
-      >Únete como HeadHunter</a
-    >
+    <a href="/inicio{{ slides[currentSlide].link }}" class="btn2">
+      Únete como HeadHunter
+    </a>
   </div>
   <div class="dots__banner">
     <span
@@ -109,4 +109,5 @@
     </section>
   </div>
 </main>
+
 <app-footer></app-footer>

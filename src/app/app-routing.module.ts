@@ -7,6 +7,8 @@ import { UneteComoHeadHunterComponent } from './unete-como-headhunter/unete-como
 import { TrabajosComponent } from './trabajos/trabajos.component';
 import { DetalleDelTrabajoComponent } from './detalle-del-trabajo/detalle-del-trabajo.component';
 import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
+import { RegistrateComponent } from './registrate/registrate.component';
+import { CompletarPerfilComponent } from './completar-perfil/completar-perfil.component';
 
 const routes: Routes = [
   {
@@ -41,6 +43,14 @@ const routes: Routes = [
   {
     path: 'iniciar-sesion',
     component: IniciarSesionComponent,
+  },
+  {
+    path: 'registrate',
+    component: RegistrateComponent,
+  },
+  {
+    path: 'completar-perfil',
+    component: CompletarPerfilComponent,
   },
   {
     path: '**',

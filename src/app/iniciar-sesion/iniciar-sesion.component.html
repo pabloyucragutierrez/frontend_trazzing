@@ -1,22 +1,57 @@
 <app-header-login></app-header-login>
 <section class="section__login">
-  <div class="contenedor__login">
+  <div class="contenedor__login container_section">
     <h2>
-      <a href="assets/arrow_back_ios.png"></a> Crea tu cuenta y encuentra el
-      trabajo de tus sueños
+      <a href="/"> <img src="assets/arrow_back_ios.png" alt="" /> </a> Inicia
+      sesión para encontrar el trabajo de tus sueños
     </h2>
     <div class="form__content">
-      <article></article>
-      <article>
-        <button>
-          <img src="assets/linkedin_symbol.png" alt="" />
-          Acceder con Linkedin
-        </button>
-        <button>
-            <img src="assets/google_symbol.png" alt="">
+      <article class="form__login">
+        <div class="btns__social">
+          <button class="linkedin">
+            <img src="assets/linkedin_symbol.png" alt="" />
+            Acceder con Linkedin
+          </button>
+          <button class="google">
+            <img src="assets/google_symbol.png" alt="" />
             Acceder con Google
-        </button>
+          </button>
+        </div>
+        <form action="" class="form">
+          <div class="width__form">
+            <label for="">Email</label>
+            <div class="input_content">
+              <img src="assets/email_input.png" alt="" />
+              <input
+                type="text"
+                class="input_style"
+                placeholder="Ingresa tu email"
+              />
+            </div>
+          </div>
+          <div class="width__form">
+            <label for="">Contraseña</label>
+            <div class="input_content">
+              <img src="assets/icon_password.png" alt="" />
+              <img src="assets/icon_eye.png" class="show_icon" alt="" />
+              <input type="password" class="input_style" />
+            </div>
+          </div>
+          <div class="width__check">
+            <input type="checkbox" name="" id="" />
+            <label for=""
+              >He leído y acepto las condiciones de privacidad y tratamiento de
+              mis datos personales</label
+            >
+          </div>
+          <button type="button" class="btn2">Iniciar sesión</button>
+          <div class="back__login">
+            <p>¿No tienes cuenta?</p>
+            <a href="/registrate">Regístrate como candidato</a>
+          </div>
+        </form>
       </article>
+      <img src="assets/login_img.png" alt="" />
     </div>
   </div>
 </section>

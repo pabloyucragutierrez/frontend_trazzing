@@ -1,0 +1,149 @@
+<app-header-login></app-header-login>
+<section class="section__completar">
+  <h2 class="container_section">Completa tu perfil profesional</h2>
+  <div class="contenedor__completar">
+    <form action="" class="form__completar container_section">
+      <h3>Perfil profesional y académico</h3>
+      <div class="content__completar">
+        <div class="text__completar">
+          <label for="">Foto de perfil</label>
+          <p>Mínimo 200x200 px, en formato cuadrado</p>
+        </div>
+        <div class="input__completar img__flex">
+          <img
+            [src]="imageSrc"
+            class="add__img"
+            alt="Selecciona una imagen"
+            (click)="onImageClick(fileInput)"
+          />
+          <input
+            type="file"
+            #fileInput
+            accept="image/*"
+            style="display: none"
+            (change)="onFileSelected($event)"
+          />
+          <!-- Botón que permite cambiar la imagen -->
+          <button class="btn2" *ngIf="isImageUploaded" (click)="onImageClick(fileInput)">
+            Cambiar foto de perfil
+          </button>
+        </div>
+        
+        
+      </div>
+      <hr />
+      <div class="content__completar">
+        <div class="text__completar">
+          <label for="">Rol profesional</label>
+          <p>
+            Ej.: "Desarrollador", "Administrador de empresas" o "Ejecutivo de
+            cuentas"
+          </p>
+        </div>
+        <div class="input__completar">
+          <input type="text" class="input__text" />
+        </div>
+      </div>
+      <hr />
+      <div class="content__completar">
+        <div class="text__completar">
+          <label for="">Experiencia laboral</label>
+          <p>
+            Habla sobre tu experiencia laboral, tus conociimientos, logros, etc.
+          </p>
+        </div>
+        <div class="input__completar">
+          <textarea name="" id="" class="input__textarea"></textarea>
+        </div>
+      </div>
+      <hr />
+      <div class="content__completar">
+        <div class="text__completar">
+          <label for="">Formación académica</label>
+          <p>
+            Menciona estudios formales, talleres, cursos y formación autodidacta
+            que sean relevantes para el cargo
+          </p>
+        </div>
+        <div class="input__completar">
+          <textarea name="" id="" class="input__textarea"></textarea>
+        </div>
+      </div>
+      <hr />
+      <div class="content__completar">
+        <div class="text__completar">
+          <label for="">Habilidades</label>
+          <p>Agrega las habilidades que ayuden a mejorar tu perfil</p>
+        </div>
+        <div class="input__completar">
+          <textarea name="" id="" class="input__textarea"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="contenedor__completar white__add">
+    <form action="" class="form__completar container_section">
+      <div class="content__completar">
+        <div class="text__completar">
+          <b>CV actualizado</b>
+          <p>Máximo 5 MB, solo archivos PDF</p>
+        </div>
+        <div class="input__completar">
+          <button class="btn2">Subir CV</button>
+        </div>
+      </div>
+      <div class="content__completar">
+        <div class="text__completar">
+          <b>Nivel de ingles</b>
+          <p>Sugerimos usar un test estándar y reportar tu resultado aquí.</p>
+        </div>
+        <div class="input__completar">
+          <select name="" class="btn2" id="">
+            <option value="">Principiante (A1)</option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="contenedor__completar">
+    <form action="" class="form__completar container_section">
+      <h3>Redes sociales</h3>
+      <div class="content__completar">
+        <div class="text__completar">
+          <label for="">Linkedin</label>
+          <p>
+            El perfil de LinkedIn ayudará a que empresas interesadas en ti te
+            conozcan mejor.
+          </p>
+        </div>
+        <div class="input__completar">
+          <input type="text" class="input__text" />
+        </div>
+      </div>
+      <hr />
+      <div class="content__completar">
+        <div class="text__completar">
+          <label for="">Twitter</label>
+          <p>Escribe tu usuario sin el "&#64;" eje: “twitter.com/pedroperez”</p>
+        </div>
+        <div class="input__completar">
+          <input type="text" class="input__text" />
+        </div>
+      </div>
+      <hr />
+      <div class="content__completar">
+        <div class="text__completar">
+          <label for="">Facebook</label>
+          <p>Agrega tu perfil de Facebook si lo consideras necesario</p>
+        </div>
+        <div class="input__completar">
+          <input type="text" class="input__text" />
+        </div>
+      </div>
+      <div class="add__save">
+        <button class="btn2">Guardar cambios</button>
+      </div>
+    </form>
+  </div>
+</section>
+<app-footer></app-footer>

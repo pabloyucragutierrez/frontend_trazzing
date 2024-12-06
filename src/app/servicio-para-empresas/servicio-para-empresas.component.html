@@ -27,20 +27,7 @@
 </section>
 <div class="section__contrata">
   <div class="conatiner__contrata container_section">
-    <article class="art__contrata">
-      <h2>
-        Contrata con la herramienta
-        <span class="blue">Trazzing </span>
-      </h2>
-      <p>
-        Facilitamos la adquisición de talento ofreciendo un servicio integral de
-        gestión de procesos de reclutamiento. Desde la publicación de vacantes
-        hasta la selección del candidato ideal, utilizamos herramientas
-        avanzadas y un enfoque personalizado para asegurarnos de que encuentres
-        al mejor talento para tu empresa.
-      </p>
-    </article>
-
+    
     <article class="contrata__planes">
       <h2>Planes de servicio adaptados a tu empresa</h2>
       <p>
@@ -50,119 +37,24 @@
       </p>
     </article>
     <article class="contrata__cards">
-      <div class="item__card">
-        <h3>The Coach</h3>
-        <p class="desc__item">
-          Ideal para empresas con 50 a 300 colaboradores.
-        </p>
+      <div *ngFor="let card of cards" class="item__card">
+        <h3 class="title__mem">{{ card.title }}</h3>
+        <p class="desc__item">{{ card.description }}</p>
         <div class="price__card">
           <p>
-            $59
-            <span>Plan mensual</span>
+            {{ card.monthlyPrice }} <span>Plan mensual</span>
           </p>
           <p>
-            $50
-            <span
-              >Plan anual <br />
-              (por mes)</span
-            >
+            {{ card.annualPrice }}
+            <span>Plan anual <br />(por mes)</span>
           </p>
         </div>
         <ul>
-          <li>
-            <img src="assets/check.png" alt="" />
-            Gestión completa del proceso de reclutamiento
-          </li>
-          <li>
-            <img src="assets/check.png" alt="" />
-            Acceso a base de datos de candidatos
-          </li>
-          <li>
-            <img src="assets/check.png" alt="" />
-            Publicación de vacantes en múltiples plataformas
-          </li>
-          <li>
-            <img src="assets/check.png" alt="" />
-            Soporte personalizado
+          <li *ngFor="let feature of card.features">
+            <img src="assets/check.png" alt="" /> {{ feature }}
           </li>
         </ul>
-        <button class="btn2 btn__item">Elige The Coach</button>
-      </div>
-      <div class="item__card">
-        <h3>The Manager</h3>
-        <p class="desc__item">
-          Ideal para empresas con 50 a 300 colaboradores.
-        </p>
-        <div class="price__card">
-          <p>
-            $59
-            <span>Plan mensual</span>
-          </p>
-          <p>
-            $50
-            <span
-              >Plan anual <br />
-              (por mes)</span
-            >
-          </p>
-        </div>
-        <ul>
-          <li>
-            <img src="assets/check.png" alt="" />
-            Gestión completa del proceso de reclutamiento
-          </li>
-          <li>
-            <img src="assets/check.png" alt="" />
-            Acceso a base de datos de candidatos
-          </li>
-          <li>
-            <img src="assets/check.png" alt="" />
-            Publicación de vacantes en múltiples plataformas
-          </li>
-          <li>
-            <img src="assets/check.png" alt="" />
-            Soporte personalizado
-          </li>
-        </ul>
-        <button class="btn2 btn__item">Elige The Manager</button>
-      </div>
-      <div class="item__card">
-        <h3>The Boss</h3>
-        <p class="desc__item">
-          Ideal para empresas con 50 a 300 colaboradores.
-        </p>
-        <div class="price__card">
-          <p>
-            $59
-            <span>Plan mensual</span>
-          </p>
-          <p>
-            $50
-            <span
-              >Plan anual <br />
-              (por mes)</span
-            >
-          </p>
-        </div>
-        <ul>
-          <li>
-            <img src="assets/check.png" alt="" />
-            Gestión completa del proceso de reclutamiento
-          </li>
-          <li>
-            <img src="assets/check.png" alt="" />
-            Acceso a base de datos de candidatos
-          </li>
-          <li>
-            <img src="assets/check.png" alt="" />
-            Publicación de vacantes en múltiples plataformas
-          </li>
-          <li>
-            <img src="assets/check.png" alt="" />
-            Soporte personalizado
-          </li>
-        </ul>
-        <button class="btn2 btn__item">Elige The Boss</button>
+        <button class="btn2 btn__item" (click)="openModal(card.title)">Elige {{ card.title }}</button>
       </div>
     </article>
   </div>
@@ -322,4 +214,74 @@
     <button class="btn2 btn__form">Enviar</button>
   </div>
 </section>
+
+<div *ngIf="isModalOpen" class="modal__pay">
+  <form class="form_content modal__content" action="">
+    <h2 class="title__modal">
+      Has seleccionado el plan <span class="plan__title">{{ selectedPlan }}</span>
+    </h2>
+    <div class="width__form">
+      <label for="">Nombre del contacto</label>
+      <div class="input_content">
+        <img src="assets/user_input.png" alt="" />
+        <input type="text" class="input_style" placeholder="Nombre" />
+      </div>
+    </div>
+    <div class="width__form">
+      <label for="">Apellido del contacto</label>
+      <div class="input_content">
+        <img src="assets/user_input.png" alt="" />
+        <input type="text" class="input_style" placeholder="Apellido" />
+      </div>
+    </div>
+    <div class="width__form">
+      <label for="">Teléfono de contacto</label>
+      <div class="input_content">
+        <span class="icon__phone">
+          +51
+          <img src="assets/bottom_input.png" alt="" />
+        </span>
+        <input
+          type="text"
+          class="input_style p__ex"
+          placeholder="Número de teléfono"
+        />
+      </div>
+    </div>
+    <div class="width__form">
+      <label for="">Email corporativo</label>
+      <div class="input_content">
+        <img src="assets/email_input.png" alt="" />
+        <input
+          type="email"
+          class="input_style"
+          placeholder="empresa@email.com"
+        />
+      </div>
+    </div>
+    <div class="width__form">
+      <label for="">Nombre de la empresa</label>
+      <div class="input_content">
+        <img src="assets/bussiness_input.png" alt="" />
+        <input type="text" class="input_style" />
+      </div>
+    </div>
+    <div class="width__form">
+      <label for="">Sitio web de la empresa</label>
+      <div class="input_content">
+        <input
+          type="url"
+          class="input_style num__padd"
+          placeholder="www.empresa.com"
+        />
+      </div>
+    </div>
+    <button class="btn2 btn__modal">Continuar</button>
+    <button class="close__modal" (click)="closeModal()">
+      <i class="bx bx-x"></i>
+    </button>
+  </form>
+</div>
+
+
 <app-footer></app-footer>
