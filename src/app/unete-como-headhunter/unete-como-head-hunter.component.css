@@ -95,7 +95,9 @@
 .art__beneficios h2 {
   color: #333333;
   font-weight: 600;
-  width: 24rem;
+  /* width: 24rem; */
+  font-size: 1.8rem;
+  width: 34%;
   padding-right: 8rem;
 }
 .art__beneficios h2 span.pink {
@@ -106,7 +108,8 @@
 }
 
 .itemt__ben {
-  width: 20rem;
+  /* width: 20rem; */
+  width: 30%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -131,7 +134,8 @@
 }
 
 .item__btn {
-  width: 24rem;
+  /* width: 24rem; */
+  width: 34%;
   display: grid;
   place-items: center;
 }
@@ -166,8 +170,8 @@
   justify-content: center;
 }
 .btn__steps {
-    padding: 0 4.5rem;
-    width: 100%;
+  padding: 0 4.5rem;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -180,143 +184,141 @@
   background-color: transparent;
   border: none;
   outline: none;
-  gap: .5rem;
+  gap: 0.5rem;
   font-weight: 600;
   font-size: 1.2rem;
 }
 
-.step__item{
-    width: 100%;
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
+.step__item {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
 }
-.step__div{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: .5rem;
+.step__div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
-.step__div b{
-    font-size: 1rem;
-    color: #2f4b7d;
+.step__div b {
+  font-size: 1rem;
+  color: #2f4b7d;
 }
-.step__div p{
-    width: 70%;
-    font-size: .9rem;
-    color: #333333;
+.step__div p {
+  width: 70%;
+  font-size: 0.9rem;
+  color: #333333;
 }
-
 
 /* sección */
 .form__servicios {
-    width: 100%;
-    padding: 5rem 1rem;
-    background-color: #f2f2f2;
-  }
-  
-  .contenedor__form {
-    width: 80%;
-  }
-  .contenedor__form b{
-    text-align: center;
-    display: block;
-    margin: auto;
-  }
-  .contenedor__form h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    text-align: center;
-  }
-  .contenedor__form p {
-    font-size: 1rem;
-    color: #434343;
-    width: 40%;
-    display: block;
-    margin: 1rem auto;
-    text-align: center;
-  }
-  .form_content {
-    width: 85%;
-    margin: 3rem auto;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .width__form {
-    width: 32%;
-  }
-  .width__form label {
-    font-weight: 600;
-    font-size: 1rem;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  
-  .input_content {
-    width: 100%;
-    position: relative;
-    background-color: #ffffff;
-    box-shadow: 0px 1px 3px 0px #2f2b431a;
-    border-radius: 10px;
-    height: 2.8rem;
-    overflow: hidden;
-  }
-  
-  .input_style::placeholder {
-    color: #33333399;
-    font-weight: 300;
-  }
-  .input_style.p__ex {
-    padding-left: 3.4rem;
-  }
-  .input_style {
-    width: 100%;
-    padding-left: 2.5rem;
-    height: 100%;
-    border: none;
-    outline: none;
-  }
-  .input_content .icon__phone img{
-    margin-left: .4rem;
-  }
-  .input_content .icon__phone {
-    position: absolute;
-    left: 0.7rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #33333399;
-    font-size: 0.8rem;
-  }
-  .input_content img {
-    position: absolute;
-    left: 0.7rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .width__textarea::placeholder {
-    color: #33333399;
-    font-weight: 300;
-  }
-  .width__textarea {
-    width: 100%;
-    background-color: #ffffff;
-    box-shadow: 0px 1px 3px 0px #2f2b431a;
-    border-radius: 10px;
-    height: 10rem;
-    border: none;
-    outline: none;
-    padding: 1rem;
-    resize: none;
-  }
-  
-  .btn__form {
-    display: block;
-    margin: auto;
-    width: 13rem;
-  }
-  
+  width: 100%;
+  padding: 5rem 1rem;
+  background-color: #f2f2f2;
+}
+
+.contenedor__form {
+  width: 80%;
+}
+.contenedor__form b {
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+.contenedor__form h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+.contenedor__form p {
+  font-size: 1rem;
+  color: #434343;
+  width: 40%;
+  display: block;
+  margin: 1rem auto;
+  text-align: center;
+}
+.form_content {
+  width: 85%;
+  margin: 3rem auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.width__form {
+  width: 32%;
+}
+.width__form label {
+  font-weight: 600;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.input_content {
+  width: 100%;
+  position: relative;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px 0px #2f2b431a;
+  border-radius: 10px;
+  height: 2.8rem;
+  overflow: hidden;
+}
+
+.input_style::placeholder {
+  color: #33333399;
+  font-weight: 300;
+}
+.input_style.p__ex {
+  padding-left: 3.4rem;
+}
+.input_style {
+  width: 100%;
+  padding-left: 2.5rem;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+.input_content .icon__phone img {
+  margin-left: 0.4rem;
+}
+.input_content .icon__phone {
+  position: absolute;
+  left: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #33333399;
+  font-size: 0.8rem;
+}
+.input_content img {
+  position: absolute;
+  left: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.width__textarea::placeholder {
+  color: #33333399;
+  font-weight: 300;
+}
+.width__textarea {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px 0px #2f2b431a;
+  border-radius: 10px;
+  height: 10rem;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  resize: none;
+}
+
+.btn__form {
+  display: block;
+  margin: auto;
+  width: 13rem;
+}

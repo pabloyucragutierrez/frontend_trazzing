@@ -77,7 +77,8 @@
 }
 .section__cards .cards__inicio {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 2rem;
 }
 .section__cards .cards__inicio article {
   width: 25rem;

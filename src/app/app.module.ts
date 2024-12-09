@@ -16,6 +16,8 @@ import { RegistrateComponent } from './registrate/registrate.component';
 import { DetalleDelTrabajoComponent } from './detalle-del-trabajo/detalle-del-trabajo.component';
 import { HeaderLoginComponent } from './header-login/header-login.component';
 import { CompletarPerfilComponent } from './completar-perfil/completar-perfil.component';
+import { MisPostulacionesComponent } from './mis-postulaciones/mis-postulaciones.component';
+import { HeaderUserComponent } from './header-user/header-user.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { CompletarPerfilComponent } from './completar-perfil/completar-perfil.co
     RegistrateComponent,
     DetalleDelTrabajoComponent,
     HeaderLoginComponent,
-    CompletarPerfilComponent
+    CompletarPerfilComponent,
+    MisPostulacionesComponent,
+    HeaderUserComponent
   ],
   imports: [
     BrowserModule,

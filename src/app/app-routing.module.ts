@@ -9,6 +9,7 @@ import { DetalleDelTrabajoComponent } from './detalle-del-trabajo/detalle-del-tr
 import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
 import { RegistrateComponent } from './registrate/registrate.component';
 import { CompletarPerfilComponent } from './completar-perfil/completar-perfil.component';
+import { MisPostulacionesComponent } from './mis-postulaciones/mis-postulaciones.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'completar-perfil',
     component: CompletarPerfilComponent,
+  },
+  {
+    path: 'mis-postulaciones',
+    component: MisPostulacionesComponent,
   },
   {
     path: '**',

@@ -231,10 +231,14 @@
   flex-wrap: wrap;
   gap: 1.5rem;
 }
+
 .art__beneficios h2 {
   color: #333333;
   font-weight: 600;
-  width: 24rem;
+  /* width: 24rem; */
+  width: 34.5%;
+  font-size: 2rem;
+  padding-right: 5rem;
 }
 .art__beneficios h2 span.pink {
   color: #ec625f;
@@ -244,7 +248,8 @@
 }
 
 .itemt__ben {
-  width: 20rem;
+  /* width: 20rem; */
+  width: 30%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -269,7 +274,8 @@
 }
 
 .item__btn {
-  width: 24rem;
+  /* width: 24rem; */
+  width: 34.5%;
   display: grid;
   place-items: center;
 }

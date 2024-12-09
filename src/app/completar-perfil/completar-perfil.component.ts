@@ -6,24 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./completar-perfil.component.css']
 })
 export class CompletarPerfilComponent {
-  imageSrc: string = 'assets/add_a_photo.png'; // Imagen inicial por defecto
-  isImageUploaded: boolean = false; // Controla la visibilidad del botón
+  imageSrc: string = 'assets/add_a_photo.png';
+  isImageUploaded: boolean = false; 
 
-  // Simula un clic en el input file al hacer clic en la imagen o el botón
   onImageClick(fileInput: HTMLInputElement) {
     fileInput.click();
   }
 
-  // Actualiza la imagen cuando se selecciona un archivo
   onFileSelected(event: Event) {
     const file = (event.target as HTMLInputElement).files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        this.imageSrc = reader.result as string; // Actualiza la imagen
-        this.isImageUploaded = true; // Muestra el botón cuando se sube la imagen
+        this.imageSrc = reader.result as string; 
+        this.isImageUploaded = true;
       };
-      reader.readAsDataURL(file); // Lee el archivo seleccionado
+      reader.readAsDataURL(file); 
     }
   }
 }
