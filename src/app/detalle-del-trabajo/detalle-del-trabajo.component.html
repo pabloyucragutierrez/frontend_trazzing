@@ -4,7 +4,8 @@
     <h2>Asistente de marketing digital</h2>
     <b>B. A. Consulting</b>
     <p>Surco, Lima</p>
-    <button class="btn2">Postular</button>
+    <button class="btn2" (click)="showModal()">Postular</button>
+
   </div>
 </section>
 <section class="detalle__trabajo">
@@ -97,7 +98,7 @@
 
         Dar seguimiento al cumplimiento de los objetivos de cada campaña.
       </p>
-      <button class="btn2">Postular</button>
+      <button class="btn2" (click)="showModal()">Postular</button>
     </article>
   </div>
 </section>
@@ -176,4 +177,55 @@
     </article>
   </div>
 </section>
+
+<div class="modal__pay2" *ngIf="isModalVisible">
+  <form class="form_content modal__content2" action="">
+    <h2 class="title__modal">
+      Completa las siguientes preguntas para terminar tu postulación
+    </h2>
+    <div class="width__form full__input">
+      <label for="cardholder-name"
+        >Cuanto tiempo de experiencia tiene en el marketing digital</label
+      >
+      <div class="input_content">
+        <textarea
+          name=""
+          class="width__textarea"
+          placeholder="Ingresa tu respuesta"
+          id=""
+        ></textarea>
+      </div>
+    </div>
+    <div class="width__form full__input">
+      <label for="cardholder-name"
+        >Indicar su carrera y grado de instrucción (indicar año de título o
+        bachiller)</label
+      >
+      <div class="input_content">
+        <textarea
+          name=""
+          class="width__textarea"
+          placeholder="Ingresa tu respuesta"
+          id=""
+        ></textarea>
+      </div>
+    </div>
+    <div class="width__form full__input">
+      <label for="cardholder-name">¿Cuál es su expectativa salarial?</label>
+      <div class="input_content">
+        <textarea
+          name=""
+          class="width__textarea"
+          placeholder="Ingresa tu respuesta"
+          id=""
+        ></textarea>
+      </div>
+    </div>
+    <button type="submit" class="btn2 btn__modal">Responder</button>
+    <button type="button" class="close__modal" (click)="closeModal()">
+      <i class="bx bx-x"></i>
+    </button>
+  </form>
+</div>
+
 <app-footer></app-footer>

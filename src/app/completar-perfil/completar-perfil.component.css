@@ -41,6 +41,10 @@
 .input__completar {
   width: 45%;
 }
+.input__completar .name__cv{
+  color: #2F4B7D;
+  font-size: 1rem;
+}
 .img__flex{
   display: flex;
   align-items: center;

@@ -30,7 +30,7 @@ const routes: Routes = [
     component: PortalDeEmpleoComponent,
   },
   {
-    path: 'unete-como-headhunter',
+    path: 'unete-como-trazzer',
     component: UneteComoHeadHunterComponent,
   },
   {

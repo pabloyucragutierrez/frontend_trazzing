@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicioParaEmpresasComponent implements OnInit {
   isModalOpen: boolean = false; // Controla si el modal está visible
+  isPay2ModalOpen: boolean = false; // Controla si modal__pay2 está visible
   selectedPlan: string = ''; // Almacena el título del plan seleccionado
 
   // Información de las tarjetas
@@ -55,10 +56,16 @@ export class ServicioParaEmpresasComponent implements OnInit {
 
   openModal(planTitle: string): void {
     this.selectedPlan = planTitle; // Actualiza el texto del título
-    this.isModalOpen = true; // Muestra el modal
+    this.isModalOpen = true; // Muestra modal__pay
   }
 
   closeModal(): void {
-    this.isModalOpen = false; // Oculta el modal
+    this.isModalOpen = false; // Oculta modal__pay
+    this.isPay2ModalOpen = false; // Oculta modal__pay2
+  }
+
+  showPay2Modal(): void {
+    this.isModalOpen = false; // Oculta modal__pay
+    this.isPay2ModalOpen = true; // Muestra modal__pay2
   }
 }

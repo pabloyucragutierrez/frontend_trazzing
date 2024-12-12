@@ -24,12 +24,15 @@
             (change)="onFileSelected($event)"
           />
           <!-- Botón que permite cambiar la imagen -->
-          <button class="btn2" *ngIf="isImageUploaded" (click)="onImageClick(fileInput)">
+          <button
+            class="btn2"
+            type="button"
+            *ngIf="isImageUploaded"
+            (click)="onImageClick(fileInput)"
+          >
             Cambiar foto de perfil
           </button>
         </div>
-        
-        
       </div>
       <hr />
       <div class="content__completar">
@@ -89,7 +92,8 @@
           <p>Máximo 5 MB, solo archivos PDF</p>
         </div>
         <div class="input__completar">
-          <button class="btn2">Subir CV</button>
+          <button class="btn2" type="button">Subir CV</button>
+          <b class="name__cv">curriculum_vitae.pdf</b>
         </div>
       </div>
       <div class="content__completar">
@@ -99,7 +103,12 @@
         </div>
         <div class="input__completar">
           <select name="" class="btn2" id="">
-            <option value="">Principiante (A1)</option>
+            <option value="">A0: Principiante</option>
+            <option value="">A1-A2: Básico</option>
+            <option value="">A2-B1: Pre-Intermedio</option>
+            <option value="">B1: Intermedio</option>
+            <option value="">B2: Intermedio-Alto</option>
+            <option value="">C1-C2: Avanzado</option>
           </select>
         </div>
       </div>
