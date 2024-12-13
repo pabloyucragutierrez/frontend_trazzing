@@ -92,8 +92,25 @@
           <p>Máximo 5 MB, solo archivos PDF</p>
         </div>
         <div class="input__completar">
-          <button class="btn2" type="button">Subir CV</button>
-          <b class="name__cv">curriculum_vitae.pdf</b>
+          <button
+            class="btn2"
+            type="button"
+            *ngIf="!fileName"
+            (click)="triggerFileInput()"
+          >
+            Subir CV
+          </button>
+          <input
+            id="fileInput"
+            type="file"
+            accept=".pdf"
+            (change)="handleFileUpload($event)"
+            style="display: none"
+          />
+
+          <b class="name__cv" *ngIf="fileName" (click)="triggerFileInput()">{{
+            fileName
+          }}</b>
         </div>
       </div>
       <div class="content__completar">
@@ -155,4 +172,69 @@
     </form>
   </div>
 </section>
+
+<div class="modal__perfil" *ngIf="isModalVisible">
+  <article class="art__perfil">
+    <h2 class="title__mperfil">
+      ¡Optimiza tu CV con la ayuda de los expertos!
+    </h2>
+    <p class="p__mperfil">
+      Tu CV ha sido cargado exitosamente. Ahora, aprovecha nuestro servicio
+      exclusivo de evaluación de CV y recibe comentarios valiosos para mejorar
+      tus oportunidades laborales.
+    </p>
+    <div class="items__perfil">
+      <div class="item__perfil">
+        <div>
+          <h3>Evaluación por el Equipo de Trazzing</h3>
+          <p>
+            Nuestro equipo de expertos en reclutamiento revisará tu CV para
+            ofrecerte sugerencias que mejoren la presentación y el contenido,
+            destacando tus habilidades y experiencia de manera efectiva.
+          </p>
+        </div>
+        <button class="btn2 btn__mp" (click)="showCard('card1')">Evaluación por Trazzing</button>
+      </div>
+      <div class="item__perfil">
+        <div>
+          <h3>Evaluación por un Trazzer Especializado</h3>
+          <p>
+            Un headhunter independiente de nuestra comunidad, especializado en
+            tu sector, revisará tu CV y te proporcionará consejos personalizados
+            según las tendencias y demandas específicas de la industria.
+          </p>
+        </div>
+        <button class="btn2 btn__mp" (click)="showCard('card2')">Evaluación por Trazzer</button>
+      </div>
+    </div>
+    <button type="button" class="close__perfil" (click)="closeModal()">
+      <i class="bx bx-x"></i>
+    </button>
+  </article>
+</div>
+
+<!-- Tarjetas específicas -->
+<div class="modal__ext1 card1__p" *ngIf="activeCard === 'card1'">
+  <article class="ext__perfil1">
+    <img src="assets/check_exit.png" alt="" />
+    <b>¡Tu solicitud de evaluación de CV ha sido recibida!</b>
+    <p>
+      Nuestro equipo de expertos en reclutamiento revisará tu CV y te enviará
+      recomendaciones detalladas a tu correo electrónico en un plazo de 2 días
+      hábiles.
+    </p>
+    <button class="btn2 btn__mp" (click)="closeCard()">Ok</button>
+  </article>
+</div>
+<div class="modal__ext1 card2__p" *ngIf="activeCard === 'card2'">
+  <article class="ext__perfil1">
+    <img src="assets/check_exit.png" alt="" />
+    <b>¡Tu solicitud de evaluación de CV ha sido recibida!</b>
+    <p>
+      Un headhunter independiente especializado en tu sector revisará tu CV y te proporcionará consejos personalizados. Recibirás los resultados en tu correo electrónico en un plazo de 2 días hábiles.
+    </p>
+    <button class="btn2 btn__mp" (click)="closeCard()">Ok</button>
+  </article>
+</div>
+
 <app-footer></app-footer>
