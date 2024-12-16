@@ -40,9 +40,9 @@
         <h3 class="title__mem">{{ card.title }}</h3>
         <p class="desc__item">{{ card.description }}</p>
         <div class="price__card">
-          <p>{{ card.monthlyPrice }} <span>Plan mensual</span></p>
+          <p>$ {{ card.monthlyPrice }} <span>Plan mensual</span></p>
           <p>
-            {{ card.annualPrice }}
+            $ {{ card.annualPrice }}
             <span>Plan anual <br />(por mes)</span>
           </p>
         </div>
@@ -220,6 +220,29 @@
       Has seleccionado el plan
       <span class="plan__title">{{ selectedPlan }}</span>
     </h2>
+    <b class="title__plan">Elegir plan</b>
+    <div class="plans__content">
+      <article
+        class="item_plan"
+        [ngClass]="{ item_active: activePlanIndex === 0 }"
+        (click)="setActivePlan(0)"
+      >
+        <h3>$ 59</h3>
+        <p>Plan mensual</p>
+      </article>
+      <article
+        class="item_plan"
+        [ngClass]="{ item_active: activePlanIndex === 1 }"
+        (click)="setActivePlan(1)"
+      >
+        <h3>$ 50</h3>
+        <p>
+          Plan anual <br />
+          (por mes)
+        </p>
+      </article>
+    </div>
+
     <div class="width__form">
       <label for="">Nombre del contacto</label>
       <div class="input_content">
@@ -249,17 +272,6 @@
       </div>
     </div>
     <div class="width__form">
-      <label for="">Email corporativo</label>
-      <div class="input_content">
-        <img src="assets/email_input.png" alt="" />
-        <input
-          type="email"
-          class="input_style"
-          placeholder="empresa@email.com"
-        />
-      </div>
-    </div>
-    <div class="width__form">
       <label for="">Nombre de la empresa</label>
       <div class="input_content">
         <img src="assets/bussiness_input.png" alt="" />
@@ -276,86 +288,128 @@
         />
       </div>
     </div>
-    <button type="button" class="btn2 btn__modal" (click)="showPay2Modal()">Continuar</button>
+    <button
+      type="button"
+      class="btn2 btn__modal"
+      [disabled]="activePlanIndex === null"
+      (click)="showPay2Modal()"
+    >
+      Continuar
+    </button>
+
     <button type="button" class="close__modal" (click)="closeModal()">
       <i class="bx bx-x"></i>
     </button>
   </form>
 </div>
 <div *ngIf="isPay2ModalOpen" class="modal__pay2">
-  <form class="form_content modal__content2" action="">
-    <h2 class="title__modal">Datos de la tarjeta</h2>
-    <div class="width__form full__input">
-      <label for="cardholder-name">Nombre del titular</label>
-      <div class="input_content">
-        <input
-          type="text"
-          id="cardholder-name"
-          class="input_style num__padd"
-          placeholder="Nombre del titular"
-          required
-        />
+  <div class="content__overflow">
+    <form class="form_content modal__content2" action="">
+      <h2 class="title__modal mb_2">Configuración de <span>Pago</span></h2>
+      <div class="width__form full__input">
+        <label for="cardholder-name">Nombre del titular</label>
+        <div class="input_content h__m">
+          <input
+            type="text"
+            id="cardholder-name"
+            class="input_style num__padd"
+            required
+          />
+        </div>
       </div>
-    </div>
-    <div class="width__form full__input">
-      <label for="card-number">Número de tarjeta</label>
-      <div class="input_content">
-        <input
-          type="text"
-          id="card-number"
-          class="input_style num__padd"
-          placeholder="XXXX XXXX XXXX XXXX"
-          pattern="\d{16}"
-          maxlength="16"
-          required
-        />
+      <div class="width__form full__input">
+        <div class="label__space">
+          <label for="card-number">Número de tarjeta</label>
+          <img src="assets/tarjetas-aceptadas.png" alt="" />
+        </div>
+        <div class="input_content h__m">
+          <input
+            type="text"
+            id="card-number"
+            class="input_style num__padd"
+            pattern="\d{16}"
+            maxlength="16"
+            required
+          />
+        </div>
       </div>
-    </div>
-    <div class="width__form full__input">
-      <label for="expiry-date">Fecha de vencimiento</label>
-      <div class="input_content">
-        <input
-          type="text"
-          id="expiry-date"
-          class="input_style num__padd"
-          placeholder="MM/AA"
-          pattern="\d{2}/\d{2}"
-          required
-        />
+      <div class="width__form full__input2">
+        <label for="expiry-date">Fecha de vencimiento</label>
+        <div class="input_content h__m">
+          <input
+            type="text"
+            id="expiry-date"
+            class="input_style num__padd"
+            placeholder="MM/AA"
+            pattern="\d{2}/\d{2}"
+            required
+          />
+        </div>
       </div>
-    </div>
-    <div class="width__form full__input">
-      <label for="cvv">CVV</label>
-      <div class="input_content">
-        <input
-          type="password"
-          id="cvv"
-          class="input_style num__padd"
-          placeholder="XXX"
-          pattern="\d{3}"
-          maxlength="3"
-          required
-        />
+      <div class="width__form full__input2">
+        <label for="cvv">CVC</label>
+        <div class="input_content h__m">
+          <input
+            type="password"
+            id="cvv"
+            class="input_style num__padd"
+            placeholder="XXX"
+            pattern="\d{3}"
+            maxlength="3"
+            required
+          />
+        </div>
       </div>
-    </div>
-    <div class="width__form full__input">
-      <label for="email">Correo electrónico</label>
-      <div class="input_content">
-        <input
-          type="email"
-          id="email"
-          class="input_style num__padd"
-          placeholder="ejemplo@correo.com"
-          required
-        />
+      <div class="width__form full__input">
+        <label for="email">Dirección de facturación</label>
+        <div class="input_content h__m">
+          <input
+            type="email"
+            id="email"
+            class="input_style num__padd"
+            required
+          />
+        </div>
       </div>
-    </div>
-    <button type="submit" class="btn2 btn__modal">Pagar</button>
+      <div class="width__form full__input">
+        <label for="email">Correo electrónico</label>
+        <div class="input_content h__m">
+          <input
+            type="email"
+            id="email"
+            class="input_style num__padd"
+            required
+          />
+        </div>
+      </div>
+      <div class="width__form full__input2">
+        <label for="expiry-date">País</label>
+        <div class="input_content h__m">
+          <input type="text" class="input_style num__padd" required />
+        </div>
+      </div>
+      <div class="width__form full__input2">
+        <label for="cvv">Código postal</label>
+        <div class="input_content h__m">
+          <input type="text" class="input_style num__padd" required />
+        </div>
+      </div>
+      <div class="width__form full__input3">
+        <input type="checkbox" />
+        <label for=""
+          >Acepto recibir información sobre ofertas promociones de
+          Trazzing</label
+        >
+      </div>
+      <button type="submit" class="btn2 btn__modal2">
+        Pagar ${{ selectedPlanPrice }}
+      </button>
+      
+    </form>
     <button type="button" class="close__modal" (click)="closeModal()">
       <i class="bx bx-x"></i>
     </button>
-  </form>
+  </div>
 </div>
-
 
 <app-footer></app-footer>
