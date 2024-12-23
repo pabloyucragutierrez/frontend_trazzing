@@ -1,3 +1,30 @@
+main {
+  position: relative;
+}
+.linea_fondo {
+  position: absolute;
+  top: 30%;
+  left: 43%;
+  width: 17rem;
+}
+.img_fondo1{
+  position: absolute;
+  top: 26%;
+  left: 44%;
+  width: 2rem;
+}
+.img_fondo2{
+  position: absolute;
+  top: 56%;
+  left: 54%;
+  width: 2rem;
+}
+.img_fondo3{
+  position: absolute;
+  bottom: 7%;
+  left: 42%;
+  width: 2rem;
+}
 .contenedor__banner {
   width: 100%;
   height: 85vh;
@@ -70,6 +97,17 @@
   margin-top: -80px;
 }
 
+.btn_hover {
+  background-color: transparent;
+  color: #2f4b7d;
+  transition: 0.3s ease all;
+  border: 2px solid gray;
+}
+.btn_hover:hover {
+  border: none;
+  color: #fff;
+  background-color: #ec625f;
+}
 /* seccion 1 */
 .section__cards {
   width: 100%;
@@ -103,6 +141,7 @@
 }
 .section__cards .cards__inicio article p {
   color: #2f4b7d;
+  height: 8rem;
 }
 
 /* sección 2 */

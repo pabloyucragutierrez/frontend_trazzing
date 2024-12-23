@@ -4,29 +4,247 @@
     <h2>Trabajos en marketing</h2>
     <div class="arts__jobs">
       <article class="options__job">
-        <span>Filtros</span>
-        <ul class="list__options">
-          <li>
-            <img src="assets/calendar_today.png" alt="" />
-            Fecha de publicación
-          </li>
-          <li>
-            <img src="assets/work.png" alt="" />
-            Área
-          </li>
-          <li>
-            <img src="assets/location_on.png" alt="" />
-            Departamento
-          </li>
-          <li>
-            <img src="assets/source_environment.png" alt="" />
-            Modalidad de trabajo
-          </li>
-          <li>
-            <img src="assets/accessible.png" alt="" />
-            Portulantes con discapacidad
-          </li>
-        </ul>
+        <!-- Menú principal de filtros -->
+        <div class="content__list" *ngIf="activeIndex === -1">
+          <span>Filtros</span>
+          <ul class="list__options">
+            <li (click)="showFilter(0)">
+              <img src="assets/calendar_today.png" alt="Fecha" />
+              Fecha de publicación
+              <ul>
+                <li class="option__select">1 día</li>
+              </ul>
+            </li>
+            <li (click)="showFilter(1)">
+              <img src="assets/work.png" alt="Área" />
+              Área
+              <ul>
+                <li class="option__select">Marketing</li>
+              </ul>
+            </li>
+            <li (click)="showFilter(2)">
+              <img src="assets/location_on.png" alt="Departamento" />
+              Departamento
+              <ul>
+                <li class="option__select">Cusco</li>
+              </ul>
+            </li>
+            <li (click)="showFilter(3)">
+              <img src="assets/source_environment.png" alt="Modalidad" />
+              Modalidad de trabajo
+              <ul>
+                <li class="option__select">Remoto</li>
+              </ul>
+            </li>
+            <li (click)="showFilter(4)">
+              <img src="assets/accessible.png" alt="Discapacidad" />
+              Postulantes con discapacidad 
+              <ul>
+                <li class="option__select">No</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contenido de cada filtro -->
+        <div *ngIf="activeIndex === 0" class="content__list__options">
+          <div class="back__job" (click)="hideFilters()">
+            <img src="assets/arrow_back.png" alt="Atrás" />
+            <h4>
+              <img src="assets/calendar_today_job.png" alt="Fecha" /> Fecha de
+              publicación
+            </h4>
+          </div>
+          <ul class="list__filters">
+            <li>
+              <p>Hoy</p>
+              <span>47</span>
+            </li>
+            <li>
+              <p>Ayer</p>
+              <span>40</span>
+            </li>
+            <li>
+              <p>Menor a 3 días</p>
+              <span>69</span>
+            </li>
+            <li>
+              <p>Menor a 1 semana</p>
+              <span>131</span>
+            </li>
+            <li>
+              <p>Menor a 15 días</p>
+              <span>237</span>
+            </li>
+            <li>
+              <p>Menor a 1 mes</p>
+              <span>394</span>
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="activeIndex === 1" class="content__list__options">
+          <div class="back__job" (click)="hideFilters()">
+            <img src="assets/arrow_back.png" alt="Atrás" />
+            <h4><img src="assets/work_job.png" alt="Área" /> Área</h4>
+          </div>
+          <div class="srh__job">
+            <input class="input" type="text" placeholder="Busca un área" />
+            <img src="assets/search_job.png" alt="" />
+          </div>
+          <ul class="list__filters">
+            <li>
+              <p>Ventas</p>
+              <span>532</span>
+            </li>
+            <li>
+              <p>Administración y Finanzas</p>
+              <span>402</span>
+            </li>
+            <li>
+              <p>Atención al cliente, Call Center</p>
+              <span>250</span>
+            </li>
+            <li>
+              <p>Tecnología y Sistemas</p>
+              <span>131</span>
+            </li>
+            <li>
+              <p>Oficio y Otros</p>
+              <span>237</span>
+            </li>
+            <li>
+              <p>Abastecimiento y Logística</p>
+              <span>280</span>
+            </li>
+            <li>
+              <p>Recursos Humanos</p>
+              <span>185</span>
+            </li>
+            <li>
+              <p>Producción y Manufactura</p>
+              <span>97</span>
+            </li>
+            <li>
+              <p>Ingenierías</p>
+              <span>72</span>
+            </li>
+            <li>
+              <p>Salud y Medicina</p>
+              <span>48</span>
+            </li>
+            <li>
+              <p>Minería Petróleo</p>
+              <span>39</span>
+            </li>
+            <li>
+              <p>Marketing y Publicidad</p>
+              <span>15</span>
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="activeIndex === 2" class="content__list__options">
+          <div class="back__job" (click)="hideFilters()">
+            <img src="assets/arrow_back.png" alt="Atrás" />
+            <h4>
+              <img src="assets/location_on_job.png" alt="Departamento" />
+              Departamento
+            </h4>
+          </div>
+          <div class="srh__job">
+            <input class="input" type="text" placeholder="Busca un departamento" />
+            <img src="assets/search_job.png" alt="" />
+          </div>
+          <ul class="list__filters">
+            <li>
+              <p>Lima</p>
+              <span>532</span>
+            </li>
+            <li>
+              <p>Arequipa</p>
+              <span>402</span>
+            </li>
+            <li>
+              <p>La Libertad</p>
+              <span>250</span>
+            </li>
+            <li>
+              <p>Ica</p>
+              <span>131</span>
+            </li>
+            <li>
+              <p>Piura</p>
+              <span>237</span>
+            </li>
+            <li>
+              <p>Junín</p>
+              <span>280</span>
+            </li>
+            <li>
+              <p>Cusco</p>
+              <span>185</span>
+            </li>
+            <li>
+              <p>Áncash</p>
+              <span>97</span>
+            </li>
+            <li>
+              <p>Lambayeque</p>
+              <span>72</span>
+            </li>
+            <li>
+              <p>Puno</p>
+              <span>48</span>
+            </li>
+            <li>
+              <p>Cajamarca</p>
+              <span>39</span>
+            </li>
+            <li>
+              <p>Pasco</p>
+              <span>15</span>
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="activeIndex === 3" class="content__list__options">
+          <div class="back__job" (click)="hideFilters()">
+            <img src="assets/arrow_back.png" alt="Atrás" />
+            <h4>
+              <img src="assets/source_environment_job.png" alt="Modalidad" />
+              Modalidad de trabajo
+            </h4>
+          </div>
+          <ul class="list__filters">
+            <li>
+              <p>Presencial</p>
+              <span>532</span>
+            </li>
+            <li>
+              <p>Híbrido</p>
+              <span>402</span>
+            </li>
+            <li>
+              <p>Remoto</p>
+              <span>250</span>
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="activeIndex === 4" class="content__list__options">
+          <div class="back__job" (click)="hideFilters()">
+            <img src="assets/arrow_back.png" alt="Atrás" />
+            <h4>
+              <img src="assets/accessible_job.png" alt="Discapacidad" />
+              Postulantes con discapacidad
+            </h4>
+          </div>
+          <ul class="list__filters">
+            <li><p>Sí</p></li>
+            <li><p>No</p></li>
+          </ul>
+        </div>
       </article>
       <article class="item__trabajo">
         <div class="text__space">

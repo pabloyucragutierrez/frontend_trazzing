@@ -24,9 +24,11 @@ html {
   font-size: 1rem;
   text-decoration: none;
   color: #fff;
+  cursor: pointer;
 }
 
 .btn {
+  cursor: pointer;
   text-decoration: none;
   border: none;
   outline: none;

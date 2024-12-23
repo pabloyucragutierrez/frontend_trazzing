@@ -11,6 +11,7 @@ export class InicioComponent implements OnInit, OnDestroy {
       title: 'Optimiza tu proceso de reclutamiento',
       description:
         'Descubre cómo Trazzing puede ayudarte a encontrar el mejor talento de manera eficiente y efectiva.',
+      btn: 'Explora nuestro servicio',
       image: '/assets/banner1.png',
       link: '#empresas',
     },
@@ -18,6 +19,7 @@ export class InicioComponent implements OnInit, OnDestroy {
       title: 'Encuentra el trabajo ideal para ti',
       description:
         'Explora oportunidades de empleo y conéctate con empresas que valoran tus habilidades y experiencia.',
+      btn: 'Encuentra tu empleo ideal',
       image: '/assets/banner2.png',
       link: '#empleo',
     },
@@ -25,6 +27,7 @@ export class InicioComponent implements OnInit, OnDestroy {
       title: 'Únete a nuestra comunidad de HeadHunters',
       description:
         'Conéctate con empresas que buscan tu talento para encontrar a los mejores profesionales.',
+      btn: 'Únete como Trazzer',
       image: '/assets/banner3.jpg',
       link: '#unete',
     },
@@ -50,7 +53,7 @@ export class InicioComponent implements OnInit, OnDestroy {
         this.currentSlide = (this.currentSlide + 1) % this.slides.length;
         this.showContent();
       }, 1000); // Tiempo para sincronizar la transición
-    }, 6000);
+    }, 10000);
   }
 
   stopAutoSlide() {
@@ -78,6 +81,8 @@ export class InicioComponent implements OnInit, OnDestroy {
   }
 
   getBackgroundImage() {
-    return `linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${this.slides[this.currentSlide].image}')`;
+    return `linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${
+      this.slides[this.currentSlide].image
+    }')`;
   }
 }

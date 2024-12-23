@@ -57,7 +57,7 @@
   width: 100%;
 }
 .text__empresas {
-  width: 45%;
+  width: 60%;
   margin: 5rem auto;
 }
 .text__empresas h2 {
@@ -156,6 +156,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.art__steps h2 span{
+  color: #ec625f;
+}
 .art__steps h2 {
   width: 35%;
   font-weight: 600;
@@ -217,7 +220,14 @@
 .form__servicios {
   width: 100%;
   padding: 5rem 1rem;
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
+  background-image: linear-gradient(
+    to top,
+    rgba(242, 242, 242, 0.95) 0%,
+    rgba(242, 242, 242, 0.95) 100%
+  ),
+  url("/assets/banner_users.jpg");
+background-size: cover;
 }
 
 .contenedor__form {
@@ -321,4 +331,10 @@
   display: block;
   margin: auto;
   width: 13rem;
+}
+
+
+#unete {
+  padding-top: 80px;
+  margin-top: -80px;
 }

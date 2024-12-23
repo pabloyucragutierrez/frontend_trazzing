@@ -4,7 +4,7 @@
     <h3>{{ slides[currentSlide].title }}</h3>
     <p>{{ slides[currentSlide].description }}</p>
     <a href="/inicio{{ slides[currentSlide].link }}" class="btn2">
-      Únete como HeadHunter
+      {{ slides[currentSlide].btn }}
     </a>
   </div>
   <div class="dots__banner">
@@ -60,7 +60,7 @@
             Nuestro equipo de expertos en reclutamiento se encargará de cada
             etapa del proceso, ahorrándote tiempo y recursos.
           </p>
-          <button class="btn2">Explora nuestro servicio</button>
+          <button onclick="location.href='/servicio-para-empresas'" class="btn2 btn_hover">Explora nuestro servicio</button>
         </article>
         <article class="img__service">
           <img src="assets/servicios1.png" alt="" />
@@ -82,7 +82,7 @@
             recibir recomendaciones personalizadas según tu perfil. Inscribirte
             es fácil y te abre un mundo de oportunidades profesionales.
           </p>
-          <button class="btn2">Encuentra tu empleo ideal</button>
+          <button onclick="location.href='/portal-de-empleo'" class="btn2 btn_hover">Encuentra tu empleo ideal</button>
         </article>
       </div>
     </section>
@@ -100,7 +100,7 @@
             atraer a los mejores candidatos. Forma parte de una comunidad de
             expertos y maximiza tus oportunidades de negocio.
           </p>
-          <button class="btn2">Únete a nuestra comunidad</button>
+          <button onclick="location.href='/unete-como-trazzer'" class="btn2 btn_hover">Únete a nuestra comunidad</button>
         </article>
         <article class="img__service">
           <img src="assets/servicios3.jpg" alt="" />
@@ -108,6 +108,10 @@
       </div>
     </section>
   </div>
+  <img src="assets/icon_fondo.png" class="img_fondo1" alt="">
+  <img src="assets/icon_fondo.png" class="img_fondo2" alt="">
+  <img src="assets/icon_fondo.png" class="img_fondo3" alt="">
+  <img src="assets/linea_fondo.png" class="linea_fondo" alt="">
 </main>
 
 <app-footer></app-footer>

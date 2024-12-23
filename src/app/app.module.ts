@@ -18,6 +18,9 @@ import { HeaderLoginComponent } from './header-login/header-login.component';
 import { CompletarPerfilComponent } from './completar-perfil/completar-perfil.component';
 import { MisPostulacionesComponent } from './mis-postulaciones/mis-postulaciones.component';
 import { HeaderUserComponent } from './header-user/header-user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { Header2Component } from './header2/header2.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +39,15 @@ import { HeaderUserComponent } from './header-user/header-user.component';
     HeaderLoginComponent,
     CompletarPerfilComponent,
     MisPostulacionesComponent,
-    HeaderUserComponent
+    HeaderUserComponent,
+    Header2Component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

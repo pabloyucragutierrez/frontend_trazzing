@@ -6,7 +6,7 @@
       Descubre cómo Trazzing puede ayudarte a encontrar el mejor talento de
       manera eficiente y efectiva.
     </p>
-    <button class="btn2">Solicitar una demo</button>
+    <button class="btn2" (click)="openModal2()">Solicitar una demo</button>
   </div>
 </div>
 <section class="section__empresas">
@@ -27,6 +27,19 @@
 </section>
 <div class="section__contrata">
   <div class="conatiner__contrata container_section">
+    <article class="art__contrata">
+      <h2>
+        Contrata con la herramienta
+        <span class="blue">Trazzing </span>
+      </h2>
+      <p>
+        Facilitamos la adquisición de talento ofreciendo un servicio integral de
+        gestión de procesos de reclutamiento. Desde la publicación de vacantes
+        hasta la selección del candidato ideal, utilizamos herramientas
+        avanzadas y un enfoque personalizado para asegurarnos de que encuentres
+        al mejor talento para tu empresa.
+      </p>
+    </article>
     <article class="contrata__planes">
       <h2>Planes de servicio adaptados a tu empresa</h2>
       <p>
@@ -111,7 +124,7 @@
         </p>
       </div>
       <div class="item__btn">
-        <button class="btn2">Contrata un Trazzer</button>
+        <button class="btn2" (click)="openModal2()">Contrata un Trazzer</button>
       </div>
     </article>
   </div>
@@ -164,11 +177,7 @@
         <label for="">Nombre de la compañia</label>
         <div class="input_content">
           <img src="assets/bussiness_input.png" alt="" />
-          <input
-            type="text"
-            class="input_style"
-            placeholder="Nombre y Apellido"
-          />
+          <input type="text" class="input_style" placeholder="Compañía" />
         </div>
       </div>
       <div class="width__form">
@@ -200,6 +209,11 @@
           <img src="assets/team_input.png" alt="" />
           <select name="" class="input_style" id="">
             <option value="">Ej: 10 colaboradores</option>
+            <option value="<100">&lt; 100</option>
+            <option value="100-300">100 a 300</option>
+            <option value="300-500">300 a 500</option>
+            <option value="500-1000">500 a 1000</option>
+            <option value=">1000">1000 &gt;</option>
           </select>
         </div>
       </div>
@@ -212,6 +226,9 @@
     </form>
     <button class="btn2 btn__form">Enviar</button>
   </div>
+  <img src="assets/lupa_red.png" class="lupa_red2" alt="" />
+    <img src="assets/lupa_blue.png" class="lupa_blue2" alt="" />
+    <img src="assets/linea__form.png" class="linea__form2" alt="" />
 </section>
 
 <div *ngIf="isModalOpen" class="modal__pay">
@@ -227,7 +244,7 @@
         [ngClass]="{ item_active: activePlanIndex === 0 }"
         (click)="setActivePlan(0)"
       >
-        <h3>$ 59</h3>
+        <h3>$ {{ selectedPlanPriceMonthly }}</h3>
         <p>Plan mensual</p>
       </article>
       <article
@@ -235,7 +252,7 @@
         [ngClass]="{ item_active: activePlanIndex === 1 }"
         (click)="setActivePlan(1)"
       >
-        <h3>$ 50</h3>
+        <h3>$ {{ selectedPlanPriceAnnual }}</h3>
         <p>
           Plan anual <br />
           (por mes)
@@ -300,6 +317,9 @@
     <button type="button" class="close__modal" (click)="closeModal()">
       <i class="bx bx-x"></i>
     </button>
+    <img src="assets/lupa_red.png" class="lupa_red" alt="" />
+    <img src="assets/lupa_blue.png" class="lupa_blue" alt="" />
+    <img src="assets/linea__form.png" class="linea__form" alt="" />
   </form>
 </div>
 <div *ngIf="isPay2ModalOpen" class="modal__pay2">
@@ -397,18 +417,132 @@
       <div class="width__form full__input3">
         <input type="checkbox" />
         <label for=""
-          >Acepto recibir información sobre ofertas promociones de
-          Trazzing</label
+          >He leído y acepto los Términos y Condiciones de Trazzing</label
         >
       </div>
       <button type="submit" class="btn2 btn__modal2">
-        Pagar ${{ selectedPlanPrice }}
+        Pagar ${{ selectedPlanPriceTotal }}
       </button>
-      
     </form>
     <button type="button" class="close__modal" (click)="closeModal()">
       <i class="bx bx-x"></i>
     </button>
+    <button class="close__back" (click)="goBackToModalPay()">
+      <i class="bx bx-chevron-left"></i>
+    </button>
+  </div>
+</div>
+
+<div class="modal__pay2" *ngIf="isPay3ModalOpen">
+  <div class="content__overflow2">
+    <form class="form_content modal__content3" action="">
+      <h2 class="title__modal2">
+        ¿Listo para optimizar tu proceso de reclutamiento?
+      </h2>
+      <div class="p__modal2">
+        <p>
+          Contáctanos hoy y descubre cómo Trazzing puede transformar la manera
+          en que adquieres talento.
+        </p>
+      </div>
+      <div class="width__form full__input2">
+        <label for="">Nombre de contacto</label>
+        <div class="input_content">
+          <img src="assets/user_input.png" alt="" />
+          <input
+            type="text"
+            class="input_style"
+            placeholder="Nombre y Apellido"
+          />
+        </div>
+      </div>
+      <div class="width__form full__input2">
+        <label for="">Correo electrónico</label>
+        <div class="input_content">
+          <img src="assets/email_input.png" alt="" />
+          <input
+            type="text"
+            class="input_style"
+            placeholder="empresa@email.com"
+          />
+        </div>
+      </div>
+      <div class="width__form full__input2">
+        <label for="">Teléfono de contacto</label>
+        <div class="input_content">
+          <span class="icon__phone">
+            +51
+            <img src="assets/bottom_input.png" alt="" />
+          </span>
+          <input
+            type="text"
+            class="input_style p__ex"
+            placeholder="Número de teléfono"
+          />
+        </div>
+      </div>
+      <div class="width__form full__input2">
+        <label for="">Nombre de la compañia</label>
+        <div class="input_content">
+          <img src="assets/bussiness_input.png" alt="" />
+          <input
+            type="text"
+            class="input_style"
+            placeholder="Nombre y Apellido"
+          />
+        </div>
+      </div>
+      <div class="width__form full__input2">
+        <label for="">Industria</label>
+        <div class="input_content">
+          <img src="assets/industria_input.png" alt="" />
+          <select name="" class="input_style" id="">
+            <option value="">Minería</option>
+            <option value="">Agroindustria</option>
+            <option value="">Pesca</option>
+            <option value="">Banca</option>
+            <option value="">Construcción</option>
+            <option value="">Energía</option>
+            <option value="">Manufactura</option>
+            <option value="">Retail</option>
+            <option value="">Turismo</option>
+            <option value="">Tecnología</option>
+            <option value="">Transporte y Logística</option>
+            <option value="">Educación</option>
+            <option value="">Salud y Farmacéutica</option>
+            <option value="">Textiles y Confecciones</option>
+            <option value="">Gastronomía y Alimentos</option>
+          </select>
+        </div>
+      </div>
+      <div class="width__form full__input2">
+        <label for="">Número de colaboradores</label>
+        <div class="input_content">
+          <img src="assets/team_input.png" alt="" />
+          <select name="" class="input_style" id="">
+            <option value="">Ej: 10 colaboradores</option>
+            <option value="<100">&lt; 100</option>
+            <option value="100-300">100 a 300</option>
+            <option value="300-500">300 a 500</option>
+            <option value="500-1000">500 a 1000</option>
+            <option value=">1000">1000 &gt;</option>
+          </select>
+        </div>
+      </div>
+      <textarea
+        name=""
+        class="width__textarea"
+        id=""
+        placeholder="¿Cómo puede ayudar Trazzing a tu empresa? Cuéntanos tus necesidades."
+      ></textarea>
+      <button class="btn2 btn__modal2">Enviar</button>
+    </form>
+    <button class="close__modal" (click)="closeModal2()">
+      <i class="bx bx-x"></i>
+    </button>
+    <img src="assets/lupa_red.png" class="lupa_red" alt="" />
+    <img src="assets/lupa_blue.png" class="lupa_blue" alt="" />
+    <img src="assets/linea__form.png" class="linea__form" alt="" />
   </div>
 </div>
 
