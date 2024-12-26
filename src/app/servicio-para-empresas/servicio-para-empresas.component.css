@@ -298,6 +298,17 @@
   background-size: cover;
 }
 
+.error-text {
+  color: red;
+  font-size: 0.875em; 
+  margin-top: 5px;
+}
+.error-text.mt_0{
+  margin-top: 0;
+}
+.error-text.mt__2{
+  margin-bottom: 1rem;
+}
 .linea__form2{
   position: absolute;
   right: 1rem;

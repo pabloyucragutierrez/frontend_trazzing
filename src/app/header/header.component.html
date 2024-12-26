@@ -21,7 +21,11 @@
 
 <div class="modal__pay2" *ngIf="isModalOpen">
   <div class="content__overflow">
-    <form class="form_content modal__content2" action="">
+    <form
+      class="form_content modal__content2"
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmitContact()"
+    >
       <h2 class="title__modal2">
         ¿Listo para optimizar tu proceso de reclutamiento?
       </h2>
@@ -31,17 +35,38 @@
           en que adquieres talento.
         </p>
       </div>
+
       <div class="width__form">
-        <label for="">Nombre de contacto</label>
+        <label for="contactName">Nombre de contacto</label>
         <div class="input_content">
           <img src="assets/user_input.png" alt="" />
           <input
             type="text"
             class="input_style"
             placeholder="Nombre y Apellido"
+            formControlName="contactName"
           />
         </div>
+        <p
+          class="error-text"
+          *ngIf="
+            contactForm.get('contactName')?.hasError('required') &&
+            contactForm.get('contactName')?.touched
+          "
+        >
+          Este campo es obligatorio.
+        </p>
+        <p
+          class="error-text"
+          *ngIf="
+            contactForm.get('contactName')?.hasError('pattern') &&
+            contactForm.get('contactName')?.touched
+          "
+        >
+          Solo se permiten letras y espacios.
+        </p>
       </div>
+
       <div class="width__form">
         <label for="">Correo electrónico</label>
         <div class="input_content">
@@ -50,9 +75,17 @@
             type="text"
             class="input_style"
             placeholder="empresa@email.com"
+            formControlName="email"
           />
         </div>
+        <p class="error-text" *ngIf="contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched">
+          Este campo es obligatorio.
+        </p>
+        <p class="error-text" *ngIf="contactForm.get('email')?.hasError('email') && contactForm.get('email')?.touched">
+          Ingresa un correo electrónico válido.
+        </p>
       </div>
+
       <div class="width__form">
         <label for="">Teléfono de contacto</label>
         <div class="input_content">
@@ -64,49 +97,78 @@
             type="text"
             class="input_style p__ex"
             placeholder="Número de teléfono"
+            formControlName="phone"
+            maxlength="9"
           />
         </div>
+        <p class="error-text" *ngIf="contactForm.get('phone')?.hasError('required') && contactForm.get('phone')?.touched">
+          Este campo es obligatorio.
+        </p>
+        <p class="error-text" *ngIf="contactForm.get('phone')?.hasError('pattern') && contactForm.get('phone')?.touched">
+          Solo se permiten números.
+        </p>
+        <p class="error-text" *ngIf="contactForm.get('phone')?.hasError('maxlength') && contactForm.get('phone')?.touched">
+          Máximo 9 caracteres.
+        </p>
       </div>
+      
+
       <div class="width__form">
-        <label for="">Nombre de la compañia</label>
+        <label for="companyName">Nombre de la compañía</label>
         <div class="input_content">
           <img src="assets/bussiness_input.png" alt="" />
           <input
             type="text"
             class="input_style"
-            placeholder="Nombre y Apellido"
+            placeholder="Nombre de la Compañía"
+            formControlName="companyName"
           />
         </div>
+        <p
+          class="error-text"
+          *ngIf="
+            contactForm.get('companyName')?.hasError('required') &&
+            contactForm.get('companyName')?.touched
+          "
+        >
+          Este campo es obligatorio.
+        </p>
       </div>
+
       <div class="width__form">
         <label for="">Industria</label>
         <div class="input_content">
           <img src="assets/industria_input.png" alt="" />
-          <select name="" class="input_style" id="">
-            <option value="">Minería</option>
-            <option value="">Agroindustria</option>
-            <option value="">Pesca</option>
-            <option value="">Banca</option>
-            <option value="">Construcción</option>
-            <option value="">Energía</option>
-            <option value="">Manufactura</option>
-            <option value="">Retail</option>
-            <option value="">Turismo</option>
-            <option value="">Tecnología</option>
-            <option value="">Transporte y Logística</option>
-            <option value="">Educación</option>
-            <option value="">Salud y Farmacéutica</option>
-            <option value="">Textiles y Confecciones</option>
-            <option value="">Gastronomía y Alimentos</option>
+          <select formControlName="industry" class="input_style">
+            <option value="" disabled selected>Seleccione una opción</option>
+            <option value="Minería">Minería</option>
+            <option value="Agroindustria">Agroindustria</option>
+            <option value="Pesca">Pesca</option>
+            <option value="Banca">Banca</option>
+            <option value="Construcción">Construcción</option>
+            <option value="Energía">Energía</option>
+            <option value="Manufactura">Manufactura</option>
+            <option value="Retail">Retail</option>
+            <option value="Turismo">Turismo</option>
+            <option value="Tecnología">Tecnología</option>
+            <option value="Transporte y Logística">Transporte y Logística</option>
+            <option value="Educación">Educación</option>
+            <option value="Salud y Farmacéutica">Salud y Farmacéutica</option>
+            <option value="Textiles y Confecciones">Textiles y Confecciones</option>
+            <option value="Gastronomía y Alimentos">Gastronomía y Alimentos</option>
           </select>
         </div>
+        <p class="error-text" *ngIf="contactForm.get('industry')?.invalid && contactForm.get('industry')?.touched">
+          Este campo es obligatorio.
+        </p>
       </div>
+      
       <div class="width__form">
         <label for="">Número de colaboradores</label>
         <div class="input_content">
           <img src="assets/team_input.png" alt="" />
-          <select name="" class="input_style" id="">
-            <option value="">Ej: 10 colaboradores</option>
+          <select formControlName="collaboratorsNum" class="input_style">
+            <option value="" disabled selected>Seleccione una opción</option>
             <option value="<100">&lt; 100</option>
             <option value="100-300">100 a 300</option>
             <option value="300-500">300 a 500</option>
@@ -114,14 +176,19 @@
             <option value=">1000">1000 &gt;</option>
           </select>
         </div>
+        <p class="error-text" *ngIf="contactForm.get('collaboratorsNum')?.invalid && contactForm.get('collaboratorsNum')?.touched">
+          Este campo es obligatorio.
+        </p>
       </div>
+      
+
       <textarea
-        name=""
         class="width__textarea"
-        id=""
         placeholder="¿Cómo puede ayudar Trazzing a tu empresa? Cuéntanos tus necesidades."
+        formControlName="comments"
       ></textarea>
-      <button class="btn2 btn__modal2">Enviar</button>
+
+      <button class="btn2 btn__modal2" type="submit">Enviar</button>
     </form>
     <button class="close__modal" (click)="hideModal()">
       <i class="bx bx-x"></i>
@@ -131,3 +198,5 @@
     <img src="assets/linea__form.png" class="linea__form" alt="" />
   </div>
 </div>
+
+

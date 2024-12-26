@@ -1,6 +1,15 @@
 main {
   position: relative;
 }
+.stc1{
+  position: relative;
+}
+.icon_red{
+  position: absolute;
+  left: 0;
+  bottom: -6rem;
+  z-index: -1;
+}
 .linea_fondo {
   position: absolute;
   top: 30%;

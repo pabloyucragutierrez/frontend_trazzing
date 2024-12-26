@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-servicio-para-empresas',
@@ -6,16 +7,52 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servicio-para-empresas.component.css'],
 })
 export class ServicioParaEmpresasComponent implements OnInit {
-  isModalOpen: boolean = false; // Controla si el modal está visible
-  isPay2ModalOpen: boolean = false; // Controla si modal__pay2 está visible
-  isPay3ModalOpen: boolean = false; // Controla si modal__pay3 está visible
-  selectedPlan: string = ''; // Almacena el título del plan seleccionado
-  selectedPlanPriceMonthly: number = 0; // Precio mensual del plan seleccionado
-  selectedPlanPriceAnnual: number = 0; // Precio anual del plan seleccionado
-  selectedPlanPriceTotal: number = 0; // Total a pagar según el tipo de plan
-  activePlanIndex: number | null = null; // Índice del plan activo
+  contactForm!: FormGroup;
+  submitted = false;
 
-  // Información de las tarjetas
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.contactForm = this.fb.group({
+      contactName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      lastName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      phone: ['', [Validators.required, Validators.pattern('\\d{9}')]],
+      companyName: ['', [Validators.required]],
+      website: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            '^(https?://)?(www\\.)?[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}(/?[a-zA-Z0-9#]+/?)?$'
+          ),
+        ],
+      ],
+      selectedPlan: ['', [Validators.required]], // Validación para el plan seleccionado
+    });
+  }
+
+  onSubmitContact(): void {
+    this.submitted = true;
+
+    // Validar el formulario y el plan seleccionado
+    if (this.contactForm.valid) {
+      this.isModalOpen = false; // Cerrar el modal actual
+      this.isPay2ModalOpen = true; // Abrir el siguiente modal
+    } else {
+      this.validatePlanSelection(); // Mostrar mensaje de error si el plan no está seleccionado
+    }
+  }
+
+  isModalOpen: boolean = false;
+  isPay2ModalOpen: boolean = false;
+  isPay3ModalOpen: boolean = false;
+  selectedPlan: string = '';
+  selectedPlanPriceMonthly: number = 0;
+  selectedPlanPriceAnnual: number = 0;
+  selectedPlanPriceTotal: number = 0;
+  activePlanIndex: number | null = null;
+  showPlanError: boolean = false;
+
   cards = [
     {
       title: 'The Coach',
@@ -55,26 +92,21 @@ export class ServicioParaEmpresasComponent implements OnInit {
     },
   ];
 
-  constructor() {}
-
-  ngOnInit(): void {}
-
   openModal(planTitle: string): void {
-    // Encuentra el plan seleccionado en el array `cards`
     const selectedCard = this.cards.find((card) => card.title === planTitle);
     if (selectedCard) {
-      this.selectedPlan = planTitle; // Asigna el título del plan
-      this.selectedPlanPriceMonthly = selectedCard.monthlyPrice; // Precio mensual del plan
-      this.selectedPlanPriceAnnual = selectedCard.annualPrice; // Precio anual del plan
-      this.selectedPlanPriceTotal = 0; // Reinicia el total a pagar
+      this.selectedPlan = planTitle;
+      this.selectedPlanPriceMonthly = selectedCard.monthlyPrice;
+      this.selectedPlanPriceAnnual = selectedCard.annualPrice;
+      this.selectedPlanPriceTotal = 0;
     }
-    this.isModalOpen = true; // Muestra modal__pay
+    this.isModalOpen = true;
   }
 
   closeModal(): void {
-    this.isModalOpen = false; // Oculta modal__pay
-    this.isPay2ModalOpen = false; // Oculta modal__pay2
-    this.resetPlanSelection(); // Resetea la selección del plan
+    this.isModalOpen = false;
+    this.isPay2ModalOpen = false;
+    this.resetPlanSelection();
   }
 
   openModal2(): void {
@@ -82,35 +114,46 @@ export class ServicioParaEmpresasComponent implements OnInit {
   }
 
   closeModal2(): void {
-    this.isPay3ModalOpen = false; // Oculta modal__pay3
-    this.resetPlanSelection(); // Resetea la selección del plan
+    this.isPay3ModalOpen = false;
+    this.resetPlanSelection();
   }
 
-  // Método para resetear la selección de plan
-resetPlanSelection(): void {
-  this.activePlanIndex = null; // Desactiva cualquier plan seleccionado
-  this.selectedPlan = ''; // Limpia el título del plan seleccionado
-  this.selectedPlanPriceTotal = 0; // Reinicia el precio total
-}
+  resetPlanSelection(): void {
+    this.activePlanIndex = null;
+    this.selectedPlan = '';
+    this.selectedPlanPriceTotal = 0;
+    this.showPlanError = false;
+    this.contactForm.controls['selectedPlan'].setValue('');
+  }
 
   showPay2Modal(): void {
     if (this.activePlanIndex !== null) {
-      this.isModalOpen = false; // Oculta modal__pay
-      this.isPay2ModalOpen = true; // Muestra modal__pay2
+      this.isModalOpen = false;
+      this.isPay2ModalOpen = true;
     }
   }
 
   setActivePlan(planIndex: number): void {
-    this.activePlanIndex = planIndex; // Almacena el índice del plan seleccionado
+    this.activePlanIndex = planIndex;
+
+    // Actualiza el control del formulario con el plan seleccionado
     if (planIndex === 0) {
-      this.selectedPlanPriceTotal = this.selectedPlanPriceMonthly; // Total mensual
+      this.contactForm.controls['selectedPlan'].setValue('Mensual');
+      this.selectedPlanPriceTotal = this.selectedPlanPriceMonthly;
     } else if (planIndex === 1) {
-      this.selectedPlanPriceTotal = this.selectedPlanPriceAnnual * 12; // Total anual (por mes * 12)
+      this.contactForm.controls['selectedPlan'].setValue('Anual');
+      this.selectedPlanPriceTotal = this.selectedPlanPriceAnnual * 12;
     }
+
+    this.showPlanError = false; // Desactivar mensaje de error al seleccionar un plan
   }
 
   goBackToModalPay(): void {
-    this.isPay2ModalOpen = false; // Oculta modal__pay2
-    this.isModalOpen = true; // Muestra modal__pay
+    this.isPay2ModalOpen = false;
+    this.isModalOpen = true;
+  }
+
+  validatePlanSelection(): void {
+    this.showPlanError = this.contactForm.controls['selectedPlan'].invalid;
   }
 }

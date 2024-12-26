@@ -285,3 +285,12 @@ header {
 .title__modal span {
   color: #ec625f;
 }
+
+.error-text {
+  color: red;
+  font-size: 0.875em; 
+  margin-top: 5px;
+}
+.error-text.mt__2{
+  margin-bottom: 1rem;
+}
