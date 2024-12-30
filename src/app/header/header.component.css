@@ -11,8 +11,12 @@ header {
   align-items: center;
   border-bottom: 1px solid gray;
 }
+.contenedor__header .logo_header img:hover{
+  transform: scale(1.05);
+}
 .contenedor__header .logo_header img {
   width: 11rem;
+  transition: .3s ease all;
 }
 .contenedor__header nav {
   display: flex;

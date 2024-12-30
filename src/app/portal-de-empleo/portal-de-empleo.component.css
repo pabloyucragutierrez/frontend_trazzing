@@ -54,7 +54,6 @@
   border-radius: 50%;
 }
 
-
 .search__jobs {
   width: 90%;
   background-color: #fff;
@@ -89,7 +88,12 @@
   width: fit-content;
   height: fit-content;
 }
+
+.btn__job:hover {
+  background-color: rgb(255, 132, 130);
+}
 .btn__job {
+ transition: .3s ease all;
   width: 20%;
   border: none;
   outline: none;
@@ -114,7 +118,6 @@
   width: 1px;
   background-color: #000;
 }
-
 
 /* sección empleos */
 .empleos__destacados {
@@ -150,7 +153,6 @@
   justify-content: center;
   gap: 1.3rem;
 }
-
 
 .item__job {
   width: 60%;
@@ -268,4 +270,3 @@
   font-size: 1.5rem;
   place-items: center;
 }
-

@@ -58,7 +58,29 @@
 .empleos__destacados {
   width: 100%;
   background-color: #eaedf2;
+  position: relative;
   padding: 5rem 1rem;
+}
+.lupa_red {
+  position: absolute;
+  right: 6rem;
+  top: 7rem;
+  width: 5rem;
+  transform: rotate(-15deg);
+}
+.lupa_blue {
+  position: absolute;
+  left: 5rem;
+  top: 18rem;
+  width: 7rem;
+  transform: rotate(15deg);
+}
+.linea_red {
+  position: absolute;
+  right: 5rem;
+  top: 16rem;
+  transform: rotate(15deg);
+  width: 8rem;
 }
 .contenedor__destacados {
   display: flex;

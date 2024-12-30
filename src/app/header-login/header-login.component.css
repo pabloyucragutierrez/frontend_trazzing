@@ -14,4 +14,8 @@ header {
 }
 .contenedor__header .logo_header img {
   width: 11rem;
+  transition: .3s ease all;
+}
+.contenedor__header .logo_header img:hover{
+  transform: scale(1.05);
 }

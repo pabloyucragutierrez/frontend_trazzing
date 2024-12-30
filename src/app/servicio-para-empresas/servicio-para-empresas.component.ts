@@ -14,7 +14,10 @@ export class ServicioParaEmpresasComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactForm = this.fb.group({
-      contactName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      contactName: [
+        '',
+        [Validators.required, Validators.pattern('[a-zA-Z ]*')],
+      ],
       lastName: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
       phone: ['', [Validators.required, Validators.pattern('\\d{9}')]],
       companyName: ['', [Validators.required]],
@@ -22,15 +25,23 @@ export class ServicioParaEmpresasComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern(
-            '^(https?://)?(www\\.)?[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}(/?[a-zA-Z0-9#]+/?)?$'
-          ),
+          Validators.pattern(/^[a-zA-Z0-9]+$/), // Solo permite texto o números.
         ],
       ],
+
       selectedPlan: ['', [Validators.required]], // Validación para el plan seleccionado
     });
   }
 
+  onSubmit(form: HTMLFormElement): void {
+    if (!form.checkValidity()) {
+      // Si el formulario no es válido, mostramos los mensajes de error del navegador.
+      form.reportValidity();
+    } else {
+      // Lógica adicional si el formulario es válido.
+      console.log('Formulario enviado correctamente.');
+    }
+  }
   onSubmitContact(): void {
     this.submitted = true;
 
@@ -72,7 +83,7 @@ export class ServicioParaEmpresasComponent implements OnInit {
       monthlyPrice: 179,
       annualPrice: 150,
       features: [
-        'Todo lo incluido en The Coach, más',
+        'Todo lo incluido en The Coach',
         'Estrategias avanzadas de atracción de talento',
         'Análisis y reportes detallados de candidatos',
         'Soporte extendido y asesoría',
@@ -84,7 +95,7 @@ export class ServicioParaEmpresasComponent implements OnInit {
       monthlyPrice: 229,
       annualPrice: 200,
       features: [
-        'Todo lo incluido en The Manager, más',
+        'Todo lo incluido en The Manager',
         'Consultoría en estrategias de retención de talento',
         'Acceso a eventos exclusivos de networking',
         'Integración de herramientas de seguimiento de candidatos (ATS)',

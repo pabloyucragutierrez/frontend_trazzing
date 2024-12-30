@@ -182,6 +182,9 @@ main {
   font-size: 1.3rem;
   color: #333333;
 }
+.content__servicios .text__service span.first_child{
+  color: #ec625f;
+}
 .content__servicios .text__service p {
   color: #434343;
   font-size: 1rem;

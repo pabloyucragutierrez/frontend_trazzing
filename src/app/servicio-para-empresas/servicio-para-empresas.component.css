@@ -189,7 +189,7 @@
   text-align: center;
   color: #2f4b7d;
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 .price__card p span {
   color: #333333;
@@ -587,7 +587,11 @@ background-size: cover;
   width: 4rem;
   z-index: 1;
 }
+.close__back:hover {
+  background-color: rgb(255, 132, 130);
+}
 .close__back {
+  transition: .3s ease all;
   position: absolute;
   top: 0.8rem;
   left: 0.8rem;
@@ -605,7 +609,12 @@ background-size: cover;
   justify-content: center;
   align-items: center;
 }
+.close__modal:hover{
+  background-color: #ec625f;
+  color: #fff;
+}
 .close__modal {
+  transition: .3s ease all;
   position: absolute;
   top: -1rem;
   right: -1rem;

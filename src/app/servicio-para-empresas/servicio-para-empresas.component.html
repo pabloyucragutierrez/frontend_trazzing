@@ -185,6 +185,7 @@
         <div class="input_content">
           <img src="assets/industria_input.png" alt="" />
           <select name="" class="input_style" id="">
+            <option value="" disabled selected>Seleccione una opción</option>
             <option value="">Minería</option>
             <option value="">Agroindustria</option>
             <option value="">Pesca</option>
@@ -208,7 +209,7 @@
         <div class="input_content">
           <img src="assets/team_input.png" alt="" />
           <select name="" class="input_style" id="">
-            <option value="">Ej: 10 colaboradores</option>
+            <option value="" disabled selected>Seleccione una opción</option>
             <option value="<100">&lt; 100</option>
             <option value="100-300">100 a 300</option>
             <option value="300-500">300 a 500</option>
@@ -242,10 +243,10 @@
       Has seleccionado el plan
       <span class="plan__title">{{ selectedPlan }}</span>
     </h2>
-     <!-- Error si no se selecciona un plan -->
-    
-     <b class="title__plan">Elegir plan</b>
-     <p *ngIf="showPlanError" class="error-text mt_0">
+    <!-- Error si no se selecciona un plan -->
+
+    <b class="title__plan">Elegir plan</b>
+    <p *ngIf="showPlanError" class="error-text mt_0">
       Por favor selecciona un plan antes de continuar.
     </p>
     <div class="plans__content">
@@ -393,7 +394,7 @@
       <label for="website">Sitio web de la empresa</label>
       <div class="input_content">
         <input
-          type="url"
+          type="text"
           class="input_style num__padd"
           placeholder="www.empresa.com"
           formControlName="website"
@@ -415,11 +416,9 @@
           (contactForm.get('website')?.touched || submitted)
         "
       >
-        Ingresa una URL válida.
+        Ingresa un valor válido.
       </p>
     </div>
-
-   
 
     <button type="submit" class="btn2 btn__modal" (click)="submitted = true">
       Continuar
@@ -434,11 +433,13 @@
   </form>
 </div>
 
-
 <div *ngIf="isPay2ModalOpen" class="modal__pay2">
   <div class="content__overflow">
-    <form class="form_content modal__content2" action="">
+    <form class="form_content modal__content2" action=""  novalidate
+    (ngSubmit)="onSubmit($event.target)">
       <h2 class="title__modal mb_2">Configuración de <span>Pago</span></h2>
+
+      <!-- Nombre del titular -->
       <div class="width__form full__input">
         <label for="cardholder-name">Nombre del titular</label>
         <div class="input_content h__m">
@@ -447,9 +448,12 @@
             id="cardholder-name"
             class="input_style num__padd"
             required
+            title="El nombre del titular es obligatorio."
           />
         </div>
       </div>
+
+      <!-- Número de tarjeta -->
       <div class="width__form full__input">
         <div class="label__space">
           <label for="card-number">Número de tarjeta</label>
@@ -463,9 +467,12 @@
             pattern="\d{16}"
             maxlength="16"
             required
+            title="El número de tarjeta debe tener exactamente 16 dígitos."
           />
         </div>
       </div>
+
+      <!-- Fecha de vencimiento -->
       <div class="width__form full__input2">
         <label for="expiry-date">Fecha de vencimiento</label>
         <div class="input_content h__m">
@@ -476,9 +483,12 @@
             placeholder="MM/AA"
             pattern="\d{2}/\d{2}"
             required
+            title="Introduce la fecha en el formato MM/AA."
           />
         </div>
       </div>
+
+      <!-- CVC -->
       <div class="width__form full__input2">
         <label for="cvv">CVC</label>
         <div class="input_content h__m">
@@ -490,20 +500,26 @@
             pattern="\d{3}"
             maxlength="3"
             required
+            title="El CVC debe contener exactamente 3 dígitos."
           />
         </div>
       </div>
+
+      <!-- Dirección de facturación -->
       <div class="width__form full__input">
-        <label for="email">Dirección de facturación</label>
+        <label for="billing-address">Dirección de facturación</label>
         <div class="input_content h__m">
           <input
-            type="email"
-            id="email"
+            type="text"
+            id="billing-address"
             class="input_style num__padd"
             required
+            title="La dirección de facturación es obligatoria."
           />
         </div>
       </div>
+
+      <!-- Correo electrónico -->
       <div class="width__form full__input">
         <label for="email">Correo electrónico</label>
         <div class="input_content h__m">
@@ -512,31 +528,54 @@
             id="email"
             class="input_style num__padd"
             required
+            title="Introduce un correo electrónico válido."
           />
         </div>
       </div>
+
+      <!-- País -->
       <div class="width__form full__input2">
-        <label for="expiry-date">País</label>
+        <label for="country">País</label>
         <div class="input_content h__m">
-          <input type="text" class="input_style num__padd" required />
+          <input
+            type="text"
+            id="country"
+            class="input_style num__padd"
+            required
+            title="El país es obligatorio."
+          />
         </div>
       </div>
+
+      <!-- Código postal -->
       <div class="width__form full__input2">
-        <label for="cvv">Código postal</label>
+        <label for="postal-code">Código postal</label>
         <div class="input_content h__m">
-          <input type="text" class="input_style num__padd" required />
+          <input
+            type="text"
+            id="postal-code"
+            class="input_style num__padd"
+            required
+            pattern="\d+"
+            title="El código postal debe contener solo números."
+          />
         </div>
       </div>
+
+      <!-- Aceptar términos -->
       <div class="width__form full__input3">
-        <input type="checkbox" />
-        <label for=""
+        <input type="checkbox" id="terms" required />
+        <label for="terms"
           >He leído y acepto los Términos y Condiciones de Trazzing</label
         >
       </div>
+
+      <!-- Botón de envío -->
       <button type="submit" class="btn2 btn__modal2">
         Pagar ${{ selectedPlanPriceTotal }}
       </button>
     </form>
+
     <button type="button" class="close__modal" (click)="closeModal()">
       <i class="bx bx-x"></i>
     </button>
@@ -610,6 +649,7 @@
         <div class="input_content">
           <img src="assets/industria_input.png" alt="" />
           <select name="" class="input_style" id="">
+            <option value="" disabled selected>Seleccione una opción</option>
             <option value="">Minería</option>
             <option value="">Agroindustria</option>
             <option value="">Pesca</option>
@@ -633,7 +673,7 @@
         <div class="input_content">
           <img src="assets/team_input.png" alt="" />
           <select name="" class="input_style" id="">
-            <option value="">Ej: 10 colaboradores</option>
+            <option value="" disabled selected>Seleccione una opción</option>
             <option value="<100">&lt; 100</option>
             <option value="100-300">100 a 300</option>
             <option value="300-500">300 a 500</option>
