@@ -409,16 +409,8 @@
       >
         Este campo es obligatorio.
       </p>
-      <p
-        class="error-text"
-        *ngIf="
-          contactForm.get('website')?.hasError('pattern') &&
-          (contactForm.get('website')?.touched || submitted)
-        "
-      >
-        Ingresa un valor válido.
-      </p>
     </div>
+    
 
     <button type="submit" class="btn2 btn__modal" (click)="submitted = true">
       Continuar

@@ -23,11 +23,9 @@ export class ServicioParaEmpresasComponent implements OnInit {
       companyName: ['', [Validators.required]],
       website: [
         '',
-        [
-          Validators.required,
-          Validators.pattern(/^[a-zA-Z0-9]+$/), // Solo permite texto o números.
-        ],
+        [Validators.required], // Solo validación de requerido.
       ],
+      
 
       selectedPlan: ['', [Validators.required]], // Validación para el plan seleccionado
     });

@@ -226,7 +226,13 @@ header {
   z-index: 1;
 }
 
+.close__modal:hover{
+  background-color: #ec625f;
+  color: #fff;
+}
+
 .close__modal {
+ transition: .3s ease all;
   position: absolute;
   top: -1rem;
   right: -1rem;
