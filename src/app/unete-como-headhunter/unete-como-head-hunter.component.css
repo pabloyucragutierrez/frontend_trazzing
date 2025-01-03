@@ -361,3 +361,68 @@
   padding-top: 80px;
   margin-top: -80px;
 }
+
+@media (max-width: 768px) {
+  .contenedor__banner {
+    height: 55vh;
+  }
+  .content__banner {
+    width: 90%;
+  }
+
+  
+  .art__beneficios {
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .art__beneficios {
+    width: 100%;
+  }
+  .art__beneficios h2 {
+    width: 100%;
+    font-weight: bold;
+    padding: 0;
+    font-size: 1.8rem;
+  }
+  .itemt__ben {
+    width: 100%;
+    height: fit-content;
+  }
+  .section__beneficios{
+    padding: 2.5rem 1.5rem;
+  }
+  .item__btn {
+    width: 100%;
+  }
+  .item__btn .btn2 {
+    width: 100%;
+  }
+  .text__empresas{
+    width: 90%;
+    margin: 2rem auto;
+  }
+
+ /* formulario */
+ .content__overflow{
+  width: 90%;
+}
+.contenedor__form p{
+  width: 100%;
+}
+.contenedor__form{
+  width: 100%;
+}
+.form_content {
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.width__form {
+  width: 100%;
+}
+.form__servicios{
+  padding: 2rem;
+}
+}

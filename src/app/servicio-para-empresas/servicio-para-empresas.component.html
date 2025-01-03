@@ -25,6 +25,7 @@
     </article>
   </div>
 </section>
+
 <div class="section__contrata">
   <div class="conatiner__contrata container_section">
     <article class="art__contrata">
@@ -39,6 +40,47 @@
         avanzadas y un enfoque personalizado para asegurarnos de que encuentres
         al mejor talento para tu empresa.
       </p>
+    </article>
+    <article class="art_competencias">
+      <h2><span> Competencias Clave </span> para el Éxito Profesional</h2>
+      <div class="cards__competencias">
+        <img src="assets/linea_com.png" class="linea1__com" alt="">
+        <img src="assets/linea_com.png" class="linea1__com2" alt="">
+        <img src="assets/linea__form.png" class="linea1__com3" alt="">
+        <img src="assets/linea_com.png" class="linea1__com4" alt="">
+        <img src="assets/linea_com.png" class="linea1__com5" alt="">
+        <div class="item__competencias">
+          <b>Iniciativa</b>
+          <img src="assets/15.png" alt="" />
+          <p>Capacidad para actuar activamente y anticiparse a problemas</p>
+        </div>
+        <div class="item__competencias">
+          <b>Negociación</b>
+          <img src="assets/16.png" alt="" />
+          <p>
+            Capacidad para alcanzar acuerdos beneficiosos entre diferentes
+            intereses
+          </p>
+        </div>
+        <div class="item__competencias">
+          <b>Lidrezacgo</b>
+          <img src="assets/17.png" alt="" />
+          <p>
+            Capacidad para influir positivamente y dirigir equipos hacia
+            objeivos
+          </p>
+        </div>
+        <div class="item__competencias">
+          <b>Orientación a Resultados</b>
+          <img src="assets/18.png" alt="" />
+          <p>Enfoque en ancalzar y superar objetivos establecidos</p>
+        </div>
+        <div class="item__competencias">
+          <b>Trabajo en Equipo</b>
+          <img src="assets/19.png" alt="" />
+          <p>Habilidad para colaborar eficazmente hacia metas comunes</p>
+        </div>
+      </div>
     </article>
     <article class="contrata__planes">
       <h2>Planes de servicio adaptados a tu empresa</h2>
@@ -410,7 +452,6 @@
         Este campo es obligatorio.
       </p>
     </div>
-    
 
     <button type="submit" class="btn2 btn__modal" (click)="submitted = true">
       Continuar
@@ -427,8 +468,12 @@
 
 <div *ngIf="isPay2ModalOpen" class="modal__pay2">
   <div class="content__overflow">
-    <form class="form_content modal__content2" action=""  novalidate
-    (ngSubmit)="onSubmit($event.target)">
+    <form
+      class="form_content modal__content2"
+      action=""
+      novalidate
+      (ngSubmit)="onSubmit($event.target)"
+    >
       <h2 class="title__modal mb_2">Configuración de <span>Pago</span></h2>
 
       <!-- Nombre del titular -->
@@ -629,11 +674,7 @@
         <label for="">Nombre de la compañia</label>
         <div class="input_content">
           <img src="assets/bussiness_input.png" alt="" />
-          <input
-            type="text"
-            class="input_style"
-            placeholder="Compañía"
-          />
+          <input type="text" class="input_style" placeholder="Compañía" />
         </div>
       </div>
       <div class="width__form full__input2">

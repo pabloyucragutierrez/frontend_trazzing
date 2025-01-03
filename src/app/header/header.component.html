@@ -3,21 +3,40 @@
     <a routerLink="/inicio" class="logo_header">
       <img src="assets/trazzing.png" alt="" />
     </a>
-    <nav>
+    <nav [ngClass]="{'active': isMenuOpen && !isClosing, 'inactive': isClosing}">
       <a routerLink="/inicio" routerLinkActive="activelink">Inicio</a>
-      <a routerLink="/servicio-para-empresas" routerLinkActive="activelink"
-        >Servicio para empresas</a
-      >
-      <a routerLink="/portal-de-empleo" routerLinkActive="activelink"
-        >Portal de empleo</a
-      >
-      <a routerLink="/unete-como-trazzer" routerLinkActive="activelink"
-        >Únete como Trazzer</a
-      >
+      <a routerLink="/servicio-para-empresas" routerLinkActive="activelink">
+        Servicio para empresas
+        <img src="assets/open_in_new.png" alt="" />
+      </a>
+      <a routerLink="/portal-de-empleo" routerLinkActive="activelink">
+        Portal de empleo
+        <img src="assets/open_in_new.png" alt="" />
+      </a>
+      <a routerLink="/unete-como-trazzer" routerLinkActive="activelink">
+        Únete como Trazzer
+        <img src="assets/open_in_new.png" alt="" />
+      </a>
+      <button class="btn btn__hidden__nav" (click)="showModal()">
+        Solicitar una cotización
+      </button>
+      <button class="close__nav" (click)="closeMenu()">
+        <i class="bx bx-x"></i>
+      </button>
     </nav>
-    <button class="btn" (click)="showModal()">Solicitar una cotización</button>
+    <button class="btn btn__hidden" (click)="showModal()">
+      Solicitar una cotización
+    </button>
+    <button class="menu__open" (click)="toggleMenu()">
+      <i class="bx bx-menu"></i>
+    </button>
   </div>
+  <!-- Overlay -->
+  <div class="overlay" [class.active]="isMenuOpen" (click)="closeMenu()"></div>
 </header>
+
+
+
 
 <div class="modal__pay2" *ngIf="isModalOpen">
   <div class="content__overflow">
@@ -78,10 +97,22 @@
             formControlName="email"
           />
         </div>
-        <p class="error-text" *ngIf="contactForm.get('email')?.hasError('required') && contactForm.get('email')?.touched">
+        <p
+          class="error-text"
+          *ngIf="
+            contactForm.get('email')?.hasError('required') &&
+            contactForm.get('email')?.touched
+          "
+        >
           Este campo es obligatorio.
         </p>
-        <p class="error-text" *ngIf="contactForm.get('email')?.hasError('email') && contactForm.get('email')?.touched">
+        <p
+          class="error-text"
+          *ngIf="
+            contactForm.get('email')?.hasError('email') &&
+            contactForm.get('email')?.touched
+          "
+        >
           Ingresa un correo electrónico válido.
         </p>
       </div>
@@ -101,17 +132,34 @@
             maxlength="9"
           />
         </div>
-        <p class="error-text" *ngIf="contactForm.get('phone')?.hasError('required') && contactForm.get('phone')?.touched">
+        <p
+          class="error-text"
+          *ngIf="
+            contactForm.get('phone')?.hasError('required') &&
+            contactForm.get('phone')?.touched
+          "
+        >
           Este campo es obligatorio.
         </p>
-        <p class="error-text" *ngIf="contactForm.get('phone')?.hasError('pattern') && contactForm.get('phone')?.touched">
+        <p
+          class="error-text"
+          *ngIf="
+            contactForm.get('phone')?.hasError('pattern') &&
+            contactForm.get('phone')?.touched
+          "
+        >
           Solo se permiten números.
         </p>
-        <p class="error-text" *ngIf="contactForm.get('phone')?.hasError('maxlength') && contactForm.get('phone')?.touched">
+        <p
+          class="error-text"
+          *ngIf="
+            contactForm.get('phone')?.hasError('maxlength') &&
+            contactForm.get('phone')?.touched
+          "
+        >
           Máximo 9 caracteres.
         </p>
       </div>
-      
 
       <div class="width__form">
         <label for="companyName">Nombre de la compañía</label>
@@ -151,18 +199,30 @@
             <option value="Retail">Retail</option>
             <option value="Turismo">Turismo</option>
             <option value="Tecnología">Tecnología</option>
-            <option value="Transporte y Logística">Transporte y Logística</option>
+            <option value="Transporte y Logística">
+              Transporte y Logística
+            </option>
             <option value="Educación">Educación</option>
             <option value="Salud y Farmacéutica">Salud y Farmacéutica</option>
-            <option value="Textiles y Confecciones">Textiles y Confecciones</option>
-            <option value="Gastronomía y Alimentos">Gastronomía y Alimentos</option>
+            <option value="Textiles y Confecciones">
+              Textiles y Confecciones
+            </option>
+            <option value="Gastronomía y Alimentos">
+              Gastronomía y Alimentos
+            </option>
           </select>
         </div>
-        <p class="error-text" *ngIf="contactForm.get('industry')?.invalid && contactForm.get('industry')?.touched">
+        <p
+          class="error-text"
+          *ngIf="
+            contactForm.get('industry')?.invalid &&
+            contactForm.get('industry')?.touched
+          "
+        >
           Este campo es obligatorio.
         </p>
       </div>
-      
+
       <div class="width__form">
         <label for="">Número de colaboradores</label>
         <div class="input_content">
@@ -176,11 +236,16 @@
             <option value=">1000">1000 &gt;</option>
           </select>
         </div>
-        <p class="error-text" *ngIf="contactForm.get('collaboratorsNum')?.invalid && contactForm.get('collaboratorsNum')?.touched">
+        <p
+          class="error-text"
+          *ngIf="
+            contactForm.get('collaboratorsNum')?.invalid &&
+            contactForm.get('collaboratorsNum')?.touched
+          "
+        >
           Este campo es obligatorio.
         </p>
       </div>
-      
 
       <textarea
         class="width__textarea"
@@ -198,5 +263,3 @@
     <img src="assets/linea__form.png" class="linea__form" alt="" />
   </div>
 </div>
-
-

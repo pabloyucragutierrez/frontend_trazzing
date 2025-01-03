@@ -1,10 +1,10 @@
 main {
   position: relative;
 }
-.stc1{
+.stc1 {
   position: relative;
 }
-.icon_red{
+.icon_red {
   position: absolute;
   left: 0;
   bottom: -6rem;
@@ -16,19 +16,19 @@ main {
   left: 43%;
   width: 17rem;
 }
-.img_fondo1{
+.img_fondo1 {
   position: absolute;
   top: 26%;
   left: 44%;
   width: 2rem;
 }
-.img_fondo2{
+.img_fondo2 {
   position: absolute;
   top: 56%;
   left: 54%;
   width: 2rem;
 }
-.img_fondo3{
+.img_fondo3 {
   position: absolute;
   bottom: 7%;
   left: 42%;
@@ -182,7 +182,7 @@ main {
   font-size: 1.3rem;
   color: #333333;
 }
-.content__servicios .text__service span.first_child{
+.content__servicios .text__service span.first_child {
   color: #ec625f;
 }
 .content__servicios .text__service p {
@@ -203,4 +203,69 @@ main {
 .content__servicios article img {
   width: 100%;
   border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .contenedor__banner {
+    height: 55vh;
+  }
+  .content__banner {
+    width: 90%;
+  }
+  .section__cards .cards__inicio {
+    flex-direction: column;
+    gap: 0;
+  }
+  .section__cards .cards__inicio article p {
+    color: #fff;
+  }
+  .section__cards .cards__inicio article b {
+    color: #fff;
+  }
+  .section__cards .cards__inicio article:nth-child(2) {
+    border: 1px solid #596f97;
+  }
+  .section__cards .cards__inicio article {
+    border-radius: 0;
+    width: 100%;
+    background-color: #2f4b7d;
+  }
+  .section__cards {
+    padding: 0;
+  }
+  .content__servicios.reverse {
+    flex-direction: column-reverse;
+  }
+  .content__servicios {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2.5rem 2rem;
+  }
+  .content__servicios .img__service {
+    width: 100%;
+  }
+  .content__servicios .text__service {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .content__servicios .text__service.right {
+    text-align: center;
+    align-items: center;
+  }
+  .content__servicios .text__service.left {
+    text-align: center;
+    align-items: center;
+  }
+  .icon_red {
+    display: none;
+  }
+  .linea_fondo {
+    display: none;
+  }
+  .img_fondo1,
+  .img_fondo2,
+  .img_fondo3 {
+    display: none;
+  }
 }

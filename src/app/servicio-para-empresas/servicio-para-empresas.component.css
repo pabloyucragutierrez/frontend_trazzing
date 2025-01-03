@@ -109,6 +109,104 @@
   display: flex;
   justify-content: space-between;
 }
+
+.art_competencias {
+  width: 95%;
+}
+.art_competencias h2 span {
+  text-decoration: underline;
+  color: #ec625f;
+}
+.art_competencias h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.cards__competencias {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem 17rem;
+  margin-top: 3rem;
+  position: relative;
+}
+
+.linea1__com {
+  position: absolute;
+  top: -3rem;
+  left: 27%;
+  transform: rotate(75deg);
+  z-index: 1;
+  width: 6rem;
+}
+.linea1__com2 {
+  position: absolute;
+  top: -3rem;
+  right: 27%;
+  transform: rotate(75deg);
+  z-index: 1;
+  width: 6rem;
+}
+.linea1__com3 {
+  position: absolute;
+  bottom: 6rem;
+  right: 15%;
+  transform: rotate(56deg);
+  z-index: 1;
+  width: 4rem;
+}
+.linea1__com4 {
+  position: absolute;
+  bottom: -1rem;
+  right: 47%;
+  transform: rotate(75deg);
+  z-index: 1;
+  width: 5.5rem;
+}
+.linea1__com5 {
+  position: absolute;
+  bottom: 6rem;
+  left: 15%;
+  transform: rotate(-60deg);
+  z-index: 1;
+  width: 4rem;
+}
+.item__competencias {
+  width: 12rem;
+  height: 15rem;
+  border: 4px solid #ec625f;
+  background-repeat: repeat;
+  background-image: linear-gradient(
+      to top,
+      rgba(242, 242, 242, 0.95) 0%,
+      rgba(242, 242, 242, 0.95) 100%
+    ),
+    url("/assets/banner_users.jpg");
+  background-size: cover;
+  z-index: 2;
+  border-radius: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.2rem;
+  gap: 0.5rem;
+  text-align: center;
+}
+.item__competencias b {
+  font-weight: bold;
+  font-size: 1rem;
+}
+.item__competencias img {
+  width: 50%;
+}
+.item__competencias p {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
 .art__contrata p {
   width: 45%;
 }
@@ -301,16 +399,16 @@
 
 .error-text {
   color: red;
-  font-size: 0.875em; 
+  font-size: 0.875em;
   margin-top: 5px;
 }
-.error-text.mt_0{
+.error-text.mt_0 {
   margin-top: 0;
 }
-.error-text.mt__2{
+.error-text.mt__2 {
   margin-bottom: 1rem;
 }
-.linea__form2{
+.linea__form2 {
   position: absolute;
   right: 1rem;
   bottom: 0;
@@ -318,7 +416,7 @@
   transform: rotateY(180deg); /* Gira la imagen de derecha a izquierda */
 }
 
-.lupa_red2{
+.lupa_red2 {
   position: absolute;
   left: -1rem;
   bottom: 10rem;
@@ -326,7 +424,7 @@
   width: 9rem;
 }
 
-.lupa_blue2{
+.lupa_blue2 {
   position: absolute;
   right: 2rem;
   top: 11rem;
@@ -497,7 +595,7 @@
   margin: 0;
   max-height: 88vh;
   gap: 0.4rem;
-  
+
   overflow: auto;
 }
 .modal__content3::-webkit-scrollbar {
@@ -510,7 +608,7 @@
   max-height: 88vh;
   gap: 0.7rem;
   overflow: auto;
-  position:relative;
+  position: relative;
   z-index: 2;
 }
 
@@ -523,12 +621,12 @@
   position: relative;
   /* background-color: #f2f2f2; */
   background-image: linear-gradient(
-    to top,
-    rgba(242, 242, 242, 0.95) 0%,
-    rgba(242, 242, 242, 0.95) 100%
-  ),
-  url("/assets/banner_users.jpg");
-background-size: cover;
+      to top,
+      rgba(242, 242, 242, 0.95) 0%,
+      rgba(242, 242, 242, 0.95) 100%
+    ),
+    url("/assets/banner_users.jpg");
+  background-size: cover;
 }
 
 .content__overflow2 {
@@ -592,7 +690,7 @@ background-size: cover;
   background-color: rgb(255, 132, 130);
 }
 .close__back {
-  transition: .3s ease all;
+  transition: 0.3s ease all;
   position: absolute;
   top: 0.8rem;
   left: 0.8rem;
@@ -610,12 +708,12 @@ background-size: cover;
   justify-content: center;
   align-items: center;
 }
-.close__modal:hover{
+.close__modal:hover {
   background-color: #ec625f;
   color: #fff;
 }
 .close__modal {
-  transition: .3s ease all;
+  transition: 0.3s ease all;
   position: absolute;
   top: -1rem;
   right: -1rem;
@@ -741,4 +839,99 @@ background-size: cover;
 }
 .label__space img {
   width: 10rem;
+}
+
+@media (max-width: 768px) {
+  .contenedor__banner {
+    height: 55vh;
+  }
+  .content__banner {
+    width: 90%;
+  }
+  .section__empresas {
+    padding: 2.5rem 1rem;
+  }
+  .text__empresas {
+    width: 100%;
+    margin: 0;
+  }
+  .art__contrata p {
+    width: 100%;
+  }
+  .art__contrata h2 {
+    width: 100%;
+    text-align: center;
+  }
+  .art__contrata {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 1.2rem;
+  }
+  .section__contrata {
+    padding: 2.5rem 1rem;
+  }
+  .contrata__cards {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
+  .item__card {
+    width: 95%;
+  }
+  .contrata__planes{
+    width: 100%;
+  }
+  .art__beneficios {
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .art__beneficios {
+    width: 100%;
+  }
+  .art__beneficios h2 {
+    width: 100%;
+    font-weight: bold;
+    padding: 0;
+    font-size: 1.8rem;
+  }
+  .itemt__ben {
+    width: 100%;
+    height: fit-content;
+  }
+  .section__beneficios{
+    padding: 2.5rem 1.5rem;
+  }
+  .item__btn {
+    width: 100%;
+  }
+  .item__btn .btn2 {
+    width: 100%;
+  }
+
+  /* formulario */
+  .content__overflow{
+    width: 90%;
+  }
+  .contenedor__form p{
+    width: 100%;
+  }
+  .contenedor__form{
+    width: 100%;
+  }
+  .form_content {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .width__form {
+    width: 100%;
+  }
+  .form__servicios{
+    padding: 2rem;
+  }
 }
