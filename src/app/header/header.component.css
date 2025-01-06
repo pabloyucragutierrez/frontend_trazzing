@@ -429,4 +429,13 @@ header {
   .width__form {
     width: 100%;
   }
+  .p__modal2 p {
+    width: 100%;
+  }
+  .title__modal2{
+    font-size: 1.5rem;
+  }
+  .btn__modal2{
+    width: 100%;
+  }
 }

@@ -239,3 +239,29 @@
   justify-content: center;
   position: relative;
 }
+
+@media (max-width: 768px) {
+  .section__completar h2 {
+    width: 90%;
+    font-size: 2rem;
+    margin: 2rem auto;
+  }
+  .contenedor__completar {
+    padding: 1rem;
+  }
+  .form__completar {
+    width: 100%;
+  }
+  .content__completar {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .text__completar {
+    width: 100%;
+  }
+  .input__completar {
+    width: 100%;
+  }
+}
