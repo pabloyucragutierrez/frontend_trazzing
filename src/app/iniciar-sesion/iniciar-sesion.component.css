@@ -180,3 +180,24 @@
   text-decoration: none;
   color: #ec625f;
 }
+
+
+@media  (max-width:768px){
+  .back__img{
+    display: none;
+  }
+  .form__login{
+    width: 100%;
+  }
+  .form__content{
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .contenedor__login h2{
+    gap: 0;
+    font-size: 1.6rem;
+  }
+  .contenedor__login{
+    width: 90%;
+  }
+}
