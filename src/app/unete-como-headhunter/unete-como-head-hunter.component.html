@@ -121,7 +121,7 @@
   <section class="form__servicios">
     <div class="contenedor__form container_section">
       <h2>¡Únete hoy mismo!</h2>
-      <p>
+      <p class="p__form">
         No pierdas la oportunidad de formar parte de una red exclusiva de
         headhunters y maximizar tu potencial de negocio.
       </p>
@@ -129,32 +129,75 @@
         ¡Regístrate ahora y comienza a conectar con empresas que valoran tu
         experiencia!</b
       >
-      <form class="form_content" action="">
+      <form
+        class="form_content"
+        [formGroup]="headHunterForm"
+        (ngSubmit)="onSubmit()"
+      >
         <div class="width__form">
-          <label for="">Nombre de contacto</label>
+          <label for="contactName">Nombre de contacto</label>
           <div class="input_content">
             <img src="assets/user_input.png" alt="" />
             <input
-            required
               type="text"
               class="input_style"
               placeholder="Nombre y Apellido"
+              formControlName="contactName"
             />
           </div>
+          <p
+            class="error-text"
+            *ngIf="
+              headHunterForm.get('contactName')?.hasError('required') &&
+              headHunterForm.get('contactName')?.touched
+            "
+          >
+            Este campo es obligatorio.
+          </p>
+          <p
+            class="error-text"
+            *ngIf="
+              headHunterForm.get('contactName')?.hasError('pattern') &&
+              headHunterForm.get('contactName')?.touched
+            "
+          >
+            Solo se permiten letras y espacios.
+          </p>
         </div>
+
         <div class="width__form">
-          <label for="">Correo electrónico</label>
+          <label for="email">Correo electrónico</label>
           <div class="input_content">
             <img src="assets/email_input.png" alt="" />
             <input
               type="text"
               class="input_style"
               placeholder="empresa@email.com"
+              formControlName="email"
             />
           </div>
+          <p
+            class="error-text"
+            *ngIf="
+              headHunterForm.get('email')?.hasError('required') &&
+              headHunterForm.get('email')?.touched
+            "
+          >
+            Este campo es obligatorio.
+          </p>
+          <p
+            class="error-text"
+            *ngIf="
+              headHunterForm.get('email')?.hasError('email') &&
+              headHunterForm.get('email')?.touched
+            "
+          >
+            Ingresa un correo electrónico válido.
+          </p>
         </div>
+
         <div class="width__form">
-          <label for="">Teléfono de contacto</label>
+          <label for="phone">Teléfono de contacto</label>
           <div class="input_content">
             <span class="icon__phone">
               +51
@@ -164,34 +207,91 @@
               type="text"
               class="input_style p__ex"
               placeholder="Número de teléfono"
+              formControlName="phone"
+              maxlength="9"
             />
           </div>
+          <p
+            class="error-text"
+            *ngIf="
+              headHunterForm.get('phone')?.hasError('required') &&
+              headHunterForm.get('phone')?.touched
+            "
+          >
+            Este campo es obligatorio.
+          </p>
+          <p
+            class="error-text"
+            *ngIf="
+              headHunterForm.get('phone')?.hasError('pattern') &&
+              headHunterForm.get('phone')?.touched
+            "
+          >
+            Solo se permiten números.
+          </p>
+          <p
+            class="error-text"
+            *ngIf="
+              headHunterForm.get('phone')?.hasError('maxlength') &&
+              headHunterForm.get('phone')?.touched
+            "
+          >
+            Máximo 9 caracteres.
+          </p>
         </div>
+
         <div class="width__form">
-          <label for="">Experiencia (años)</label>
+          <label for="experience">Experiencia (años)</label>
           <div class="input_content">
             <img src="assets/years_input.png" alt="" />
-            <input type="text" class="input_style" />
+            <input
+              type="text"
+              class="input_style"
+              formControlName="experience"
+            />
           </div>
+          <p
+            class="error-text"
+            *ngIf="
+              headHunterForm.get('experience')?.hasError('required') &&
+              headHunterForm.get('experience')?.touched
+            "
+          >
+            Este campo es obligatorio.
+          </p>
         </div>
+
         <div class="width__form">
-          <label for="">Especialidad (industrias, roles, etc.)</label>
+          <label for="specialty">Especialidad (industrias, roles, etc.)</label>
           <div class="input_content">
             <img src="assets/rol_input.png" alt="" />
             <input
               type="text"
               class="input_style"
               placeholder="ej: IT, Programadores"
-              required
+              formControlName="specialty"
             />
           </div>
+          <p
+            class="error-text"
+            *ngIf="
+              headHunterForm.get('specialty')?.hasError('required') &&
+              headHunterForm.get('specialty')?.touched
+            "
+          >
+            Este campo es obligatorio.
+          </p>
+        </div>
+
+        <div class="width__form__full">
+          <button type="submit" class="btn2 btn__form">Enviar</button>
         </div>
       </form>
-      <button type="submit" class="btn2 btn__form">Enviar</button>
     </div>
     <img src="assets/lupa_red.png" class="lupa_red2" alt="" />
     <img src="assets/lupa_blue.png" class="lupa_blue2" alt="" />
     <img src="assets/linea__form.png" class="linea__form2" alt="" />
+    <img src="assets/icon_red.png" class="form__movil" alt="" />
   </section>
 </div>
 <app-footer></app-footer>

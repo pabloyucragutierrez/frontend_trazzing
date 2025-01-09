@@ -93,7 +93,7 @@
   background-color: rgb(255, 132, 130);
 }
 .btn__job {
- transition: .3s ease all;
+  transition: 0.3s ease all;
   width: 20%;
   border: none;
   outline: none;
@@ -269,4 +269,49 @@
   display: grid;
   font-size: 1.5rem;
   place-items: center;
+}
+
+@media (max-width: 768px) {
+  .contenedor__banner {
+    height: 55vh;
+  }
+  .content__banner {
+    width: 90%;
+  }
+  .input__job {
+    width: 40%;
+  }
+  .btn__job {
+    width: 35%;
+  }
+  .line__vetical {
+    display: none;
+  }
+  .contenedor__destacados h2 {
+    font-size: 2rem;
+  }
+  .p__job {
+    width: 100%;
+  }
+  .item__job {
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+  .contenedor__crear .p__crear {
+    width: 100%;
+  }
+  .contenedor__crear h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .items__add {
+    flex-direction: column;
+  }
+  .item__add {
+    width: 90%;
+    height: 15rem;
+  }
 }

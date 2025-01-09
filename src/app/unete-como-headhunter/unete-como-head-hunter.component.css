@@ -267,7 +267,7 @@
   font-weight: 600;
   text-align: center;
 }
-.contenedor__form p {
+.contenedor__form .p__form {
   font-size: 1rem;
   color: #434343;
   width: 40%;
@@ -285,6 +285,9 @@
 }
 .width__form {
   width: 32%;
+}
+.width__form__full {
+  width: 100%;
 }
 .width__form label {
   font-weight: 600;
@@ -354,6 +357,7 @@
 .btn__form {
   display: block;
   margin: auto;
+  margin-top: 1rem;
   width: 13rem;
 }
 
@@ -362,6 +366,17 @@
   margin-top: -80px;
 }
 
+.linea__join {
+  display: none;
+}
+.error-text {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 5px;
+}
+.form__movil {
+  display: none;
+}
 @media (max-width: 768px) {
   .contenedor__banner {
     height: 55vh;
@@ -406,11 +421,13 @@
   .content__overflow {
     width: 90%;
   }
-  .contenedor__form p {
+  .contenedor__form .p__form {
     width: 100%;
   }
   .contenedor__form {
     width: 100%;
+    position: relative;
+    z-index: 2;
   }
   .form_content {
     width: 100%;
@@ -423,6 +440,14 @@
   }
   .form__servicios {
     padding: 2rem;
+    overflow: hidden;
+  }
+  .form__movil {
+    display: block;
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    width: 3rem;
   }
 
   .art__steps h2 {
@@ -451,12 +476,13 @@
     padding: 0;
   }
   .linea__join {
+    display: block;
     width: fit-content;
     /* transform: rotate(90deg) ; */
     position: absolute;
     left: 28%;
   }
-  .linea__hidden{
+  .linea__hidden {
     display: none;
   }
   .step__item {
@@ -465,5 +491,23 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+  }
+
+  .lupa_blue2 {
+    width: 6rem;
+    top: 9.5rem;
+    right: 1rem;
+  }
+  .linea__form2 {
+    right: -3rem;
+    bottom: auto;
+    width: 8.5rem;
+    transform: rotateY(180deg) rotate(15deg);
+    top: 20rem;
+    z-index: 1;
+  }
+  .lupa_red2 {
+    display: none;
+    z-index: 1;
   }
 }

@@ -28,6 +28,7 @@ export class HeaderComponent {
 
 
   isModalOpen: boolean = false;
+  
   contactForm: FormGroup;
 
   constructor(private fb: FormBuilder) {

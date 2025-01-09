@@ -3,7 +3,7 @@
     <a routerLink="/inicio" class="logo_header">
       <img src="assets/trazzing.png" alt="" />
     </a>
-    <nav [ngClass]="{'active': isMenuOpen && !isClosing, 'inactive': isClosing}">
+    <nav [ngClass]="{ active: isMenuOpen && !isClosing, inactive: isClosing }">
       <a routerLink="/inicio" routerLinkActive="activelink">Inicio</a>
       <a routerLink="/servicio-para-empresas" routerLinkActive="activelink">
         Servicio para empresas
@@ -34,9 +34,6 @@
   <!-- Overlay -->
   <div class="overlay" [class.active]="isMenuOpen" (click)="closeMenu()"></div>
 </header>
-
-
-
 
 <div class="modal__pay2" *ngIf="isModalOpen">
   <div class="content__overflow">

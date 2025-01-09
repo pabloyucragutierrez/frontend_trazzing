@@ -181,7 +181,7 @@ header {
 .content__overflow {
   width: 40%;
   max-width: 850px;
-  max-height: 95vh;
+  /* max-height: 95vh; */
   padding: 1rem 2rem;
   border-radius: 10px;
   position: relative;
@@ -417,14 +417,16 @@ header {
   }
 
   /* formulario */
-  .content__overflow{
+  .content__overflow {
     width: 90%;
+    /* max-height: 85vh; */
   }
   .form_content {
+    max-height: 80vh;
     width: 100%;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
   }
   .width__form {
     width: 100%;
@@ -432,10 +434,21 @@ header {
   .p__modal2 p {
     width: 100%;
   }
-  .title__modal2{
+  .title__modal2 {
     font-size: 1.5rem;
   }
-  .btn__modal2{
+  .btn__modal2 {
     width: 100%;
+  }
+
+  .lupa_blue {
+    top: 10rem;
+  }
+  .linea__form {
+    bottom: 10rem;
+  }
+  .lupa_red {
+    right: 0;
+    bottom: 4rem;
   }
 }

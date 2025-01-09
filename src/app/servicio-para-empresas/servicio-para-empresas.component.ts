@@ -9,9 +9,75 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ServicioParaEmpresasComponent implements OnInit {
   contactForm!: FormGroup;
   submitted = false;
+  empresaForm: FormGroup;
+  reclutamientoForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+    this.reclutamientoForm = this.fb.group({
+      nombreContacto: [
+        '',
+        [Validators.required, Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')],
+      ],
+      correoElectronico: ['', [Validators.required, Validators.email]],
+      telefonoContacto: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[0-9]+$'),
+          Validators.maxLength(9),
+        ],
+      ],
+      compania: ['', Validators.required],
+      industria: ['', Validators.required],
+      colaboradores: ['', Validators.required],
+      requisitos: [''], // No obligatorio
+    });
 
+    this.empresaForm = this.fb.group({
+      nombreContacto: [
+        '',
+        [Validators.required, Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')],
+      ],
+      correoElectronico: ['', [Validators.required, Validators.email]],
+      telefono: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[0-9]+$'),
+          Validators.maxLength(9),
+        ],
+      ],
+      nombreEmpresa: ['', Validators.required],
+      industria: ['', Validators.required],
+      numeroColaboradores: ['', Validators.required],
+      comentarios: [''],
+    });
+
+    // Configurando valores por defecto
+    this.empresaForm.controls['industria'].setValue('');
+    this.empresaForm.controls['numeroColaboradores'].setValue('');
+  }
+
+  enviarFormulario(): void {
+    if (this.reclutamientoForm.valid) {
+      console.log('Formulario enviado:', this.reclutamientoForm.value);
+      this.reclutamientoForm.reset();
+    } else {
+      this.reclutamientoForm.markAllAsTouched();
+    }
+  }
+
+  onEnviarFormulario() {
+    // Marca todos los campos como tocados para mostrar errores
+    this.empresaForm.markAllAsTouched();
+
+    if (this.empresaForm.invalid) {
+      console.log('Formulario inválido');
+      return;
+    }
+
+    console.log('Formulario válido', this.empresaForm.value);
+  }
   ngOnInit(): void {
     this.contactForm = this.fb.group({
       contactName: [
@@ -25,7 +91,6 @@ export class ServicioParaEmpresasComponent implements OnInit {
         '',
         [Validators.required], // Solo validación de requerido.
       ],
-      
 
       selectedPlan: ['', [Validators.required]], // Validación para el plan seleccionado
     });

@@ -139,7 +139,7 @@
   left: 27%;
   transform: rotate(75deg);
   z-index: 1;
-  width: 6rem;
+  width: 6.5rem;
 }
 .linea1__com2 {
   position: absolute;
@@ -147,19 +147,19 @@
   right: 27%;
   transform: rotate(75deg);
   z-index: 1;
-  width: 6rem;
+  width: 6.4rem;
 }
 .linea1__com3 {
   position: absolute;
-  bottom: 6rem;
-  right: 15%;
+  bottom: 1.5rem;
+  right: 17%;
   transform: rotate(56deg);
   z-index: 1;
-  width: 4rem;
+  width: 5rem;
 }
 .linea1__com4 {
   position: absolute;
-  bottom: -1rem;
+  bottom: -4rem;
   right: 47%;
   transform: rotate(75deg);
   z-index: 1;
@@ -167,24 +167,18 @@
 }
 .linea1__com5 {
   position: absolute;
-  bottom: 6rem;
-  left: 15%;
+  bottom: 1.5rem;
+  left: 17%;
   transform: rotate(-60deg);
   z-index: 1;
-  width: 4rem;
+  width: 5rem;
 }
 .item__competencias {
-  width: 12rem;
-  height: 15rem;
+  position: relative;
+  width: 11rem;
+  height: 13rem;
   border: 4px solid #ec625f;
-  background-repeat: repeat;
-  background-image: linear-gradient(
-      to top,
-      rgba(242, 242, 242, 0.95) 0%,
-      rgba(242, 242, 242, 0.95) 100%
-    ),
-    url("/assets/banner_users.jpg");
-  background-size: cover;
+  background-color: white; /* Fondo blanco del contenedor */
   z-index: 2;
   border-radius: 35px;
   display: flex;
@@ -194,13 +188,34 @@
   padding: 1rem 0.2rem;
   gap: 0.5rem;
   text-align: center;
+  overflow: hidden; /* Oculta cualquier exceso del pseudo-elemento */
 }
+
+.item__competencias::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/banner_users.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.08; /* Ajusta la opacidad del fondo */
+  z-index: -1; /* Envía el pseudo-elemento detrás del contenido */
+  border-radius: 35px; /* Asegúrate de coincidir con el radio del contenedor */
+}
+
 .item__competencias b {
-  font-weight: bold;
+  font-weight: 900;
   font-size: 1rem;
+  font-style: italic;
 }
 .item__competencias img {
   width: 50%;
+  height: 5rem;
+  object-fit: contain;
 }
 .item__competencias p {
   font-weight: bold;
@@ -259,6 +274,12 @@
   position: relative;
   background-color: white;
 }
+.img__absolute {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+}
 .btn__item {
   position: absolute;
   width: 85%;
@@ -267,13 +288,15 @@
 
 .item__card h3 {
   color: #ec625f;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 .desc__item {
   color: #333333;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  width: 75%;
 }
 .price__card {
   margin: 2rem 0;
@@ -427,7 +450,7 @@
 .lupa_blue2 {
   position: absolute;
   right: 2rem;
-  top: 11rem;
+  top: 14rem;
   transform: rotate(-20deg);
   width: 4rem;
 }
@@ -440,7 +463,7 @@
   font-weight: 600;
   text-align: center;
 }
-.contenedor__form p {
+.contenedor__form .p__form {
   font-size: 1rem;
   color: #434343;
   width: 40%;
@@ -557,6 +580,7 @@
 .btn__form {
   display: block;
   margin: auto;
+  margin-top: 2rem;
   width: 13rem;
 }
 
@@ -841,6 +865,15 @@
   width: 10rem;
 }
 
+.icon__movil {
+  display: none;
+}
+.icon__movil2 {
+  display: none;
+}
+.form__movil {
+  display: none;
+}
 @media (max-width: 768px) {
   .contenedor__banner {
     height: 55vh;
@@ -880,8 +913,9 @@
   }
   .item__card {
     width: 95%;
+    height: 29rem;
   }
-  .contrata__planes{
+  .contrata__planes {
     width: 100%;
   }
   .art__beneficios {
@@ -902,7 +936,7 @@
     width: 100%;
     height: fit-content;
   }
-  .section__beneficios{
+  .section__beneficios {
     padding: 2.5rem 1.5rem;
   }
   .item__btn {
@@ -913,14 +947,16 @@
   }
 
   /* formulario */
-  .content__overflow{
+  .content__overflow {
     width: 90%;
   }
-  .contenedor__form p{
+  .contenedor__form .p__form {
     width: 100%;
   }
-  .contenedor__form{
+  .contenedor__form {
     width: 100%;
+    z-index: 2;
+    position: relative;
   }
   .form_content {
     width: 100%;
@@ -931,7 +967,155 @@
   .width__form {
     width: 100%;
   }
-  .form__servicios{
+  .form__servicios {
     padding: 2rem;
+    overflow: hidden;
+  }
+  .form__movil {
+    display: block;
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    width: 3rem;
+  }
+
+  .item__competencias {
+    width: 55%;
+  }
+  .linea1__com {
+    top: 12rem;
+    left: 35%;
+    transform: rotate(-35deg);
+    height: 35rem;
+    width: 12rem;
+  }
+  .linea1__com2,
+  .linea1__com3,
+  .linea1__com4,
+  .linea1__com5 {
+    display: none;
+  }
+  .icon__movil {
+    display: block;
+    position: absolute;
+    width: 8rem;
+    bottom: 20%;
+    right: -5rem;
+    transform: rotate(15deg);
+  }
+  .icon__movil2 {
+    display: block;
+    position: absolute;
+    width: 8rem;
+    top: 0%;
+    left: -6rem;
+    transform: rotate(-25deg);
+  }
+  .section__contrata {
+    overflow: hidden;
+  }
+
+  .contenedor__form .p__form {
+    width: 70%;
+    text-align: left;
+    margin-left: 0;
+  }
+  .lupa_blue2 {
+    width: 6rem;
+    top: 9.5rem;
+    right: 1rem;
+  }
+  .linea__form2 {
+    right: -3rem;
+    bottom: auto;
+    width: 8.5rem;
+    transform: rotateY(180deg) rotate(15deg);
+    top: 20rem;
+    z-index: 1;
+  }
+  .lupa_red2 {
+    display: none;
+    z-index: 1;
+  }
+
+  /* formulario */
+
+  .form_content {
+    max-height: 80vh;
+    width: 90%;
+    height: 80vh;
+    padding: 1rem 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 1;
+    overflow: auto;
+    flex-direction: row;
+    position: static;
+  }
+  .form__section {
+    max-height: none;
+    height: fit-content;
+    overflow: hidden;
+    width: 100%;
+    padding: 0;
+  }
+  .btn__modal {
+    width: 50%;
+  }
+  .width__form {
+    width: 100%;
+  }
+  .p__modal2 p {
+    width: 100%;
+  }
+  .title__modal2 {
+    font-size: 1.5rem;
+  }
+  .btn__modal2 {
+    width: 100%;
+  }
+
+  .lupa_blue {
+    top: 10rem;
+    display: none;
+  }
+  .linea__form {
+    bottom: 10rem;
+    display: none;
+  }
+  .lupa_red {
+    right: 0;
+    bottom: 4rem;
+    display: none;
+  }
+  .plans__content {
+    justify-content: space-between;
+    gap: 0;
+  }
+  .item_plan {
+    width: 48%;
+    height: 7rem;
+  }
+  .close__modal {
+    top: 4.5rem;
+    right: 0.5rem;
+  }
+  .close__pay {
+    top: -1rem;
+    right: -1rem;
+  }
+  .form__pay {
+    width: 100%;
+    padding: 0;
+  }
+  .overflow__pay {
+    padding: 1rem 1.5rem;
+  }
+  .width__form.i__m {
+    width: 100%;
+  }
+  .title__pay {
+    font-size: 1.4rem;
   }
 }
