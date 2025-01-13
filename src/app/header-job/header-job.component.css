@@ -13,9 +13,9 @@ header {
 }
 .header__jobs .logo_header img {
   width: 11rem;
-  transition: .3s ease all; 
+  transition: 0.3s ease all;
 }
-.header__jobs .logo_header img:hover{
+.header__jobs .logo_header img:hover {
   transform: scale(1.05);
 }
 
@@ -53,11 +53,11 @@ header {
   width: fit-content;
   height: fit-content;
 }
-.btn__job:hover{
-    background-color: rgb(255, 132, 130);
+.btn__job:hover {
+  background-color: rgb(255, 132, 130);
 }
 .btn__job {
-  transition: .3s ease all;
+  transition: 0.3s ease all;
   width: 20%;
   border: none;
   outline: none;
@@ -85,23 +85,180 @@ header {
 
 .jobs__btns {
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 .jobs__btns button.active_btn {
   background-color: #2f4b7d;
   color: #fff;
 }
-.jobs__btns button:hover{
-  transform: scale(1.05)
+.jobs__btns button:hover {
+  transform: scale(1.05);
 }
 .jobs__btns button {
   background-color: transparent;
   padding: 0.5rem 1.3rem;
   color: #2f4b7d;
   font-weight: 600;
-  transition: .3s ease all;
+  transition: 0.3s ease all;
   cursor: pointer;
   font-size: 1rem;
   border-radius: 10px;
   border: 2px solid #2f4b7d;
+}
+
+.menu__open {
+  display: none;
+}
+
+.btn__hidden__nav {
+  display: none;
+}
+.close__nav {
+  display: none;
+}
+@media (max-width: 768px) {
+  .menu__open {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    color: #ec625f;
+    display: block;
+  }
+  .header__jobs {
+    padding: 1.5rem;
+  }
+  .header__jobs .search__jobs a {
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header__jobs .search__jobs a.activelink {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    color: #fff;
+  }
+
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 99;
+  }
+
+  .overlay.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Nav dentro del header */
+  .header__jobs .search__jobs {
+    position: absolute;
+    top: 6rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(-200%); /* Comienza fuera de la pantalla, arriba */
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: space-between;
+    gap: 0rem;
+    border-radius: 10px;
+    width: 90%;
+    background-color: #2f4b7d;
+    padding: 4rem 1.3rem 1.3rem 1.3rem;
+    height: fit-content;
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease, visibility 0.6s ease;
+    z-index: 101;
+  }
+
+  .arts__jobs{
+    display: flex;
+    flex-direction: column;
+  }
+  .options__job{
+    display: none;
+  }
+
+  .header__jobs .search__jobs.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Se mueve a su posición original */
+  }
+
+  .header__jobs .search__jobs.inactive {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-200%); /* Ahora desaparece hacia arriba */
+  }
+
+  .header__jobs .search__jobs a img {
+    display: block;
+  }
+  .btn__hidden {
+    display: none;
+  }
+  .btn__hidden__nav {
+    display: block;
+  }
+  .close__nav {
+    display: block;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 2.5rem;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  .movil__hidden {
+    display: none;
+  }
+
+  /* formulario */
+  .content__overflow {
+    width: 90%;
+    /* max-height: 85vh; */
+  }
+  .form_content {
+    max-height: 80vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .width__form {
+    width: 100%;
+  }
+  .p__modal2 p {
+    width: 100%;
+  }
+  .title__modal2 {
+    font-size: 1.5rem;
+  }
+  .btn__modal2 {
+    width: 100%;
+  }
+
+  .lupa_blue {
+    top: 10rem;
+  }
+  .linea__form {
+    bottom: 10rem;
+  }
+  .lupa_red {
+    right: 0;
+    bottom: 4rem;
+  }
 }

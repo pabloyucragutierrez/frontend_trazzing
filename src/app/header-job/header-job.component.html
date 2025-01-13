@@ -3,25 +3,36 @@
     <a routerLink="/inicio" class="logo_header">
       <img src="assets/trazzing.png" alt="" />
     </a>
-    <div class="search__jobs">
-      <div class="input__job">
+    <div class="search__jobs" [ngClass]="{ active: isMenuOpen && !isClosing, inactive: isClosing }">
+      <div class="input__job movil__hidden">
         <img src="assets/work.png" alt="" />
         <input type="text" placeholder="Puesto / Empresa" class="input" />
       </div>
-      <div class="line__vetical"></div>
-      <div class="input__job">
+      <div class="line__vetical movil__hidden"></div>
+      <div class="input__job movil__hidden">
         <img src="assets/location_on.png" alt="" />
         <input type="text" placeholder="Lugar" class="input" />
       </div>
-      <button class="btn__job">
+      <button class="btn__job movil__hidden">
         <img src="assets/user_job.png" alt="" />
         Buscar
       </button>
+      <button class="btn btn__hidden__nav">Regístrate gratis</button>
+      <button class="btn btn__hidden__nav">Inicio sesión</button>
+      <button class="close__nav" (click)="closeMenu()">
+        <i class="bx bx-x"></i>
+      </button>
     </div>
-    <div class="jobs__btns">
-      
-      <button onclick="location.href='/registrate'" class="active_btn">Regístrate gratis</button>
+    <div class="jobs__btns btn__hidden">
+      <button onclick="location.href='/registrate'" class="active_btn">
+        Regístrate gratis
+      </button>
       <button onclick="location.href='/iniciar-sesion'">Inicio sesión</button>
     </div>
+    <button class="menu__open" (click)="toggleMenu()">
+      <i class="bx bx-menu"></i>
+    </button>
   </div>
+  <!-- Overlay -->
+  <div class="overlay" [class.active]="isMenuOpen" (click)="closeMenu()"></div>
 </header>

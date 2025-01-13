@@ -3,10 +3,13 @@
   <div class="contenedor__trabajos container_section">
     <h2>Trabajos en marketing</h2>
     <div class="arts__jobs">
-      <article class="options__job">
+      <article class="options__job"  [ngClass]="{ 'visible': isFiltersVisible }">
         <!-- Menú principal de filtros -->
         <div class="content__list" *ngIf="activeIndex === -1">
           <span>Filtros</span>
+          <button class="close__filtros" (click)="closeFilters()">
+            <i class='bx bx-x'></i>
+          </button>
           <ul class="list__options">
             <li (click)="showFilter(0)">
               <img src="assets/calendar_today.png" alt="Fecha" />
@@ -38,7 +41,7 @@
             </li>
             <li (click)="showFilter(4)">
               <img src="assets/accessible.png" alt="Discapacidad" />
-              Postulantes con discapacidad 
+              Postulantes con discapacidad
               <ul>
                 <li class="option__select">No</li>
               </ul>
@@ -153,7 +156,11 @@
             </h4>
           </div>
           <div class="srh__job">
-            <input class="input" type="text" placeholder="Busca un departamento" />
+            <input
+              class="input"
+              type="text"
+              placeholder="Busca un departamento"
+            />
             <img src="assets/search_job.png" alt="" />
           </div>
           <ul class="list__filters">
@@ -255,6 +262,9 @@
               <button class="active">Relevantes</button>
               <button>Recientes</button>
             </div>
+          </div>
+          <div class="filtros__movil">
+            <button (click)="toggleFilters()"><i class="bx bx-menu-alt-left"></i> Mostrar filtros</button>
           </div>
         </div>
         <div class="item__job" onclick="location.href='/detalle-del-trabajo'">

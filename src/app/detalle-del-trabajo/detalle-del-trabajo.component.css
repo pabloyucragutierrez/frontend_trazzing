@@ -64,7 +64,7 @@
 .lupa_red {
   position: absolute;
   right: 6rem;
-  top: 7rem;
+  top: 11rem;
   width: 5rem;
   transform: rotate(-15deg);
 }
@@ -78,7 +78,7 @@
 .linea_red {
   position: absolute;
   right: 5rem;
-  top: 16rem;
+  bottom: .5rem;
   transform: rotate(15deg);
   width: 8rem;
 }
