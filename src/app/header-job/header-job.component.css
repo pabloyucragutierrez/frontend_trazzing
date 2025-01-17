@@ -141,6 +141,14 @@ header {
     border-radius: 0;
     color: #fff;
   }
+  .jobs__btns button{
+    width: fit-content;
+  }
+  .jobs__btns{
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+  }
 
   /* Overlay */
   .overlay {
@@ -205,9 +213,7 @@ header {
   .header__jobs .search__jobs a img {
     display: block;
   }
-  .btn__hidden {
-    display: none;
-  }
+  
   .btn__hidden__nav {
     display: block;
   }

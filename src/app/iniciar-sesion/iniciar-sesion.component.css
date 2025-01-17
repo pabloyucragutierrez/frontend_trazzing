@@ -163,14 +163,13 @@
   width: 13rem;
 }
 
-
 .back__login {
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  gap: .2rem;
+  gap: 0.2rem;
 }
 .back__login p {
   color: #000;
@@ -181,23 +180,84 @@
   color: #ec625f;
 }
 
-
-@media  (max-width:768px){
-  .back__img{
+.figure_form,
+.figure_form2{
+  display: none;
+}
+@media (max-width: 768px) {
+  .width__form {
+    width: 70%;
+  }
+  .width__form.less__inp{
+    width: 65%;
+  }
+  .width__check {
+    width: 60%;
+    z-index: 2;
+  }
+  .back__img {
     display: none;
   }
-  .form__login{
+  .form {
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  .figure_form {
+    position: absolute;
+    top: -7rem;
+    right: 22%;
+    display: block;
+    width: 8rem;
+  }
+  .figure_form2 {
+    position: absolute;
+    top: -7.5rem;
+    right: -8%;
+    display: block;
+    z-index: 1;
+    width: 20rem;
+  }
+  .form__login {
     width: 100%;
   }
-  .form__content{
+  .form__content {
     width: 100%;
     margin-top: 2rem;
   }
-  .contenedor__login h2{
+  .contenedor__login h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    justify-content: center;
+  }
+  .contenedor__login h2 a img {
+    display: none;
+  }
+  .contenedor__login h2 {
     gap: 0;
     font-size: 1.6rem;
   }
-  .contenedor__login{
-    width: 90%;
+  .contenedor__login {
+    width: 95%;
+  }
+  .btns__social button {
+    width: 100%;
+  }
+  .form .btn2 {
+    width: 55%;
+    z-index: 2;
+  }
+  .inp__movil {
+    width: 57%;
+  }
+  .cnt__mvl {
+    width: 40%;
+  }
+  .cnt__full {
+    width: 56%;
+  }
+
+  .btns__social {
+    width:55%;
   }
 }

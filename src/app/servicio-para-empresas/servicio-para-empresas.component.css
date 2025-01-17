@@ -936,6 +936,9 @@
     width: 100%;
     height: fit-content;
   }
+  .movil__w {
+    width: 70%;
+  }
   .section__beneficios {
     padding: 2.5rem 1.5rem;
   }
@@ -963,9 +966,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  .width__form {
-    width: 100%;
   }
   .form__servicios {
     padding: 2rem;
@@ -1063,6 +1063,9 @@
   .btn__modal {
     width: 50%;
   }
+  .width__form.full__input2 {
+    width: 100%;
+  }
   .width__form {
     width: 100%;
   }
@@ -1101,6 +1104,10 @@
     top: 4.5rem;
     right: 0.5rem;
   }
+  .close__movil {
+    top: -1rem;
+    right: -0.5rem;
+  }
   .close__pay {
     top: -1rem;
     right: -1rem;
@@ -1118,4 +1125,38 @@
   .title__pay {
     font-size: 1.4rem;
   }
+
+  /* formulario 3 */
+  .content__overflow2 {
+    width: 90%;
+    /* max-height: 85vh; */
+  }
+  .modal__content3 {
+    width: 100%;
+    padding: 0;
+  }
+  /*
+  .width__form {
+    width: 100%;
+  }
+  .p__modal2 p {
+    width: 100%;
+  }
+  .title__modal2 {
+    font-size: 1.5rem;
+  }
+  .btn__modal2 {
+    width: 100%;
+  }
+
+  .lupa_blue {
+    top: 10rem;
+  }
+  .linea__form {
+    bottom: 10rem;
+  }
+  .lupa_red {
+    right: 0;
+    bottom: 4rem;
+  } */
 }

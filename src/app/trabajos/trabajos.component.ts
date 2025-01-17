@@ -16,13 +16,5 @@ export class TrabajosComponent {
     this.activeIndex = -1;
   }
 
-  isFiltersVisible = false;
-
-  toggleFilters() {
-    this.isFiltersVisible = !this.isFiltersVisible;
-  }
-
-  closeFilters() {
-    this.isFiltersVisible = false;
-  }
+  
 }

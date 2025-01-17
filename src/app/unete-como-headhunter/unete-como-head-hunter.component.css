@@ -249,7 +249,7 @@
 .lupa_blue2 {
   position: absolute;
   right: 2rem;
-  top: 4rem;
+  top: 6rem;
   transform: rotate(-20deg);
   width: 4rem;
 }
@@ -424,6 +424,12 @@
   .contenedor__form .p__form {
     width: 100%;
   }
+  .contenedor__form b {
+    text-align: left;
+    display: block;
+    margin: 0;
+    width: 75%;
+  }
   .contenedor__form {
     width: 100%;
     position: relative;
@@ -445,7 +451,7 @@
   .form__movil {
     display: block;
     position: absolute;
-    bottom: 2rem;
+    bottom: 1rem;
     left: 0;
     width: 3rem;
   }

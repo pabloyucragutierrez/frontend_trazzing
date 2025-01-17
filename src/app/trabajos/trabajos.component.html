@@ -1,47 +1,69 @@
 <app-header-job></app-header-job>
 <section class="section__jobs">
+  <img src="assets/lupa_red.png" class="img__absolute2" alt="" />
+  <img src="assets/figure_form2.png" class="img__absolute" alt="" />
   <div class="contenedor__trabajos container_section">
     <h2>Trabajos en marketing</h2>
+    <div class="search__jobs">
+      <div class="input__job">
+        <img src="assets/work.png" alt="" />
+        <input type="text" placeholder="Puesto / Empresa" class="input" />
+      </div>
+      <div class="line__vetical"></div>
+      <div class="input__job inpt__ext">
+        <img src="assets/location_on.png" alt="" />
+        <input type="text" placeholder="Lugar" class="input" />
+      </div>
+      <button class="btn__job">
+        <img src="assets/user_job.png" alt="" />
+        Buscar
+      </button>
+    </div>
+    <button class="founds__jobs">53 Empleos encontrados</button>
     <div class="arts__jobs">
-      <article class="options__job"  [ngClass]="{ 'visible': isFiltersVisible }">
+      <article class="options__job">
         <!-- Menú principal de filtros -->
+
         <div class="content__list" *ngIf="activeIndex === -1">
-          <span>Filtros</span>
-          <button class="close__filtros" (click)="closeFilters()">
-            <i class='bx bx-x'></i>
-          </button>
+          <span class="spn__filters">Filtros</span>
+
           <ul class="list__options">
             <li (click)="showFilter(0)">
               <img src="assets/calendar_today.png" alt="Fecha" />
-              Fecha de publicación
+              <p class="text__desktop">Fecha de publicación</p>
+              <p class="text__movil">Fecha</p>
               <ul>
                 <li class="option__select">1 día</li>
               </ul>
             </li>
             <li (click)="showFilter(1)">
               <img src="assets/work.png" alt="Área" />
-              Área
+              <p class="text__desktop">Área</p>
+              <p class="text__movil">Área</p>
               <ul>
                 <li class="option__select">Marketing</li>
               </ul>
             </li>
             <li (click)="showFilter(2)">
               <img src="assets/location_on.png" alt="Departamento" />
-              Departamento
+              <p class="text__desktop">Departamento</p>
+              <p class="text__movil">Ubicación</p>
               <ul>
                 <li class="option__select">Cusco</li>
               </ul>
             </li>
             <li (click)="showFilter(3)">
               <img src="assets/source_environment.png" alt="Modalidad" />
-              Modalidad de trabajo
+              <p class="text__desktop">Modalidad de trabajo</p>
+              <p class="text__movil">Modalidad</p>
               <ul>
                 <li class="option__select">Remoto</li>
               </ul>
             </li>
             <li (click)="showFilter(4)">
               <img src="assets/accessible.png" alt="Discapacidad" />
-              Postulantes con discapacidad
+              <p class="text__desktop">Postulantes con discapacidad</p>
+              <p class="text__movil">Postulante</p>
               <ul>
                 <li class="option__select">No</li>
               </ul>
@@ -51,6 +73,9 @@
 
         <!-- Contenido de cada filtro -->
         <div *ngIf="activeIndex === 0" class="content__list__options">
+          <button class="hidden__options" (click)="hideFilters()">
+            <i class="bx bx-x"></i>
+          </button>
           <div class="back__job" (click)="hideFilters()">
             <img src="assets/arrow_back.png" alt="Atrás" />
             <h4>
@@ -87,6 +112,9 @@
         </div>
 
         <div *ngIf="activeIndex === 1" class="content__list__options">
+          <button class="hidden__options" (click)="hideFilters()">
+            <i class="bx bx-x"></i>
+          </button>
           <div class="back__job" (click)="hideFilters()">
             <img src="assets/arrow_back.png" alt="Atrás" />
             <h4><img src="assets/work_job.png" alt="Área" /> Área</h4>
@@ -148,6 +176,9 @@
         </div>
 
         <div *ngIf="activeIndex === 2" class="content__list__options">
+          <button class="hidden__options" (click)="hideFilters()">
+            <i class="bx bx-x"></i>
+          </button>
           <div class="back__job" (click)="hideFilters()">
             <img src="assets/arrow_back.png" alt="Atrás" />
             <h4>
@@ -216,6 +247,9 @@
         </div>
 
         <div *ngIf="activeIndex === 3" class="content__list__options">
+          <button class="hidden__options" (click)="hideFilters()">
+            <i class="bx bx-x"></i>
+          </button>
           <div class="back__job" (click)="hideFilters()">
             <img src="assets/arrow_back.png" alt="Atrás" />
             <h4>
@@ -240,6 +274,9 @@
         </div>
 
         <div *ngIf="activeIndex === 4" class="content__list__options">
+          <button class="hidden__options" (click)="hideFilters()">
+            <i class="bx bx-x"></i>
+          </button>
           <div class="back__job" (click)="hideFilters()">
             <img src="assets/arrow_back.png" alt="Atrás" />
             <h4>
@@ -252,6 +289,11 @@
             <li><p>No</p></li>
           </ul>
         </div>
+        <div
+          class="overlay"
+          [class.active]="activeIndex !== -1"
+          (click)="hideFilters()"
+        ></div>
       </article>
       <article class="item__trabajo">
         <div class="text__space">
@@ -262,9 +304,6 @@
               <button class="active">Relevantes</button>
               <button>Recientes</button>
             </div>
-          </div>
-          <div class="filtros__movil">
-            <button (click)="toggleFilters()"><i class="bx bx-menu-alt-left"></i> Mostrar filtros</button>
           </div>
         </div>
         <div class="item__job" onclick="location.href='/detalle-del-trabajo'">
