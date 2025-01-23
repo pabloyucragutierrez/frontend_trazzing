@@ -21,6 +21,8 @@
     </div>
     <button class="founds__jobs">53 Empleos encontrados</button>
     <div class="arts__jobs">
+      <img src="assets/figure_form2.png" class="abl__img1" alt="">
+      <img src="assets/lupa_red.png" class="abl__img2" alt="">
       <article class="options__job">
         <!-- Menú principal de filtros -->
 
@@ -301,9 +303,18 @@
           <div class="space__btns">
             <p>Ordenar por:</p>
             <div>
-              <button class="active">Relevantes</button>
-              <button>Recientes</button>
+              <button 
+                [ngClass]="{'active': isActive('Relevantes')}" 
+                (click)="setActiveButton('Relevantes')">
+                Relevantes
+              </button>
+              <button 
+                [ngClass]="{'active': isActive('Recientes')}" 
+                (click)="setActiveButton('Recientes')">
+                Recientes
+              </button>
             </div>
+            
           </div>
         </div>
         <div class="item__job" onclick="location.href='/detalle-del-trabajo'">

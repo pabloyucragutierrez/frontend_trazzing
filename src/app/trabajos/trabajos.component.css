@@ -27,8 +27,8 @@
 .item__job {
   width: 100%;
   margin: auto;
-  /* background-color: #f2f2f2; */
-  background-color: transparent;
+  background-color: #f2f2f2;
+  /* background-color: transparent; */
   box-shadow: 0px 0px 8px 0px #00000040;
   display: flex;
   justify-content: space-between;
@@ -86,7 +86,24 @@
   width: 94%;
   margin: 3rem auto;
   display: flex;
+  position: relative;
   justify-content: space-between;
+}
+
+.abl__img1 {
+  position: absolute;
+  bottom: 0;
+  top: 45%;
+  width: 20rem;
+  left: -3rem;
+}
+.abl__img2{
+  position: absolute;
+  bottom: 0;
+  top: 45%;
+  width: 4rem;
+  left: 16rem;
+  transform: rotate(25deg);
 }
 .options__job {
   width: 29%;
@@ -221,7 +238,12 @@
 }
 .text__space span {
   font-size: 1rem;
-  color: #333;
+  color: #fff;
+  background-color: #ec625f;
+  border-radius: 15px;
+  font-size: 1rem;
+  padding: 0.3rem 0.7rem;
+  font-weight: bold;
 }
 .space__btns {
   display: flex;
@@ -250,7 +272,9 @@
 .space__btns div button {
   padding: 0 0.6rem;
   background-color: transparent;
+  transition: .3s ease all;
   border: none;
+  cursor: pointer;
   height: 100%;
   color: #2f4b7d;
   outline: none;
@@ -570,5 +594,9 @@
   .space__btns p {
     margin: 0;
     font-size: 0.8rem;
+  }
+  .abl__img1,
+  .abl__img2{
+    display: none;
   }
 }

@@ -16,5 +16,13 @@ export class TrabajosComponent {
     this.activeIndex = -1;
   }
 
-  
+  activeButton: string = 'Relevantes'; // Define qué botón está activo inicialmente
+
+  setActiveButton(buttonName: string) {
+    this.activeButton = buttonName; // Cambia el botón activo
+  }
+
+  isActive(buttonName: string): boolean {
+    return this.activeButton === buttonName; // Comprueba si un botón está activo
+  }
 }

@@ -1133,7 +1133,9 @@
   }
   .modal__content3 {
     width: 100%;
+    z-index: 2;
     padding: 0;
+    position: relative;
   }
   /*
   .width__form {
@@ -1159,4 +1161,8 @@
     right: 0;
     bottom: 4rem;
   } */
+   .m__l{
+    display: block;
+    z-index: 1;
+   }
 }

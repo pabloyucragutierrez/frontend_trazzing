@@ -244,7 +244,7 @@
     width: 100%;
   }
   .form .btn2 {
-    width: 55%;
+    width: 45%;
     z-index: 2;
   }
   .inp__movil {
@@ -257,6 +257,9 @@
     width: 56%;
   }
 
+  .btns__social button{
+    font-size: .9rem;
+  }
   .btns__social {
     width:55%;
   }
