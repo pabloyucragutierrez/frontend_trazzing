@@ -271,6 +271,9 @@
   font-size: 1.5rem;
   place-items: center;
 }
+.btn2.mt__2{
+  margin-top: 1rem;
+}
 
 @media (max-width: 768px) {
   .contenedor__banner {

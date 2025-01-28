@@ -874,6 +874,9 @@
 .form__movil {
   display: none;
 }
+.overflow__pay{
+  border: 7px solid #2f4b7d;
+}
 @media (max-width: 768px) {
   .contenedor__banner {
     height: 55vh;

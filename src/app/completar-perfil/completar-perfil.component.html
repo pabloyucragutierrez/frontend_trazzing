@@ -1,216 +1,303 @@
 <app-header-login></app-header-login>
 <section class="section__completar">
   <h2 class="container_section">Completa tu perfil profesional</h2>
-  <div class="contenedor__completar">
-    <form action="" class="form__completar container_section">
-      <h3>Perfil profesional y académico</h3>
-      <div class="content__completar">
-        <div class="text__completar">
-          <label for="">Foto de perfil</label>
-          <p>Mínimo 200x200 px, en formato cuadrado</p>
-        </div>
-        <div class="input__completar img__flex">
-          <img
-            [src]="imageSrc"
-            class="add__img"
-            alt="Selecciona una imagen"
-            (click)="onImageClick(fileInput)"
-          />
-          <input
-            type="file"
-            #fileInput
-            accept="image/*"
-            style="display: none"
-            (change)="onFileSelected($event)"
-          />
-          <!-- Botón que permite cambiar la imagen -->
-          <button
-            class="btn2"
-            type="button"
-            *ngIf="isImageUploaded"
-            (click)="onImageClick(fileInput)"
-          >
-            Cambiar foto de perfil
-          </button>
-        </div>
-      </div>
-      <hr />
-      <div class="content__completar">
-        <div class="text__completar">
-          <label for="">Rol profesional</label>
-          <p>
-            Ej.: "Desarrollador", "Administrador de empresas" o "Ejecutivo de
-            cuentas"
-          </p>
-        </div>
-        <div class="input__completar">
-          <input type="text" class="input__text" />
-        </div>
-      </div>
-      <hr />
-      <div class="content__completar">
-        <div class="text__completar">
-          <label for="">Experiencia laboral</label>
-          <p>
-            Habla sobre tu experiencia laboral, tus conociimientos, logros, etc.
-          </p>
-        </div>
-        <div class="input__completar">
-          <textarea name="" id="" class="input__textarea"></textarea>
-        </div>
-      </div>
-      <hr />
-      <div class="content__completar">
-        <div class="text__completar">
-          <label for="">Formación académica</label>
-          <p>
-            Menciona estudios formales, talleres, cursos y formación autodidacta
-            que sean relevantes para el cargo
-          </p>
-        </div>
-        <div class="input__completar">
-          <textarea name="" id="" class="input__textarea"></textarea>
-        </div>
-      </div>
-      <hr />
-      <div class="content__completar">
-        <div class="text__completar">
-          <label for="">Habilidades</label>
-          <p>Agrega las habilidades que ayuden a mejorar tu perfil</p>
-        </div>
-        <div class="input__completar">
-          <textarea name="" id="" class="input__textarea"></textarea>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="contenedor__completar white__add">
-    <form action="" class="form__completar container_section">
-      <div class="content__completar">
-        <div class="text__completar">
-          <b>CV actualizado</b>
-          <p>Máximo 5 MB, solo archivos PDF</p>
-        </div>
-        <div class="input__completar">
-          <button
-            class="btn2"
-            type="button"
-            *ngIf="!fileName"
-            (click)="triggerFileInput()"
-          >
-            Subir CV
-          </button>
-          <input
-            id="fileInput"
-            type="file"
-            accept=".pdf"
-            (change)="handleFileUpload($event)"
-            style="display: none"
-          />
+  <form [formGroup]="perfilForm" (ngSubmit)="onSubmit()">
+    <div class="contenedor__completar">
+      <div class="form__completar container_section">
+        <h3>Perfil profesional y académico</h3>
 
-          <b class="name__cv" *ngIf="fileName" (click)="triggerFileInput()">{{
-            fileName
-          }}</b>
+        <!-- Foto de perfil -->
+        <div class="content__completar">
+          <div class="text__completar">
+            <label for="">Foto de perfil</label>
+            <p>Mínimo 200x200 px, en formato cuadrado</p>
+          </div>
+          <div class="input__completar img__flex">
+            <img
+              [src]="imageSrc"
+              class="add__img"
+              alt="Selecciona una imagen"
+              (click)="onImageClick(fileInput)"
+            />
+            <input
+              type="file"
+              #fileInput
+              accept="image/*"
+              style="display: none"
+              (change)="onFileSelected($event)"
+            />
+            <button
+              class="btn2"
+              type="button"
+              *ngIf="isImageUploaded"
+              (click)="onImageClick(fileInput)"
+            >
+              Cambiar foto de perfil
+            </button>
+            <p class="error-text" *ngIf="getErrorMessage('fotoPerfil')">
+              {{ getErrorMessage("fotoPerfil") }}
+            </p>
+          </div>
+        </div>
+        <hr />
+
+        <!-- Rol profesional -->
+        <div class="content__completar">
+          <div class="text__completar">
+            <label for="">Rol profesional</label>
+            <p>
+              Ej.: "Desarrollador", "Administrador de empresas" o "Ejecutivo de
+              cuentas"
+            </p>
+          </div>
+          <div class="input__completar">
+            <input
+              type="text"
+              class="input__text"
+              formControlName="rolProfesional"
+            />
+            <p class="error-text" *ngIf="getErrorMessage('rolProfesional')">
+              {{ getErrorMessage("rolProfesional") }}
+            </p>
+          </div>
+        </div>
+        <hr />
+
+        <!-- Experiencia laboral -->
+        <div class="content__completar">
+          <div class="text__completar">
+            <label for="">Experiencia laboral</label>
+            <p>
+              Habla sobre tu experiencia laboral, tus conocimientos, logros,
+              etc.
+            </p>
+          </div>
+          <div class="input__completar">
+            <textarea
+              class="input__textarea"
+              formControlName="experienciaLaboral"
+            ></textarea>
+            <p class="error-text" *ngIf="getErrorMessage('experienciaLaboral')">
+              {{ getErrorMessage("experienciaLaboral") }}
+            </p>
+          </div>
+        </div>
+        <hr />
+
+        <!-- Formación académica -->
+        <div class="content__completar">
+          <div class="text__completar">
+            <label for="">Formación académica</label>
+            <p>
+              Menciona estudios formales, talleres, cursos y formación
+              autodidacta que sean relevantes para el cargo.
+            </p>
+          </div>
+          <div class="input__completar">
+            <textarea
+              class="input__textarea"
+              formControlName="formacionAcademica"
+            ></textarea>
+            <p class="error-text" *ngIf="getErrorMessage('formacionAcademica')">
+              {{ getErrorMessage("formacionAcademica") }}
+            </p>
+          </div>
+        </div>
+        <hr />
+
+        <!-- Habilidades -->
+        <div class="content__completar">
+          <div class="text__completar">
+            <label for="">Habilidades</label>
+            <p>Agrega las habilidades que ayuden a mejorar tu perfil.</p>
+          </div>
+          <div class="input__completar">
+            <textarea
+              class="input__textarea"
+              formControlName="habilidades"
+            ></textarea>
+            <p class="error-text" *ngIf="getErrorMessage('habilidades')">
+              {{ getErrorMessage("habilidades") }}
+            </p>
+          </div>
         </div>
       </div>
-      <div class="content__completar">
-        <div class="text__completar">
-          <b>Nivel de ingles</b>
-          <p>Sugerimos usar un test estándar y reportar tu resultado aquí.</p>
+    </div>
+
+    <div class="contenedor__completar white__add">
+      <div class="form__completar container_section">
+        <!-- CV Actualizado -->
+        <div class="content__completar">
+          <div class="text__completar">
+            <b>CV actualizado</b>
+            <p>Máximo 5 MB, solo archivos PDF</p>
+          </div>
+          <div
+            class="input__completar"
+            style="display: flex; flex-direction: column; gap: 0.5rem"
+          >
+            <button
+              class="btn2"
+              type="button"
+              *ngIf="!fileName"
+              (click)="triggerFileInput()"
+            >
+              Subir CV
+            </button>
+            <input
+              id="fileInput"
+              type="file"
+              accept=".pdf"
+              (change)="handleFileUpload($event)"
+              style="display: none"
+            />
+            <b class="name__cv" *ngIf="fileName" (click)="triggerFileInput()">
+              {{ fileName }}
+            </b>
+            <!-- Mostrar el botón "Reemplazar CV" solo si fileName tiene valor -->
+            <button
+              class="btn2"
+              type="button"
+              *ngIf="fileName"
+              (click)="triggerFileInput()"
+            >
+              Reemplazar CV
+            </button>
+
+            <p class="error-text" *ngIf="getErrorMessage('cv')">
+              {{ getErrorMessage("cv") }}
+            </p>
+          </div>
         </div>
-        <div class="input__completar">
-          <select name="" class="btn2" id="">
-            <option value="">A0: Principiante</option>
-            <option value="">A1-A2: Básico</option>
-            <option value="">A2-B1: Pre-Intermedio</option>
-            <option value="">B1: Intermedio</option>
-            <option value="">B2: Intermedio-Alto</option>
-            <option value="">C1-C2: Avanzado</option>
-          </select>
+
+        <!-- Nivel de inglés -->
+        <div class="content__completar">
+          <div class="text__completar">
+            <b>Nivel de inglés</b>
+            <p>Sugerimos usar un test estándar y reportar tu resultado aquí.</p>
+          </div>
+          <div class="input__completar">
+            <select class="btn2" formControlName="nivelIngles">
+              <option value="" disabled selected>Selecciona tu nivel</option>
+              <option value="A0">A0: Principiante</option>
+              <option value="A1-A2">A1-A2: Básico</option>
+              <option value="A2-B1">A2-B1: Pre-Intermedio</option>
+              <option value="B1">B1: Intermedio</option>
+              <option value="B2">B2: Intermedio-Alto</option>
+              <option value="C1-C2">C1-C2: Avanzado</option>
+            </select>
+            <p class="error-text" *ngIf="getErrorMessage('nivelIngles')">
+              {{ getErrorMessage("nivelIngles") }}
+            </p>
+          </div>
         </div>
       </div>
-    </form>
-  </div>
-  <div class="contenedor__completar">
-    <form action="" class="form__completar container_section">
-      <h3>Redes sociales</h3>
-      <div class="content__completar">
-        <div class="text__completar">
-          <label for="">Linkedin</label>
-          <p>
-            El perfil de LinkedIn ayudará a que empresas interesadas en ti te
-            conozcan mejor.
-          </p>
+    </div>
+
+    <div class="contenedor__completar">
+      <div class="form__completar container_section">
+        <h3>Redes sociales</h3>
+
+        <!-- LinkedIn -->
+        <div class="content__completar">
+          <div class="text__completar">
+            <label for="">LinkedIn</label>
+            <p>
+              El perfil de LinkedIn ayudará a que empresas interesadas en ti te
+              conozcan mejor.
+            </p>
+          </div>
+          <div class="input__completar">
+            <input type="text" class="input__text" />
+          </div>
         </div>
-        <div class="input__completar">
-          <input type="text" class="input__text" />
+        <hr />
+
+        <!-- Twitter -->
+        <div class="content__completar">
+          <div class="text__completar">
+            <label for="">Twitter</label>
+            <p>
+              Escribe tu usuario sin el "&#64;", eje: “twitter.com/pedroperez”.
+            </p>
+          </div>
+          <div class="input__completar">
+            <input type="text" class="input__text" />
+          </div>
+        </div>
+        <hr />
+
+        <!-- Facebook -->
+        <div class="content__completar">
+          <div class="text__completar">
+            <label for="">Facebook</label>
+            <p>Agrega tu perfil de Facebook si lo consideras necesario.</p>
+          </div>
+          <div class="input__completar">
+            <input type="text" class="input__text" />
+          </div>
+        </div>
+        <div class="add__save">
+          <button type="submit" class="btn2">Guardar cambios</button>
         </div>
       </div>
-      <hr />
-      <div class="content__completar">
-        <div class="text__completar">
-          <label for="">Twitter</label>
-          <p>Escribe tu usuario sin el "&#64;" eje: “twitter.com/pedroperez”</p>
-        </div>
-        <div class="input__completar">
-          <input type="text" class="input__text" />
-        </div>
-      </div>
-      <hr />
-      <div class="content__completar">
-        <div class="text__completar">
-          <label for="">Facebook</label>
-          <p>Agrega tu perfil de Facebook si lo consideras necesario</p>
-        </div>
-        <div class="input__completar">
-          <input type="text" class="input__text" />
-        </div>
-      </div>
-      <div class="add__save">
-        <button class="btn2">Guardar cambios</button>
-      </div>
-    </form>
-  </div>
+    </div>
+  </form>
 </section>
 
 <div class="modal__perfil" *ngIf="isModalVisible">
-  <article class="art__perfil">
-    <h2 class="title__mperfil">
-      ¡Optimiza tu CV con la ayuda de los expertos!
-    </h2>
-    <p class="p__mperfil">
-      Tu CV ha sido cargado exitosamente. Ahora, aprovecha nuestro servicio
-      exclusivo de evaluación de CV y recibe comentarios valiosos para mejorar
-      tus oportunidades laborales.
-    </p>
-    <div class="items__perfil">
-      <div class="item__perfil">
-        <div>
-          <h3>Evaluación por el Equipo de Trazzing</h3>
-          <p>
-            Nuestro equipo de expertos en reclutamiento revisará tu CV para
-            ofrecerte sugerencias que mejoren la presentación y el contenido,
-            destacando tus habilidades y experiencia de manera efectiva.
-          </p>
+  <div class="perfil__content">
+    <article class="art__perfil">
+      <h2 class="title__mperfil">
+        <span class="size__middle"> ¡Optimiza tu CV </span> <br />
+        con la ayuda de los <span class="size__small"> expertos!</span>
+      </h2>
+      <p class="p__mperfil">
+        Tu CV ha sido cargado exitosamente. Ahora, aprovecha nuestro servicio
+        exclusivo de evaluación de CV y recibe comentarios valiosos para mejorar
+        tus oportunidades laborales.
+      </p>
+      <div class="items__perfil">
+        <div class="item__perfil">
+          <div>
+            <h3>
+              <img src="assets/lupa_blue.png" alt="" /> Evaluación por el Equipo
+              de Trazzing
+            </h3>
+            <p>
+              Nuestro equipo de expertos en reclutamiento revisará tu CV para
+              ofrecerte sugerencias que mejoren la presentación y el contenido,
+              destacando tus habilidades y experiencia de manera efectiva.
+            </p>
+          </div>
+          <button class="btn2 btn__mp" (click)="showCard('card1')">
+            Evaluación por Trazzing
+          </button>
         </div>
-        <button class="btn2 btn__mp" (click)="showCard('card1')">Evaluación por Trazzing</button>
-      </div>
-      <div class="item__perfil">
-        <div>
-          <h3>Evaluación por un Trazzer Especializado</h3>
-          <p>
-            Un headhunter independiente de nuestra comunidad, especializado en
-            tu sector, revisará tu CV y te proporcionará consejos personalizados
-            según las tendencias y demandas específicas de la industria.
-          </p>
+        <div class="item__perfil">
+          <div>
+            <h3>
+              <img src="assets/lupa_blue.png" alt="" />Evaluación por un Trazzer
+              Especializado
+            </h3>
+            <p>
+              Un headhunter independiente de nuestra comunidad, especializado en
+              tu sector, revisará tu CV y te proporcionará consejos
+              personalizados según las tendencias y demandas específicas de la
+              industria.
+            </p>
+          </div>
+          <button class="btn2 btn__mp" (click)="showCard('card2')">
+            Evaluación por Trazzer
+          </button>
         </div>
-        <button class="btn2 btn__mp" (click)="showCard('card2')">Evaluación por Trazzer</button>
       </div>
-    </div>
+      <img src="assets/figure_form3.png" class="figure__perfil" alt="" />
+    </article>
     <button type="button" class="close__perfil" (click)="closeModal()">
       <i class="bx bx-x"></i>
     </button>
-  </article>
+  </div>
 </div>
 
 <!-- Tarjetas específicas -->
@@ -231,10 +318,28 @@
     <img src="assets/check_exit.png" alt="" />
     <b>¡Tu solicitud de evaluación de CV ha sido recibida!</b>
     <p>
-      Un headhunter independiente especializado en tu sector revisará tu CV y te proporcionará consejos personalizados. Recibirás los resultados en tu correo electrónico en un plazo de 2 días hábiles.
+      Un headhunter independiente especializado en tu sector revisará tu CV y te
+      proporcionará consejos personalizados. Recibirás los resultados en tu
+      correo electrónico en un plazo de 2 días hábiles.
     </p>
     <button class="btn2 btn__mp" (click)="closeCard()">Ok</button>
   </article>
+</div>
+<!-- Modal de éxito -->
+<!-- Modal de éxito -->
+<div class="modal__exito" *ngIf="showSuccessModal">
+  <article class="art__modal">
+    <img src="assets/trazzing.png" alt="" />
+    <b>¡Tus cambios han sido guardados exitosamente!</b>
+    <img src="assets/check_exit.png" alt="" />
+    <img src="assets/lupa_blue.png" class="img__card1" alt="" />
+    <img src="assets/linea__form.png" class="img__card2" alt="" />
+    <img src="assets/lupa_red.png" class="img__card3" alt="" />
+    <img src="assets/figure_form3.png" class="img__card4" alt="" />
+  </article>
+  <button class="close__modal" (click)="closeSuccessModal()">
+    <i class="bx bx-x"></i>
+  </button>
 </div>
 
 <app-footer></app-footer>

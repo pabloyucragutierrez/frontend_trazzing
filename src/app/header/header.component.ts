@@ -46,15 +46,6 @@ export class HeaderComponent {
     this.contactForm.controls['industry'].setValue('');
     this.contactForm.controls['collaboratorsNum'].setValue('');
   }
-
-  showModal() {
-    this.isModalOpen = true;
-  }
-
-  hideModal() {
-    this.isModalOpen = false;
-  }
-
   onSubmitContact() {
     this.contactForm.markAllAsTouched(); // Marca todos los campos como tocados para mostrar errores
     if (this.contactForm.invalid) {
@@ -64,4 +55,13 @@ export class HeaderComponent {
 
     console.log('Formulario válido', this.contactForm.value);
   }
+  showModal() {
+    this.isModalOpen = true;
+  }
+
+  hideModal() {
+    this.isModalOpen = false;
+  }
+
+  
 }

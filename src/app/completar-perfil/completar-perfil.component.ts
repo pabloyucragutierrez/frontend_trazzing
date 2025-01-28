@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-completar-perfil',
@@ -7,7 +8,24 @@ import { Component } from '@angular/core';
 })
 export class CompletarPerfilComponent {
   imageSrc: string = 'assets/add_a_photo.png';
-  isImageUploaded: boolean = false; 
+  isImageUploaded: boolean = false;
+  fileName: string | null = null;
+  isModalVisible: boolean = false;
+  activeCard: 'card1' | 'card2' | null = null;
+
+  perfilForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.perfilForm = this.fb.group({
+      fotoPerfil: ['', Validators.required],
+      rolProfesional: ['', Validators.required],
+      experienciaLaboral: ['', Validators.required],
+      formacionAcademica: ['', Validators.required],
+      habilidades: ['', Validators.required],
+      cv: ['', Validators.required],
+      nivelIngles: ['', Validators.required]
+    });
+  }
 
   onImageClick(fileInput: HTMLInputElement) {
     fileInput.click();
@@ -18,26 +36,21 @@ export class CompletarPerfilComponent {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        this.imageSrc = reader.result as string; 
+        this.imageSrc = reader.result as string;
         this.isImageUploaded = true;
+        this.perfilForm.get('fotoPerfil')?.setValue(file.name); // Validar campo fotoPerfil
       };
-      reader.readAsDataURL(file); 
+      reader.readAsDataURL(file);
     }
   }
-  
-  
-  fileName: string | null = null;
-  isModalVisible: boolean = false;
-  activeCard: 'card1' | 'card2' | null = null;
 
   handleFileUpload(event: Event): void {
     const input = event.target as HTMLInputElement;
-
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
-
       if (file.type === 'application/pdf') {
         this.fileName = file.name;
+        this.perfilForm.get('cv')?.setValue(file.name); // Validar campo CV
         this.isModalVisible = true;
       } else {
         alert('Por favor, sube un archivo en formato PDF.');
@@ -62,5 +75,33 @@ export class CompletarPerfilComponent {
 
   closeCard(): void {
     this.activeCard = null; // Cerrar cualquier tarjeta activa
+  }
+
+  showSuccessModal: boolean = false;  // Variable para controlar el modal de éxito
+
+  onSubmit(): void {
+    this.perfilForm.markAllAsTouched(); // Marca todos los campos como tocados para mostrar errores
+    if (this.perfilForm.invalid) {
+      console.log('Formulario inválido', this.perfilForm.errors);
+      return;
+    }
+
+    // Formulario válido, mostrar el modal de éxito
+    console.log('Formulario válido', this.perfilForm.value);
+    this.showSuccessModal = true; // Mostrar el modal de éxito
+  }
+
+
+  closeSuccessModal(): void {
+    this.showSuccessModal = false;  // Cerrar el modal de éxito
+  }
+
+  // Métodos adicionales para obtener mensajes de error en campos específicos
+  getErrorMessage(controlName: string): string {
+    const control = this.perfilForm.get(controlName);
+    if (control?.hasError('required') && control.touched) {
+      return 'Este campo es obligatorio.';
+    }
+    return '';
   }
 }

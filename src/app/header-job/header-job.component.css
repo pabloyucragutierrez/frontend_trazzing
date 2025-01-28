@@ -146,9 +146,12 @@ header {
   }
   .jobs__btns{
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     gap: .5rem;
   }
+.header__jobs .logo_header img {
+  width: 12rem;
+}
 
   /* Overlay */
   .overlay {

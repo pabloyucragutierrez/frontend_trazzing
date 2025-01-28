@@ -12,4 +12,13 @@ export class IniciarSesionComponent {
   goBack(): void {
     this.location.back();
   }
+  onSubmit(form: HTMLFormElement): void {
+    if (!form.checkValidity()) {
+      // Mostrar mensajes de error si el formulario no es válido
+      form.reportValidity();
+    } else {
+      // Procesar el formulario si es válido
+      console.log('Formulario enviado correctamente.');
+    }
+  }
 }

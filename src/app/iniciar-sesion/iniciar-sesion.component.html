@@ -17,41 +17,71 @@
             Acceder con Google
           </button>
         </div>
-        <form action="" class="form">
+        <form class="form" (ngSubmit)="onSubmit($event.target)" novalidate>
           <img src="assets/figure_form.png" class="figure_form" alt="">
           <img src="assets/figure_form2.png" class="figure_form2" alt="">
-          <div class="width__form">
-            <label for="">Email</label>
+        
+          <!-- Campo de Email -->
+          <div class="width__form rsp__mt">
+            <label for="email">Email</label>
             <div class="input_content">
               <img src="assets/email_input.png" alt="" />
               <input
-                type="text"
+                type="email"
+                id="email"
+                name="email"
                 class="input_style"
                 placeholder="Ingresa tu email"
+                required
+                title="Introduce un correo electrónico válido."
               />
             </div>
           </div>
+        
+          <!-- Campo de Contraseña -->
           <div class="width__form less__inp">
-            <label for="">Contraseña</label>
+            <label for="password">Contraseña</label>
             <div class="input_content">
               <img src="assets/icon_password.png" alt="" />
               <img src="assets/icon_eye.png" class="show_icon" alt="" />
-              <input type="password" class="input_style" />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="input_style"
+                placeholder="Ingresa tu contraseña"
+                required
+                minlength="6"
+                title="La contraseña debe tener al menos 6 caracteres."
+              />
             </div>
           </div>
+        
+          <!-- Checkbox de aceptación -->
           <div class="width__check">
-            <input type="checkbox" name="" id="" />
-            <label for=""
-              >He leído y acepto las condiciones de privacidad y tratamiento de
-              mis datos personales</label
-            >
+            <input
+              type="checkbox"
+              id="privacy"
+              name="privacy"
+              required
+              title="Debes aceptar las condiciones de privacidad."
+            />
+            <label for="privacy">
+              He leído y acepto las condiciones de privacidad y tratamiento de
+              mis datos personales
+            </label>
           </div>
-          <button type="button" class="btn2">Iniciar sesión</button>
+        
+          <!-- Botón de envío -->
+          <button type="submit" class="btn2">Iniciar sesión</button>
+        
+          <!-- Enlace para registrarse -->
           <div class="back__login">
             <p>¿No tienes cuenta?</p>
             <a href="/registrate">Regístrate como candidato</a>
           </div>
         </form>
+        
       </article>
       <img class="back__img" src="assets/login_img.png" alt="" />
     </div>

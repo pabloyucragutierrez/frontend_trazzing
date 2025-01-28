@@ -51,6 +51,7 @@ header {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.7rem;
+  
 }
 
 .width__form {
@@ -176,6 +177,7 @@ header {
   overflow: auto;
   z-index: 2;
   position: relative;
+  
 }
 
 .content__overflow {
@@ -193,6 +195,14 @@ header {
     ),
     url("/assets/banner_users.jpg");
   background-size: cover;
+  border: 7px solid #2f4b7d;
+  /* background-image: linear-gradient(
+      to top,
+      rgba(242, 242, 242, 0.95) 0%,
+      rgba(242, 242, 242, 0.95) 100%
+    ),
+    url("/assets/banner_users.jpg"); */
+  background-size: 35rem;
 }
 
 .modal__content {

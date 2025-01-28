@@ -2,12 +2,12 @@
 <section class="section__login">
   <div class="contenedor__login container_section">
     <h2>
-      <a (click)="goBack()"> 
+      <a (click)="goBack()">
         <img src="assets/arrow_back_ios.png" alt="Volver" />
-      </a> 
+      </a>
       Crea tu cuenta y encuentra el trabajo de tus sueños
-   </h2>
-   
+    </h2>
+
     <div class="form__content">
       <article class="form__login">
         <div class="btns__social">
@@ -20,51 +20,84 @@
             Acceder con Google
           </button>
         </div>
-        <form class="form" action="">
-          <img src="assets/figure_form.png" class="figure_form" alt="">
-          <img src="assets/figure_form2.png" class="figure_form2" alt="">
+        <form
+          class="form"
+          action=""
+          novalidate
+          (ngSubmit)="onSubmit($event.target)"
+        >
+          <img src="assets/figure_form.png" class="figure_form" alt="" />
+          <img src="assets/figure_form2.png" class="figure_form2" alt="" />
+
+          <!-- Nombre -->
           <div class="width__form">
-            <label for="">Nombre</label>
+            <label for="name">Nombre</label>
             <div class="input_content">
               <input
                 type="text"
+                id="name"
                 class="input_style num__padd"
                 placeholder="Ingresa tu nombre"
+                required
+                pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$"
+                title="El nombre es obligatorio y solo debe contener letras."
               />
             </div>
           </div>
+
+          <!-- Apellido -->
           <div class="width__form">
-            <label for="">Apellido(s)</label>
+            <label for="lastname">Apellido(s)</label>
             <div class="input_content">
               <input
                 type="text"
+                id="lastname"
                 class="input_style num__padd"
                 placeholder="Ingresa tu apellido"
+                required
+                pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$"
+                title="El apellido es obligatorio y solo debe contener letras."
               />
             </div>
           </div>
+
+          <!-- Tipo de documentos -->
           <div class="width__form inp__movil">
-            <label for="">Tipo de documentos</label>
+            <label for="document-type">Tipo de documentos</label>
             <div class="input__double">
               <div class="content__double cnt__mvl">
-                <select name="" class="input_style num__padd" id="">
-                  <option value="">DNI</option>
-                  <option value="">N° Pasaporte</option>
-                  <option value="">Carnet de Conducir</option>
-                  <option value="">Carnet de Extranjería</option>
+                <select
+                  id="document-type"
+                  name="document-type"
+                  class="input_style num__padd"
+                  required
+                  title="Selecciona un tipo de documento."
+                >
+                  <option value="">Seleccione...</option>
+                  <option value="dni">DNI</option>
+                  <option value="passport">N° Pasaporte</option>
+                  <option value="license">Carnet de Conducir</option>
+                  <option value="foreign-card">Carnet de Extranjería</option>
                 </select>
               </div>
               <div class="content__double cnt__full">
                 <input
                   type="text"
+                  id="document-number"
                   class="input_style num__padd"
                   placeholder="Número"
+                  required
+                  pattern="^[0-9]{8}$"
+                  maxlength="8"
+                  title="El número de documento debe contener exactamente 8 dígitos."
                 />
               </div>
             </div>
           </div>
+
+          <!-- Teléfono celular -->
           <div class="width__form inp__movil">
-            <label for="">Teléfono celular</label>
+            <label for="phone">Teléfono celular</label>
             <div class="input__double">
               <div class="content__double cnt__mvl">
                 <span class="icon__phone">
@@ -75,55 +108,85 @@
                   class="input_style p__ex"
                   placeholder="+51"
                   value="+51"
+                  readonly
                 />
               </div>
               <div class="content__double cnt__full">
                 <input
                   type="text"
+                  id="phone"
                   class="input_style num__padd"
                   placeholder="Número"
+                  required
+                  pattern="^[0-9]{9}$"
+                  title="El número de teléfono debe contener 9 dígitos."
                 />
               </div>
             </div>
           </div>
+
+          <!-- Email -->
           <div class="inp__movil2">
             <div class="width__form">
-              <label for="">Ingresa tu email</label>
+              <label for="email">Ingresa tu email</label>
               <div class="input_content">
                 <img src="assets/email_input.png" alt="" />
                 <input
-                  type="text"
+                  type="email"
+                  id="email"
                   class="input_style"
                   placeholder="Ingresa tu email"
+                  required
+                  title="Introduce un correo electrónico válido."
                 />
               </div>
             </div>
+
+            <!-- Contraseña -->
             <div class="width__form">
-              <label for="">Contraseña</label>
+              <label for="password">Contraseña</label>
               <div class="input_content">
                 <img src="assets/icon_password.png" alt="" />
                 <img src="assets/icon_eye.png" class="show_icon" alt="" />
-                <input type="password" class="input_style" />
+                <input
+                  type="password"
+                  id="password"
+                  class="input_style"
+                  required
+                  minlength="8"
+                  title="La contraseña debe tener al menos 8 caracteres."
+                />
               </div>
             </div>
           </div>
+
+          <!-- Dirección -->
           <div class="width__form full__width">
-            <label for="">Dirección</label>
+            <label for="address">Dirección</label>
             <div class="input_content">
               <img src="assets/location_img.png" alt="" />
-              <input type="text" class="input_style" placeholder="Dirección" />
+              <input
+                type="text"
+                id="address"
+                class="input_style"
+                placeholder="Dirección"
+                required
+                minlength="5"
+                title="La dirección debe tener al menos 5 caracteres."
+              />
             </div>
           </div>
+
+          <!-- Términos y condiciones -->
           <div class="width__check">
-            <input type="checkbox" name="" id="" />
-            <label for=""
+            <input type="checkbox" id="terms" required />
+            <label for="terms"
               >He leído y acepto las condiciones de privacidad y tratamiento de
               mis datos personales</label
             >
           </div>
-          <button type="button" class="btn2" onclick="location.href='/completar-perfil'">
-            Crear cuenta
-          </button>
+
+          <button type="submit" class="btn2">Crear cuenta</button>
           <div class="back__login">
             <p>¿Ya tienes cuenta?</p>
             <a href="/iniciar-sesion">Ingresa como candidato</a>

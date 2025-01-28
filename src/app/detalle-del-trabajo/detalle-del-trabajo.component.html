@@ -4,7 +4,11 @@
     <h2>Asistente de marketing digital</h2>
     <b>B. A. Consulting</b>
     <p>Surco, Lima</p>
-    <button class="btn2" (click)="showModal()">Postular</button>
+    <button *ngIf="!hasApplied" class="btn2" (click)="showModal()">Postular</button>
+<button *ngIf="hasApplied" class="btn__success">
+  <span><i class="bx bx-check"></i></span>Postulaste el {{ applicationDate }}
+</button>
+
   </div>
 </section>
 <section class="detalle__trabajo">
@@ -172,7 +176,7 @@
           <i class="bx bx-chevron-right"></i>
         </div>
       </div>
-      <button class="btn2">Ver Todos los Empleos</button>
+      <button class="btn2 btn__mvl">Ver Todos los Empleos</button>
     </article>
   </div>
   <img src="assets/lupa_red.png" class="lupa_blue" alt="" />
@@ -181,53 +185,74 @@
 </section>
 
 <div class="modal__pay2" *ngIf="isModalVisible">
-  <form class="form_content modal__content2" action="">
-    <h2 class="title__modal">
-      Completa las siguientes preguntas para terminar tu postulación
-    </h2>
-    <div class="width__form full__input">
-      <label for="cardholder-name"
-        >Cuanto tiempo de experiencia tiene en el marketing digital</label
-      >
-      <div class="input_content">
-        <textarea
-          name=""
-          class="width__textarea"
-          placeholder="Ingresa tu respuesta"
-          id=""
-        ></textarea>
-      </div>
-    </div>
-    <div class="width__form full__input">
-      <label for="cardholder-name"
-        >Indicar su carrera y grado de instrucción (indicar año de título o
-        bachiller)</label
-      >
-      <div class="input_content">
-        <textarea
-          name=""
-          class="width__textarea"
-          placeholder="Ingresa tu respuesta"
-          id=""
-        ></textarea>
-      </div>
-    </div>
-    <div class="width__form full__input">
-      <label for="cardholder-name">¿Cuál es su expectativa salarial?</label>
-      <div class="input_content">
-        <textarea
-          name=""
-          class="width__textarea"
-          placeholder="Ingresa tu respuesta"
-          id=""
-        ></textarea>
-      </div>
-    </div>
-    <button type="submit" class="btn2 btn__modal">Responder</button>
-    <button type="button" class="close__modal" (click)="closeModal()">
-      <i class="bx bx-x"></i>
-    </button>
-  </form>
+ <!-- Formulario -->
+<form
+class="form_content modal__content2"
+action=""
+novalidate
+(ngSubmit)="onSubmit($event.target)"
+>
+<img src="assets/figure_form3.png" class="img1__abl" alt="" />
+<img src="assets/linea_com.png" class="img2__abl" alt="" />
+<img src="assets/lupa_blue.png" class="img3__abl" alt="" />
+<img src="assets/lupa_red.png" class="img4__abl" alt="" />
+<h2 class="title__modal">
+  Completa las siguientes preguntas <br />
+  <span>para terminar tu postulación</span>
+</h2>
+
+<!-- Tiempo de experiencia -->
+<div class="width__form full__input">
+  <label for="experience">¿Cuánto tiempo de experiencia tiene en el marketing digital?</label>
+  <div class="input_content">
+    <textarea
+      id="experience"
+      class="width__textarea"
+      placeholder="Ingresa tu respuesta"
+      required
+      minlength="10"
+      maxlength="500"
+      title="Este campo es obligatorio y debe contener entre 10 y 500 caracteres."
+    ></textarea>
+  </div>
+</div>
+
+<!-- Carrera y grado de instrucción -->
+<div class="width__form full__input">
+  <label for="education">Indicar su carrera y grado de instrucción (indicar año de título o bachiller)</label>
+  <div class="input_content">
+    <textarea
+      id="education"
+      class="width__textarea"
+      placeholder="Ingresa tu respuesta"
+      required
+      minlength="10"
+      maxlength="500"
+      title="Este campo es obligatorio y debe contener entre 10 y 500 caracteres."
+    ></textarea>
+  </div>
+</div>
+
+<!-- Expectativa salarial -->
+<div class="width__form full__input">
+  <label for="salary">¿Cuál es su expectativa salarial?</label>
+  <div class="input_content">
+    <textarea
+      id="salary"
+      class="width__textarea"
+      placeholder="Ingresa tu respuesta"
+      required
+      pattern="^[0-9]+$"
+      title="Este campo es obligatorio y solo debe contener números."
+    ></textarea>
+  </div>
+</div>
+
+<button type="submit" class="btn2 btn__modal">Responder</button>
+<button type="button" class="close__modal" (click)="closeModal()">
+  <i class="bx bx-x"></i>
+</button>
+</form>
 </div>
 
 <app-footer></app-footer>

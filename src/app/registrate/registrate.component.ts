@@ -12,4 +12,11 @@ export class RegistrateComponent {
   goBack(): void {
     this.location.back();
   }
+  onSubmit(form: HTMLFormElement): void {
+    if (!form.checkValidity()) {
+      form.reportValidity();
+    } else {
+      console.log('Formulario enviado correctamente.');
+    }
+  }
 }
