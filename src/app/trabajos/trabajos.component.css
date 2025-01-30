@@ -19,7 +19,7 @@
 }
 .contenedor__trabajos h2 {
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 4rem;
   margin-left: 3rem;
   color: #2f4b7d;
 }
@@ -486,7 +486,7 @@
     gap: 0.5rem;
     padding: 0;
   }
-  .content__list__movil.mostrarFiltros{
+  .content__list__movil.mostrarFiltros {
     display: flex;
   }
   .content__list__movil {
@@ -496,10 +496,16 @@
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     height: fit-content;
-    background-color: #f2f2f2;
     padding: 1rem;
     border-radius: 18px;
     border: 7px solid #2f4b7d;
+    background-image: linear-gradient(
+        to top,
+        rgba(242, 242, 242, 0.95) 0%,
+        rgba(242, 242, 242, 0.95) 100%
+      ),
+      url("/assets/banner_users.jpg");
+    background-size: 30rem;
     z-index: 500;
     display: none;
   }

@@ -668,6 +668,8 @@
     ),
     url("/assets/banner_users.jpg");
   background-size: cover;
+  border: 7px solid #2f4b7d;
+
 }
 
 .modal__content {
@@ -685,6 +687,8 @@
   max-width: 1000px;
   position: relative;
   justify-content: center;
+  border: 7px solid #2f4b7d;
+
 }
 .lupa_blue {
   position: absolute;

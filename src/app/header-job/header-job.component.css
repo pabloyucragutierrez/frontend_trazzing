@@ -126,7 +126,7 @@ header {
     display: block;
   }
   .header__jobs {
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
   }
   .header__jobs .search__jobs a {
     color: #fff;

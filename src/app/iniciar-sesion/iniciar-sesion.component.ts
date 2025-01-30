@@ -21,4 +21,10 @@ export class IniciarSesionComponent {
       console.log('Formulario enviado correctamente.');
     }
   }
+
+  isPasswordVisible: boolean = false; // Estado inicial oculto
+
+  togglePasswordVisibility() {
+    this.isPasswordVisible = !this.isPasswordVisible;
+  }
 }
